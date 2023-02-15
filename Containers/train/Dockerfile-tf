@@ -1,0 +1,24 @@
+FROM tensorflow/tensorflow:latest
+
+#set noninteractive to avoid timezone error during building
+ARG DEBIAN_FRONTEND=noninteractive
+
+#execute necessary commands for installing additional packages:
+#   -software-properties-common for add-apt-repository and gcc
+#   -ppa:deadsnakes/ppa for installing python3.x on ubuntu (in this case python3.9)
+
+RUN apt-get update 
+
+RUN apt-get install -y software-properties-common gcc
+    
+RUN add-apt-repository -y ppa:deadsnakes/ppa
+
+RUN apt-get update && apt-get install -y python3.8 python3-distutils python3-pip python3-apt
+
+RUN python3 -m pip install --upgrade pip
+
+#individual requirement installation
+RUN pip3 install mlflow==2.1.1
+RUN pip3 install dagshub==0.2.12
+
+
