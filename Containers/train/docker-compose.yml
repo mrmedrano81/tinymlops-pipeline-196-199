@@ -1,0 +1,18 @@
+version: '3'
+services:
+  gpu:
+    build:
+      context: .
+      dockerfile: Dockerfile-gpu
+      args:
+        NVIDIA_VISIBLE_DEVICES: all
+    volumes:
+      - shared_data:/shared_data
+  tensorflow:
+    build:
+      context: .
+      dockerfile: Dockerfile-tf
+    volumes:
+      - shared_data:/shared_data
+volumes:
+  shared_data:
