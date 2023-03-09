@@ -39,13 +39,10 @@ CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				$(IMAGE_NAME)
 
 build-container: $(NEED_IMAGE)
+	$(CONTAINER_RUN)
+
+build-container-app: $(NEED_IMAGE)
 	$(CONTAINER_RUN) bash -lc 'make -j$(shell nproc)'
-
-format-container:
-	$(CONTAINER_RUN) bash -lc 'make format -j$(shell nproc)'
-
-format-linux-container:
-	$(CONTAINER_RUN) bash -lc 'make format-linux'
 
 shell:
 	$(CONTAINER_RUN) bash -l

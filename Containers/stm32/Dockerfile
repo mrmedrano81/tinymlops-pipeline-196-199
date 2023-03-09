@@ -39,16 +39,16 @@ RUN rm -rf /tmp/*
 ENV PATH="/opt/gcc-arm-none-eabi/bin:${PATH}"
 
 #Configure container for user
-#ARG UID
-#ARG GID
-#ARG USERNAME
-#ARG GROUPNAME
-#RUN groupadd --gid $GID $GROUPNAME
-#RUN useradd --uid $UID --gid $GID $USERNAME
-#RUN usermod --append --groups $GROUPNAME $USERNAME
-#RUN usermod --shell /bin/bash $USERNAME
+ARG UID
+ARG GID
+ARG USERNAME
+ARG GROUPNAME
+RUN groupadd --gid $GID $GROUPNAME
+RUN useradd --uid $UID --gid $GID $USERNAME
+RUN usermod --append --groups $GROUPNAME $USERNAME
+RUN usermod --shell /bin/bash $USERNAME
 
-#USER $USERNAME
+USER $USERNAME
 
 
 
