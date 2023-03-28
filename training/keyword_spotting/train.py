@@ -10,10 +10,19 @@ import keras_model as models
 import get_dataset as kws_data
 import kws_util
 
+#model tracking
+import mlflow
+
 num_classes = 12 # should probably draw this directly from the dataset.
 # FLAGS = None
 
 if __name__ == '__main__':
+
+  mlflow.tensorflow.autolog()
+
+  mlflow.set_tracking_uri('https://dagshub.com/mrmedrano81/tinymlops-pipeline-196-199.mlflow')
+
+  #parse arguments
   Flags, unparsed = kws_util.parse_command()
 
   print('We will download data to {:}'.format(Flags.data_dir))
@@ -40,7 +49,7 @@ if __name__ == '__main__':
     model = keras.models.load_model(Flags.model_init_path)
 
   model.summary()
-  
+
   callbacks = kws_util.get_callbacks(args=Flags)
   train_hist = model.fit(ds_train, validation_data=ds_val, epochs=Flags.epochs, callbacks=callbacks)
   kws_util.plot_training(Flags.plot_dir,train_hist)
@@ -50,3 +59,5 @@ if __name__ == '__main__':
     test_scores = model.evaluate(ds_test)
     print("Test loss:", test_scores[0])
     print("Test accuracy:", test_scores[1])
+
+  

@@ -6,7 +6,6 @@ import argparse
 import get_dataset as kws_data
 import kws_util
 
-
 def predict(interpreter, data):
 
   # Get input and output tensors.
@@ -72,4 +71,6 @@ if __name__ == '__main__':
   num_correct = np.sum(np.array(labels) == output_data)
   acc = num_correct / len(labels)
 
+
   print(f"Accuracy on {Flags.target_set} = {acc:5.3f} ({num_correct}/{len(labels)})")
+
