@@ -28,6 +28,7 @@ NEED_IMAGE = $(shell $(CONTAINER_TOOL) image inspect $(IMAGE_NAME) 2> /dev/null 
 #main container commands
 #	-runs container interactively
 #	-sets working volume and enters automatically into working directory path once run
+
 CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				--name $(CONTAINER_NAME) \
 				--rm \

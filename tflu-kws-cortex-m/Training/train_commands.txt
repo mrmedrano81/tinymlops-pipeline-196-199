@@ -18,7 +18,7 @@ python train.py --model_architecture basic_lstm --model_size_info 118 --dct_coef
 python train.py --model_architecture basic_lstm --model_size_info 214 --dct_coefficient_count 10 --window_size_ms 40 --window_stride_ms 20 --learning_rate 0.0005,0.0001,0.00002 --how_many_training_steps 10000,10000,10000 --summaries_dir work/Basic_LSTM/Basic_LSTM2/retrain_logs --train_dir work/Basic_LSTM/Basic_LSTM2/training
 python train.py --model_architecture basic_lstm --model_size_info 344 --dct_coefficient_count 10 --window_size_ms 40 --window_stride_ms 20 --learning_rate 0.0005,0.0001,0.00002 --how_many_training_steps 10000,10000,10000 --summaries_dir work/Basic_LSTM/Basic_LSTM3/retrain_logs --train_dir work/Basic_LSTM/Basic_LSTM3/training
 
-#MicroNets small
+#(mike) MicroNets small
 
 python train.py --optimizer_function cosine_decay --batch_size 256 --eval_step_interval 512  --model_architecture micronets --model_size_info 6 84 10 4 1 1 112 3 3 2 2 84 3 3 1 1 84 3 3 1 1 84 3 3 1 1 196 3 3 1 1 --dct_coefficient_count 10 --window_size_ms 40 --window_stride_ms 20 --learning_rate 0.02 --how_many_training_steps 51200 --summaries_dir work/MICRONETS/MICRONETS1/retrain_logs --train_dir work/MICRONETS/MICRONETS1/training
 python convert.py --checkpoint work/MICRONETS/MICRONETS1/training/best/micronets_0.951_ckpt --inference_type int8 --optimizer_function cosine_decay --batch_size 256 --eval_step_interval 512  --model_architecture micronets --model_size_info 6 84 10 4 1 1 112 3 3 2 2 84 3 3 1 1 84 3 3 1 1 84 3 3 1 1 196 3 3 1 1 --dct_coefficient_count 10 --window_size_ms 40 --window_stride_ms 20 --learning_rate 0.02 --how_many_training_steps 51200 --summaries_dir work/MICRONETS/MICRONETS1/retrain_logs --train_dir work/MICRONETS/MICRONETS1/training

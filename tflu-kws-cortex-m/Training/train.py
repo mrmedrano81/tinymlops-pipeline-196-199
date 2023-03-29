@@ -21,6 +21,9 @@ import numpy as np
 import data
 import models
 
+#mike
+import mlflow
+
 def train():
     model_settings = models.prepare_model_settings(len(data.prepare_words_list(FLAGS.wanted_words.split(','))),
                                                    FLAGS.sample_rate, FLAGS.clip_duration_ms, FLAGS.window_size_ms,
@@ -102,6 +105,11 @@ def train():
 
 
 if __name__ == "__main__":
+
+    mlflow.tensorflow.autolog()
+
+    mlflow.set_tracking_uri('https://dagshub.com/mrmedrano81/tinymlops-pipeline-196-199.mlflow')
+
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--data_url',

@@ -318,6 +318,9 @@ class AudioProcessor:
             filepath, _ = urllib.request.urlretrieve(data_url, filepath, _report_hook)
             print()
 
+        #(mike) original function for downloading and untarring not working properly, 
+        #       custom shell script get_dataset.sh created for now.
+        
         #print(f'Untarring {filename}...')
         #tarfile.open(filepath, 'r:gz').extractall(target_directory)
 
