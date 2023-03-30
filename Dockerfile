@@ -39,7 +39,7 @@ RUN pyenv local image_classification
 RUN python -m pip install --upgrade pip setuptools wheel
 
 # Copy directory to workdir in docker container
-WORKDIR /app
+WORKDIR /tmp
 COPY /training/image_classification/requirements.txt .
 
 # Run pip install requirements.txt
@@ -52,7 +52,7 @@ RUN pyenv local keyword_spotting
 RUN python -m pip install --upgrade pip setuptools wheel
 
 # Copy directory to workdir in docker container
-WORKDIR /app
+WORKDIR /tmp
 COPY /tflu-kws-cortex-m/Training/requirements.txt .
 
 # Run pip install requirements.txt
@@ -83,8 +83,8 @@ RUN apt install -y openocd
 RUN wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2 -O /tmp/gcc-arm-none-eabi.tar.bz2
 
 #Extract files into new gcc folder in opt
-RUN mkdir -p opt/gcc-arm-none-eabi
-RUN tar xjfv /tmp/gcc-arm-none-eabi.tar.bz2 -C opt/gcc-arm-none-eabi --strip-components 1
+RUN mkdir -p /opt/gcc-arm-none-eabi
+RUN tar xjfv /tmp/gcc-arm-none-eabi.tar.bz2 -C /opt/gcc-arm-none-eabi --strip-components 1
 
 #Link executables to usr local bin
 RUN ln -s /opt/gcc-arm-none-eabi-10.3/bin/* /usr/local/bin
@@ -93,15 +93,7 @@ RUN ln -s /opt/gcc-arm-none-eabi-10.3/bin/* /usr/local/bin
 RUN rm -rf /tmp/*
 ENV PATH="/opt/gcc-arm-none-eabi/bin:${PATH}"
 
-#Configure container for user
-ARG UID
-ARG GID
-ARG USERNAME
-ARG GROUPNAME
-RUN groupadd --gid $GID $GROUPNAME
-RUN useradd --uid $UID --gid $GID $USERNAME
-RUN usermod --append --groups $GROUPNAME $USERNAME
-RUN usermod --shell /bin/bash $USERNAME
+WORKDIR /app
 
-USER $USERNAME
+
 
