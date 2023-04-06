@@ -16,7 +16,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 - cloned from the google research github repository and slightly modified for this project
 
 ### 3. training
-- *TBA - Josh Yap*
+- cloned from MLCommon's tinyML benchmark github repository. Keyword spotting and image classification directories contain an added Dockerfile for the training phase.
 
 ### 4. tflu-kws-cortex-m
 - cloned from the ARM repository and slightly modified for this project
