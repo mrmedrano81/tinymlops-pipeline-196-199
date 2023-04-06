@@ -10,7 +10,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 - stm32: Includes the relevant files for setting up the container for embedded development on STM32 microcontrollers. Includes the Dockerfile, Makefile, CMakelist.txt file, and relevant microcontroller source files, headers, and libraries. 
 
-- rpico: *TBA -Josh Yap*
+- rpico: Includes a single Dockerfile that downloads and installs the necessary dependencies for pico initialization.
 
 ### 2. google_kws_streaming
 - cloned from the google research github repository and slightly modified for this project
