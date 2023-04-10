@@ -21,6 +21,7 @@ NEED_IMAGE = $(shell $(CONTAINER_TOOL) image inspect $(IMAGE_NAME) 2> /dev/null 
 #main container commands
 #	-runs container interactively
 #	-sets working volume and enters automatically into working directory path once run
+
 CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				--gpus all \
 				--name $(CONTAINER_NAME) \
@@ -31,21 +32,22 @@ CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				--hostname $(CONTAINER_NAME) \
 				-t $(IMAGE_NAME)
 
+#build docker image and run container 
 build-container: $(NEED_IMAGE)
 	$(CONTAINER_RUN)
 
+#(work in progress) build docker image, run container, and build+flash microcontroller application code
 build-container-app: $(NEED_IMAGE)
 	$(CONTAINER_RUN) bash -lc 'make -j$(shell nproc)'
 
-shell:
-	$(CONTAINER_RUN) bash -l
-
+#docker image build step
 image: $(CONTAINER_FILE)
 	$(CONTAINER_TOOL) build \
 		-t $(IMAGE_NAME) \
 		-f=$(CONTAINER_FILE) \
 		.
 
+#cleanup
 clean-image:
 	$(CONTAINER_TOOL) container rm -f $(CONTAINER_NAME) 2> /dev/null > /dev/null || true
 	$(CONTAINER_TOOL) image rmi -f $(IMAGE_NAME) 2> /dev/null > /dev/null || true

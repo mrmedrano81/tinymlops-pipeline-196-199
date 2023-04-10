@@ -13,7 +13,27 @@ RUN apt-get install -y ffmpeg
 #######################-------MODEL TRAINING AND OPTIMIZATION-------#########################
 
 # Set of all dependencies needed for pyenv to work on Ubuntu
-RUN apt-get install -y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget ca-certificates curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev mecab-ipadic-utf8 git
+RUN apt-get install -y --no-install-recommends \
+    make \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    wget \
+    ca-certificates \
+    curl \
+    llvm \
+    libncurses5-dev \
+    xz-utils \
+    tk-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    libffi-dev \
+    liblzma-dev \
+    mecab-ipadic-utf8 \
+    git
 
 # Set up necessary environment variables for pyenv
 ENV PYENV_ROOT /root/.pyenv
@@ -66,18 +86,13 @@ ENV HOME=$PWD
 #######################-------APPLICATION BUILD AND DEPLOY-------#########################
 
 #lib utils
-RUN apt install -y usbutils
-RUN apt install -y lbzip2
+RUN apt install -y usbutils && apt install -y lbzip2
 
 #Utils
-RUN apt install -y nano
-RUN apt install -y findutils
-
-RUN apt install -y cmake
+RUN apt install -y nano && apt install -y findutils && apt install -y cmake
 
 #STM32 Debug tools
-RUN apt install -y stlink-tools
-RUN apt install -y openocd
+RUN apt install -y stlink-tools && apt install -y openocd
 
 #Download gcc-arm-none-eabi to bz2 format in tmp directory
 RUN wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2 -O /tmp/gcc-arm-none-eabi.tar.bz2
