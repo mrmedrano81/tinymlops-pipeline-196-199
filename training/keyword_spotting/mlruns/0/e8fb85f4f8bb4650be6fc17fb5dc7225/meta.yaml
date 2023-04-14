@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/0/e8fb85f4f8bb4650be6fc17fb5dc7225/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e8fb85f4f8bb4650be6fc17fb5dc7225
+run_name: agreeable-gnat-814
+run_uuid: e8fb85f4f8bb4650be6fc17fb5dc7225
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679913237270
+status: 1
+tags: []
+user_id: root

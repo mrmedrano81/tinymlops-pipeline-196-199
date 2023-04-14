@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/0/c97993f6ac214c40aec819962c19aab3/artifacts
+end_time: 1679908341296
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c97993f6ac214c40aec819962c19aab3
+run_name: intrigued-swan-765
+run_uuid: c97993f6ac214c40aec819962c19aab3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1679908341286
+status: 3
+tags: []
+user_id: root

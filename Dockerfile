@@ -1,6 +1,6 @@
 #######################-------INITIALIZATION-------#########################
 
-FROM nvidia/cuda:12.0.1-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
 
 ARG NEEDRESTART_MODE=a
 
@@ -15,7 +15,6 @@ ENV HOME=/app
 ENV MLFLOW_TRACKING_USERNAME=mrmedrano81
 
 ENV MLFLOW_TRACKING_PASSWORD=70334c6f3a4e81cd5c9271e67de06f62eb307c19
-
 
 #######################-------MODEL TRAINING AND OPTIMIZATION-------#########################
 
@@ -85,7 +84,6 @@ COPY /training/keyword_spotting/requirements.txt .
 # Run pip install requirements.txt
 RUN pip install -r requirements.txt
 
-
 #######################-------APPLICATION BUILD AND DEPLOY-------#########################
 
 #lib utils
@@ -112,5 +110,3 @@ RUN rm -rf /tmp/*
 ENV PATH="/opt/gcc-arm-none-eabi/bin:${PATH}"
 
 WORKDIR /app
-
-
