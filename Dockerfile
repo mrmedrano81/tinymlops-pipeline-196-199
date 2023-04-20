@@ -90,7 +90,7 @@ RUN pip install -r requirements.txt
 RUN apt install -y usbutils && apt install -y lbzip2
 
 #Utils
-RUN apt install -y nano && apt install -y findutils && apt install -y cmake
+RUN apt install -y nano && apt install -y findutils && apt install -y cmake && apt install xxd
 
 #STM32 Flash/Debug tools
 RUN apt install -y stlink-tools && apt install -y openocd

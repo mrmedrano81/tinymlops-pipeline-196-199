@@ -1,7 +1,7 @@
 # converts tflite file into CC
-xxd -i trained_models/kws_model.tflite                    >  kws_model_data.cc
+xxd -i trained_models/ds_cnn_quantized.tflite                    >  ds_cnn_quantized_data.cc
 
-sed -i '1 s/^/#include "kws_model_data.h"\n\n/'              kws_model_data.cc
-sed -i 's/unsigned char/const unsigned char/'                kws_model_data.cc
-sed -i 's/trained_models_kws_model_tflite/g_kws_model_data/' kws_model_data.cc
-sed -i 's/unsigned int/const unsigned int/'                  kws_model_data.cc
+sed -i '1 s/^/#include "ds_cnn_quantized_data.h"\n\n/'              ds_cnn_quantized_data.cc
+sed -i 's/unsigned char/const unsigned char/'                ds_cnn_quantized_data.cc
+sed -i 's/trained_models_ds_cnn_quantized_tflite/g_ds_cnn_quantized_data/' ds_cnn_quantized_data.cc
+sed -i 's/unsigned int/const unsigned int/'                  ds_cnn_quantized_data.cc
