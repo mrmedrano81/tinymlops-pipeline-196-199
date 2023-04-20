@@ -1,0 +1,2 @@
+debug_log.c:32:5:__io_putchar	1
+debug_log.c:40:6:DebugLog	1
