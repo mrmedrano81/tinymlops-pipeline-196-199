@@ -1,6 +1,9 @@
 # STM32 Minimal CMake project for C/C++ projects
+
 cmake_minimum_required(VERSION 3.12)
+
 ###############################################################################
+
 # Set project name and source code folder location
 project(KWS_STM32)
 
@@ -22,6 +25,7 @@ set(STARTUP_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/CubeMX/startup_stm32f746xx.s)
 set(MCU_LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/CubeMX/STM32F746NGHx_FLASH.ld)
 
 ###############################################################################
+
 set(EXECUTABLE ${CMAKE_PROJECT_NAME})
 
 enable_language(C CXX ASM)
@@ -230,17 +234,17 @@ target_compile_definitions(${EXECUTABLE} PRIVATE
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${STM32CUBEMX_INCLUDE_DIRECTORIES})
 
-#mike
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${TFLITE_INCLUDE_DIRECTORIES})
 
-#mike
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${THIRD_PARTY_INCLUDE_DIRECTORIES})
 
 target_include_directories(${EXECUTABLE} PRIVATE
     ${PROJECT_INCLUDE_DIRECTORIES})
+
 ###############################################################################
+
 target_compile_options(${EXECUTABLE} PRIVATE
     ${CPU_PARAMETERS}
     -Wall
