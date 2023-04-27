@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.12)
 ###############################################################################
 # Set project name and source code folder location
-project(hello_world)
+project(KWS_STM32)
 
 option(DUMP_ASM "Create full assembly of final executable" OFF)
 

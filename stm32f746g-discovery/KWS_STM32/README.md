@@ -14,7 +14,7 @@ Keyword Spotting Project directory for the stm32f746g-discovery board.
 ### 3. Drivers
 - Contains the Board Support Package (BSP), Common Microcontroller Software Interface Standard (CMSIS) driver, and Hardware Abstraction layer (HAL) driver files.
 
-### 4. KWS
+### 4. KWS_STM32
 - Contains the converted model source file, header, and model settings header.
 - Also contains the Tensorflow lite Micro (TFLM) and third party libraries.
 
