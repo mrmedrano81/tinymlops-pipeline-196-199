@@ -77,6 +77,9 @@ set(PROJECT_INCLUDE_DIRECTORIES
 
 # Sources
 set(STM32CUBEMX_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/sysmem.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/syscalls.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/stm32f7xx_hal_msp.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32f7xx_it.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/system_stm32f7xx.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/Components/ft5336/ft5336.c
@@ -118,8 +121,8 @@ set(STM32CUBEMX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_hal_tim.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_hal_uart.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_ll_fmc.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Utilities/Log/lcd_log.c)
+    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c)
+    #${CMAKE_CURRENT_SOURCE_DIR}/Utilities/Log/lcd_log.c)
 
 set (TFLITE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/c/common.c
@@ -205,7 +208,7 @@ set(PROJECT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/camera.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/eeprom.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/lcd.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/log.c 
+    #${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/log.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/qspi.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sd.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sdram_dma.c 
@@ -253,6 +256,8 @@ target_compile_options(${EXECUTABLE} PRIVATE
     -fno-common
     -Wno-unused-parameter
     -fmessage-length=0
+    -ffunction-sections
+    -fdata-sections
     $<$<COMPILE_LANGUAGE:CXX>:
         -Wconversion # STM libraries!
         -Wno-volatile
@@ -266,7 +271,7 @@ target_link_options(${EXECUTABLE} PRIVATE
     -T${MCU_LINKER_SCRIPT}
     ${CPU_PARAMETERS}
     -Wl,-Map=${CMAKE_PROJECT_NAME}.map
-    --specs=nosys.specs
+    #--specs=nosys.specs
     -Wl,--start-group
     -lc
     -lm
