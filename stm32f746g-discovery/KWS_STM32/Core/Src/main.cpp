@@ -64,8 +64,8 @@ int32_t previous_time = 0;
 // Create an area of memory to use for input, output, and intermediate arrays.
 // The size of this will depend on the model you're using, and may need to be
 // determined by experimentation.
-constexpr int kTensorArenaSize = 30 * 1024;
-uint8_t tensor_arena[kTensorArenaSize];
+constexpr int kTensorArenaSize = 70 * 1024;
+__attribute__((aligned(16)))uint8_t tensor_arena[kTensorArenaSize];
 int8_t feature_buffer[kFeatureElementCount];
 int8_t* model_input_buffer = nullptr;
 }  // namespace
@@ -126,10 +126,15 @@ void setup() {
       (model_input->dims->data[1] !=
        (kFeatureSliceCount * kFeatureSliceSize)) ||
       (model_input->type != kTfLiteInt8)) {
-    TF_LITE_REPORT_ERROR(error_reporter,
-                         "Bad input tensor parameters in model");
+    TF_LITE_REPORT_ERROR(error_reporter, "Bad input tensor parameters in model");
+
     return;
   }
+  TF_LITE_REPORT_ERROR(error_reporter, "model_input->dims->size: %d", model_input->dims->size);
+  TF_LITE_REPORT_ERROR(error_reporter, "model_input->dims->data[0]: %d", model_input->dims->data[0]);
+  TF_LITE_REPORT_ERROR(error_reporter, "model_input->dims->data[1]: %d", model_input->dims->data[1]);
+  TF_LITE_REPORT_ERROR(error_reporter, "(kFeatureSliceCount * kFeatureSliceSize): %d", (kFeatureSliceCount * kFeatureSliceSize));
+  TF_LITE_REPORT_ERROR(error_reporter, "model_input->type: %d", model_input->type);
   model_input_buffer = model_input->data.int8;
 
   // Prepare to access the audio spectrograms from a microphone or other source
@@ -246,16 +251,7 @@ int main(void)
   int counter = 0;
   while (1)
   {
-    if (BSP_PB_GetState(BUTTON_KEY) != RESET) {
-      count++;
-      TF_LITE_REPORT_ERROR(error_reporter, "count: %f\n", count);
-    }
-    HAL_Delay(1000);
-    printf("hello");
-    TF_LITE_REPORT_ERROR(error_reporter, "count: %f\n", count);
-    BSP_LCD_DisplayChar(BSP_LCD_GetXSize() / 2, BSP_LCD_GetYSize() / 2 + 45, counter);
-    counter++;
-    //loop();
+    loop();
   }
 }
 

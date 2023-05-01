@@ -43,6 +43,9 @@ typedef enum
 }BUFFER_StateTypeDef;
 
 
+//#define AUDIO_BLOCK_SIZE   ((uint32_t)512)
+//#define AUDIO_BUFFER_IN    AUDIO_REC_START_ADDR     /* In SDRAM */
+
 #define AUDIO_BLOCK_SIZE   ((uint32_t)512)
 #define AUDIO_BUFFER_IN    AUDIO_REC_START_ADDR     /* In SDRAM */
 
@@ -73,7 +76,8 @@ uint8_t check_user_input(void) {
   return 0;
 }
 
-void CaptureSamples() {
+void CaptureSamples(tflite::ErrorReporter* error_reporter) {
+  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize() - 80, (uint8_t *)" capturing samples... ", CENTER_MODE);
   // This is how many bytes of new data we have each time this is called
   const int number_of_samples = AUDIO_BLOCK_SIZE;
   // Calculate what timestamp the last audio sample represents
@@ -89,7 +93,6 @@ void CaptureSamples() {
 
   /*----------- Mike ----------- */
   BSP_AUDIO_IN_Record((uint16_t*)AUDIO_BUFFER_IN, AUDIO_BLOCK_SIZE);
-
   while(audio_rec_buffer_state != BUFFER_OFFSET_FULL)
     {
       if (check_user_input() > 0)
@@ -99,21 +102,26 @@ void CaptureSamples() {
         return;
       }
     }
+  
+  
   audio_rec_buffer_state = BUFFER_OFFSET_NONE;
   memcpy((uint32_t *)(AUDIO_REC_START_ADDR), g_audio_capture_buffer + capture_index, AUDIO_BLOCK_SIZE);
+
   /*---------------------------- */
 
   // This is how we let the outside world know that new audio data has arrived.
   g_latest_audio_timestamp = time_in_ms;
 }
 
-
-
 TfLiteStatus InitAudioRecording(tflite::ErrorReporter* error_reporter) {
   /*----------- Mike ----------- */
   /* Initialize Audio Recorder */
+
   if (BSP_AUDIO_IN_Init(DEFAULT_AUDIO_IN_FREQ, DEFAULT_AUDIO_IN_BIT_RESOLUTION, 1) == AUDIO_OK)
   {
+    BSP_LCD_Clear(LCD_COLOR_WHITE);
+    BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
+    BSP_LCD_FillRect(0, 0, BSP_LCD_GetXSize(), 90);
     BSP_LCD_SetBackColor(LCD_COLOR_WHITE);
     BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
     BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize() - 95, (uint8_t *)"  AUDIO RECORD INIT OK  ", CENTER_MODE);
@@ -144,7 +152,7 @@ TfLiteStatus GetAudioSamples(tflite::ErrorReporter* error_reporter,
     g_is_audio_initialized = true;
   }
 
-  CaptureSamples();
+  CaptureSamples(error_reporter);
 
   // This next part should only be called when the main thread notices that the
   // latest audio sample data timestamp has changed, so that there's new data
