@@ -1,0 +1,12 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "istream": "cpp",
+        "ostream": "cpp",
+        "main.h": "c",
+        "limits": "cpp",
+        "stm32f7xx_hal_uart.h": "c",
+        "stm32f7xx_hal.h": "c",
+        "cstdarg": "cpp"
+    }
+}

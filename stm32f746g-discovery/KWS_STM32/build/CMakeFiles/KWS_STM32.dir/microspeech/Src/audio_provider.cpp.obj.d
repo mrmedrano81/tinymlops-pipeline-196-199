@@ -1,5 +1,6 @@
-CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj: \
- /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Utilities/Log/lcd_log.c \
+CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj: \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/audio_provider.cpp \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Inc/main.h \
  /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -17,11 +18,7 @@ CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj: \
  /usr/include/newlib/sys/timespec.h /usr/include/newlib/sys/_timespec.h \
  /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/sys/sched.h \
  /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h \
- /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Utilities/Log/lcd_log.h \
- /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Inc/lcd_log_conf.h \
- /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.h \
- /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/Components/rk043fn48h/rk043fn48h.h \
- /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h \
  /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Inc/stm32f7xx_hal_conf.h \
  /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -65,5 +62,37 @@ CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj: \
  /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
  /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h \
  /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_ts.h \
  /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h \
- /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Utilities/Fonts/fonts.h
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/Components/ft5336/ft5336.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/Components/Common/ts.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/Components/rk043fn48h/rk043fn48h.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Utilities/Fonts/fonts.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sd.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_eeprom.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_camera.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/Components/ov9655/ov9655.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/Components/Common/camera.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_audio.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/Components/wm8994/wm8994.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/Components/Common/audio.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_qspi.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/BSP/Components/n25q128a/n25q128a.h \
+ /usr/include/newlib/string.h /usr/include/newlib/sys/_locale.h \
+ /usr/include/newlib/strings.h /usr/include/newlib/sys/string.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Inc/audio_provider.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/c/common.h \
+ /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.h \
+ /usr/include/newlib/c++/10.3.1/cstdarg \
+ /usr/include/newlib/c++/10.3.1/arm-none-eabi/thumb/v7e-m+fp/hard/bits/c++config.h \
+ /usr/include/newlib/c++/10.3.1/arm-none-eabi/thumb/v7e-m+fp/hard/bits/os_defines.h \
+ /usr/include/newlib/c++/10.3.1/arm-none-eabi/thumb/v7e-m+fp/hard/bits/cpu_defines.h \
+ /usr/include/newlib/c++/10.3.1/pstl/pstl_config.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/compatibility.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/debug_log.h \
+ /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/Include/model_settings.h

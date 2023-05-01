@@ -20,6 +20,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
+  "../microspeech/Inc"
   "../Core/Inc"
   "../KWS/Include"
   "../Drivers/STM32F7xx_HAL_Driver/Inc"
@@ -61,7 +62,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/camera.c" "CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/eeprom.c" "CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/lcd.c" "CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj.d"
-  "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/log.c" "CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/qspi.c" "CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/sd.c" "CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/sdram.c" "CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj.d"
@@ -126,7 +126,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c" "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/third_party/kissfft/kiss_fft.c" "CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/third_party/kissfft/tools/kiss_fftr.c" "CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj.d"
-  "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Utilities/Log/lcd_log.c" "CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj" "gcc" "CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/main.cpp" "CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj" "gcc" "CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/Source/ds_cnn_quantized_data.cpp" "CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj" "gcc" "CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/Source/model_settings.cpp" "CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj" "gcc" "CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj.d"
@@ -186,6 +185,11 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc" "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj" "gcc" "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc" "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj" "gcc" "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj.d"
   "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc" "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj" "gcc" "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj.d"
+  "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/audio_provider.cpp" "CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj" "gcc" "CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj.d"
+  "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/command_responder.cpp" "CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj" "gcc" "CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj.d"
+  "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/feature_provider.cpp" "CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj" "gcc" "CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj.d"
+  "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/micro_features_micro_features_generator.cpp" "CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj" "gcc" "CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj.d"
+  "/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/recognize_commands.cpp" "CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj" "gcc" "CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj.d"
   )
 
 # Targets to which this target links.

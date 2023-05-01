@@ -22,6 +22,22 @@ extern "C" {
 }
 
 #include "stlogo.h"
+#include "stm32746g_discovery.h"
+
+#include "main_functions.h"
+#include "audio_provider.h"
+#include "feature_provider.h"
+#include "recognize_commands.h"
+#include "command_responder.h"
+
+#include "ds_cnn_quantized_data.h"
+#include "model_settings.h"
+
+#include "tensorflow/lite/micro/kernels/all_ops_resolver.h"
+#include "tensorflow/lite/micro/micro_error_reporter.h"
+#include "tensorflow/lite/micro/micro_interpreter.h"
+#include "tensorflow/lite/schema/schema_generated.h"
+#include "tensorflow/lite/version.h"
 
 /** @addtogroup STM32F7xx_HAL_Examples
   * @{
@@ -35,8 +51,30 @@ extern "C" {
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+
+namespace {
+tflite::ErrorReporter* error_reporter = nullptr;
+const tflite::Model* model = nullptr;
+tflite::MicroInterpreter* interpreter = nullptr;
+TfLiteTensor* model_input = nullptr;
+FeatureProvider* feature_provider = nullptr;
+RecognizeCommands* recognizer = nullptr;
+int32_t previous_time = 0;
+
+// Create an area of memory to use for input, output, and intermediate arrays.
+// The size of this will depend on the model you're using, and may need to be
+// determined by experimentation.
+constexpr int kTensorArenaSize = 30 * 1024;
+uint8_t tensor_arena[kTensorArenaSize];
+int8_t feature_buffer[kFeatureElementCount];
+int8_t* model_input_buffer = nullptr;
+}  // namespace
+
+
 static uint8_t DemoIndex = 0;
-static uint8_t hi = 1;
+
+// UART handler declaration
+UART_HandleTypeDef DebugUartHandler;
 
 /* Global extern variables ---------------------------------------------------*/
 uint8_t NbLoop = 1;
@@ -47,26 +85,116 @@ uint32_t    ErrorCounter = 0;
 /* Private function prototypes -----------------------------------------------*/
 static void MPU_Config(void);
 static void SystemClock_Config(void);
-static void Display_DemoDescription(void);
+static void Display_Application_Description(void);
 static void CPU_CACHE_Enable(void);
-
-
-BSP_DemoTypedef  BSP_examples[] =
-  {
-    /*{LCD_demo, "LCD", 0},
-    {Touchscreen_demo, "TOUCHSCREEN", 0},
-    {AudioRec_demo, "AUDIO RECORD", 0},*/
-    {AudioLoopback_demo, "AUDIO LOOPBACK", 0} /*,
-    {AudioPlay_demo, "AUDIO PLAY", 0},
-    {SD_demo, "mSD", 0},
-    {Log_demo, "LCD LOG", 0},
-    {SDRAM_demo, "SDRAM", 0},
-    {SDRAM_DMA_demo, "SDRAM DMA", 0},
-    {EEPROM_demo, "EEPROM", 0},
-    {QSPI_demo, "QSPI", 0},*/
-  };
+static void uart1_init(void);
+static void error_handler(void);
 
 /* Private functions ---------------------------------------------------------*/
+
+void setup() {
+
+  static tflite::MicroErrorReporter micro_error_reporter;
+  error_reporter = &micro_error_reporter;
+
+  model = tflite::GetModel(g_ds_cnn_quantized_data);
+  if (model->version() != TFLITE_SCHEMA_VERSION) {
+    TF_LITE_REPORT_ERROR(error_reporter,
+                         "Model provided is schema version %d not equal "
+                         "to supported version %d.",
+                         model->version(), TFLITE_SCHEMA_VERSION);
+    return;
+  }
+
+  static tflite::ops::micro::AllOpsResolver resolver;
+
+  // Build an interpreter to run the model with.
+  static tflite::MicroInterpreter static_interpreter(model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
+  interpreter = &static_interpreter;
+
+  // Allocate memory from the tensor_arena for the model's tensors.
+  TfLiteStatus allocate_status = interpreter->AllocateTensors();
+  if (allocate_status != kTfLiteOk) {
+    TF_LITE_REPORT_ERROR(error_reporter, "AllocateTensors() failed");
+    //Display_Application_Description();
+    return;
+  }
+
+  // Get information about the memory area to use for the model's input.
+  model_input = interpreter->input(0);
+  if ((model_input->dims->size != 2) || (model_input->dims->data[0] != 1) ||
+      (model_input->dims->data[1] !=
+       (kFeatureSliceCount * kFeatureSliceSize)) ||
+      (model_input->type != kTfLiteInt8)) {
+    TF_LITE_REPORT_ERROR(error_reporter,
+                         "Bad input tensor parameters in model");
+    return;
+  }
+  model_input_buffer = model_input->data.int8;
+
+  // Prepare to access the audio spectrograms from a microphone or other source
+  // that will provide the inputs to the neural network.
+  static FeatureProvider static_feature_provider(kFeatureElementCount,
+                                                 feature_buffer);
+  feature_provider = &static_feature_provider;
+
+  static RecognizeCommands static_recognizer(error_reporter);
+  recognizer = &static_recognizer;
+
+  previous_time = 0;
+
+
+}
+
+// The name of this function is important for Arduino compatibility.
+void loop() {
+  // Fetch the spectrogram for the current time.
+  const int32_t current_time = LatestAudioTimestamp();
+  int how_many_new_slices = 0;
+  TfLiteStatus feature_status = feature_provider->PopulateFeatureData(
+      error_reporter, previous_time, current_time, &how_many_new_slices);
+  if (feature_status != kTfLiteOk) {
+    TF_LITE_REPORT_ERROR(error_reporter, "Feature generation failed");
+    return;
+  }
+  previous_time = current_time;
+  // If no new audio samples have been received since last time, don't bother
+  // running the network model.
+  if (how_many_new_slices == 0) {
+    return;
+  }
+
+  // Copy feature buffer to input tensor
+  for (int i = 0; i < kFeatureElementCount; i++) {
+    model_input_buffer[i] = feature_buffer[i];
+  }
+
+  // Run the model on the spectrogram input and make sure it succeeds.
+  TfLiteStatus invoke_status = interpreter->Invoke();
+  if (invoke_status != kTfLiteOk) {
+    TF_LITE_REPORT_ERROR(error_reporter, "Invoke failed");
+    return;
+  }
+
+  // Obtain a pointer to the output tensor
+  TfLiteTensor* output = interpreter->output(0);
+  // Determine whether a command was recognized based on the output of inference
+  const char* found_command = nullptr;
+  uint8_t score = 0;
+  bool is_new_command = false;
+  TfLiteStatus process_status = recognizer->ProcessLatestResults(
+      output, current_time, &found_command, &score, &is_new_command);
+  if (process_status != kTfLiteOk) {
+    TF_LITE_REPORT_ERROR(error_reporter,
+                         "RecognizeCommands::ProcessLatestResults() failed");
+    return;
+  }
+  // Do something based on the recognized command. The default implementation
+  // just prints to the error console, but you should replace this with your
+  // own function for a real application.
+  
+  RespondToCommand(error_reporter, current_time, found_command, score, is_new_command);
+}
 
 /**
   * @brief  Main program
@@ -93,6 +221,11 @@ int main(void)
   /* Configure the system clock to 200 Mhz */
   SystemClock_Config();
 
+  // Initialize UART1
+  uart1_init();
+
+  setup();
+
   BSP_LED_Init(LED1);
 
   /* Configure the User Button in GPIO Mode */
@@ -106,26 +239,23 @@ int main(void)
   /* Initialize the LCD Layers */
   BSP_LCD_LayerDefaultInit(LTDC_ACTIVE_LAYER, LCD_FRAME_BUFFER);
 
-  Display_DemoDescription();
 
+  Display_Application_Description();
   /* Wait For User inputs */
+  float count = 0;
+  int counter = 0;
   while (1)
   {
-    if (BSP_PB_GetState(BUTTON_KEY) != RESET)
-    {
-      HAL_Delay(10);
-      while (BSP_PB_GetState(BUTTON_KEY) != RESET);
-
-      BSP_examples[DemoIndex++].DemoFunc();
-
-      if (DemoIndex >= COUNT_OF_EXAMPLE(BSP_examples))
-      {
-        /* Increment number of loops which be used by EEPROM example */
-        NbLoop++;
-        DemoIndex = 0;
-      }
-      Display_DemoDescription();
+    if (BSP_PB_GetState(BUTTON_KEY) != RESET) {
+      count++;
+      TF_LITE_REPORT_ERROR(error_reporter, "count: %f\n", count);
     }
+    HAL_Delay(1000);
+    printf("hello");
+    TF_LITE_REPORT_ERROR(error_reporter, "count: %f\n", count);
+    BSP_LCD_DisplayChar(BSP_LCD_GetXSize() / 2, BSP_LCD_GetYSize() / 2 + 45, counter);
+    counter++;
+    //loop();
   }
 }
 
@@ -196,7 +326,7 @@ static void SystemClock_Config(void)
   * @param  None
   * @retval None
   */
-static void Display_DemoDescription(void)
+static void Display_Application_Description(void)
 {
   uint8_t desc[50];
 
@@ -213,8 +343,8 @@ static void Display_DemoDescription(void)
   BSP_LCD_SetTextColor(LCD_COLOR_DARKBLUE);
 
   /* Display LCD messages */
-  BSP_LCD_DisplayStringAt(0, 10, (uint8_t *)"STM32F746G BSP", CENTER_MODE);
-  BSP_LCD_DisplayStringAt(0, 35, (uint8_t *)"Drivers examples", CENTER_MODE);
+  BSP_LCD_DisplayStringAt(0, 10, (uint8_t *)"STM32F746G KWS", CENTER_MODE);
+  BSP_LCD_DisplayStringAt(0, 35, (uint8_t *)"Keyword Spotting using TFLM", CENTER_MODE);
 
   /* Draw Bitmap */
   BSP_LCD_DrawBitmap((BSP_LCD_GetXSize() - 80) / 2, 65, (uint8_t *)stlogo);
@@ -228,7 +358,6 @@ static void Display_DemoDescription(void)
   BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
   BSP_LCD_SetBackColor(LCD_COLOR_BLUE);
   BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize() / 2 + 30, (uint8_t *)"Press User Button to start :", CENTER_MODE);
-  sprintf((char *)desc, "%s example", BSP_examples[DemoIndex].DemoName);
   BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize() / 2 + 45, (uint8_t *)desc, CENTER_MODE);
 }
 
@@ -246,6 +375,38 @@ uint8_t CheckForUserInput(void)
     return 1 ;
   }
   return 0;
+}
+
+/**
+  * @brief  UART1 Initialization Function
+  * @param  None
+  * @retval None
+  */
+static void uart1_init(void)
+{
+    /*##-1- Configure the UART peripheral ######################################*/
+	/* Put the USART peripheral in the Asynchronous mode (UART Mode)
+	   UART configured as follows:
+	      - Word Length = 8 Bits
+	      - Stop Bit = One Stop bit
+	      - Parity = None
+	      - BaudRate = 9600 baud
+	      - Hardware flow control disabled (RTS and CTS signals)
+	 */
+
+	DebugUartHandler.Instance        = DISCOVERY_COM1;
+	DebugUartHandler.Init.BaudRate   = 9600;
+	DebugUartHandler.Init.WordLength = UART_WORDLENGTH_8B;
+	DebugUartHandler.Init.StopBits   = UART_STOPBITS_1;
+	DebugUartHandler.Init.Parity     = UART_PARITY_NONE;
+	DebugUartHandler.Init.HwFlowCtl  = UART_HWCONTROL_NONE;
+	DebugUartHandler.Init.Mode       = UART_MODE_TX_RX;
+	DebugUartHandler.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  
+	if(HAL_UART_Init(&DebugUartHandler) != HAL_OK)
+	{
+	    error_handler();
+	}
 }
 
 /**
@@ -359,6 +520,18 @@ static void MPU_Config(void)
 
   /* Enable the MPU */
   HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
+}
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @param  None
+  * @retval None
+  */
+static void error_handler(void)
+{
+    // Turn Green LED ON
+    BSP_LED_On(LED_GREEN);
+    while(1);
 }
 
 #ifdef  USE_FULL_ASSERT

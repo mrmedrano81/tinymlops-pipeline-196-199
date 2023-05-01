@@ -657,24 +657,10 @@ CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.s
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.s"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c -o CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.s
 
-CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
-CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj: ../Utilities/Log/lcd_log.c
-CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj"
-	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj -MF CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj.d -o CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Utilities/Log/lcd_log.c
-
-CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.i"
-	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Utilities/Log/lcd_log.c > CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.i
-
-CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.s"
-	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Utilities/Log/lcd_log.c -o CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.s
-
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj: ../KWS/tensorflow/tensorflow/lite/c/common.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/c/common.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.i: cmake_force
@@ -688,7 +674,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.s: cmake_forc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj: ../KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.i: cmake_force
@@ -702,7 +688,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj: ../KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.i: cmake_force
@@ -716,7 +702,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conv
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.obj: ../KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.i: cmake_force
@@ -730,7 +716,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc.
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc.obj: ../KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc.i: cmake_force
@@ -744,7 +730,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp.i: cmake_force
@@ -758,7 +744,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp.i: cmake_force
@@ -772,7 +758,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c.i: cmake_force
@@ -786,7 +772,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank.c.i: cmake_force
@@ -800,7 +786,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend_util.c.i: cmake_force
@@ -814,7 +800,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/frontend.c.i: cmake_force
@@ -828,7 +814,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_lut.c.i: cmake_force
@@ -842,7 +828,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale_util.c.i: cmake_force
@@ -856,7 +842,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/log_scale.c.i: cmake_force
@@ -870,7 +856,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction_util.c.i: cmake_force
@@ -884,7 +870,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/noise_reduction.c.i: cmake_force
@@ -898,7 +884,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control_util.c.i: cmake_force
@@ -912,7 +898,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c.i: cmake_force
@@ -926,7 +912,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c.i: cmake_force
@@ -940,7 +926,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c.obj: ../KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c.i: cmake_force
@@ -954,7 +940,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/experimental/microfronte
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.obj: ../KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.i: cmake_force
@@ -968,7 +954,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc.s
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc.obj: ../KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc.i: cmake_force
@@ -982,7 +968,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/kernels/internal/quantiz
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.i: cmake_force
@@ -996,7 +982,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc.
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc.i: cmake_force
@@ -1010,7 +996,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc.i: cmake_force
@@ -1024,7 +1010,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_error_report
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc.i: cmake_force
@@ -1038,7 +1024,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc.i: cmake_force
@@ -1052,7 +1038,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_optional_deb
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/micro_string.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.i: cmake_force
@@ -1066,7 +1052,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc.s:
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/micro_time.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.i: cmake_force
@@ -1080,7 +1066,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc.s: c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.i: cmake_force
@@ -1094,7 +1080,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc.s: 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc.i: cmake_force
@@ -1108,7 +1094,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allo
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.i: cmake_force
@@ -1122,7 +1108,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc.s:
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc.i: cmake_force
@@ -1136,7 +1122,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/activation
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.i: cmake_force
@@ -1150,7 +1136,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc.s: 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc.i: cmake_force
@@ -1164,7 +1150,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_re
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc.i: cmake_force
@@ -1178,7 +1164,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_ma
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.i: cmake_force
@@ -1192,7 +1178,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc.s:
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc.i: cmake_force
@@ -1206,7 +1192,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_b
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc.i: cmake_force
@@ -1220,7 +1206,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/comparison
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc.i: cmake_force
@@ -1234,7 +1220,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenat
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.i: cmake_force
@@ -1248,7 +1234,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc.s:
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc.i: cmake_force
@@ -1262,7 +1248,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc.i: cmake_force
@@ -1276,7 +1262,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc.i: cmake_force
@@ -1290,7 +1276,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwis
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.i: cmake_force
@@ -1304,7 +1290,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc.s
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc.i: cmake_force
@@ -1318,7 +1304,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_conn
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.i: cmake_force
@@ -1332,7 +1318,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc.
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc.i: cmake_force
@@ -1346,7 +1332,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc.i: cmake_force
@@ -1360,7 +1346,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc.i: cmake_force
@@ -1374,7 +1360,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_mi
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.i: cmake_force
@@ -1388,7 +1374,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc.s: 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.i: cmake_force
@@ -1402,7 +1388,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc.s: 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.i: cmake_force
@@ -1416,7 +1402,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc.s:
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.i: cmake_force
@@ -1430,7 +1416,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc.s: 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc.i: cmake_force
@@ -1444,7 +1430,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.i: cmake_force
@@ -1458,7 +1444,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc.s
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc.i: cmake_force
@@ -1472,7 +1458,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.c
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.i: cmake_force
@@ -1486,7 +1472,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc.
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc.i: cmake_force
@@ -1500,7 +1486,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc.i: cmake_force
@@ -1514,7 +1500,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nea
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.i: cmake_force
@@ -1528,7 +1514,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc.s
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc.i: cmake_force
@@ -1542,7 +1528,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.i: cmake_force
@@ -1556,7 +1542,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc.s
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc.i: cmake_force
@@ -1570,7 +1556,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_sl
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.i: cmake_force
@@ -1584,7 +1570,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc.s: 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.i: cmake_force
@@ -1598,7 +1584,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc.s:
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.i: cmake_force
@@ -1612,7 +1598,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc.
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.i: cmake_force
@@ -1626,7 +1612,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/gre
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.i: cmake_force
@@ -1640,7 +1626,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/memory_planner/lin
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj: ../KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj -MF CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc
 
 CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.i: cmake_force
@@ -1654,7 +1640,7 @@ CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils
 CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj: ../KWS/third_party/kissfft/tools/kiss_fftr.c
 CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building C object CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building C object CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/third_party/kissfft/tools/kiss_fftr.c
 
 CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.i: cmake_force
@@ -1668,7 +1654,7 @@ CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.s: cmake_forc
 CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj: ../KWS/third_party/kissfft/kiss_fft.c
 CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building C object CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building C object CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/third_party/kissfft/kiss_fft.c
 
 CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.i: cmake_force
@@ -1679,10 +1665,80 @@ CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.s"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/third_party/kissfft/kiss_fft.c -o CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.s
 
+CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
+CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj: ../microspeech/Src/audio_provider.cpp
+CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj -MF CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/audio_provider.cpp
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.i"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/audio_provider.cpp > CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.i
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.s"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/audio_provider.cpp -o CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.s
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
+CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj: ../microspeech/Src/feature_provider.cpp
+CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj -MF CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/feature_provider.cpp
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.i"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/feature_provider.cpp > CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.i
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.s"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/feature_provider.cpp -o CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.s
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
+CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj: ../microspeech/Src/micro_features_micro_features_generator.cpp
+CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj -MF CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/micro_features_micro_features_generator.cpp
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.i"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/micro_features_micro_features_generator.cpp > CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.i
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.s"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/micro_features_micro_features_generator.cpp -o CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.s
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
+CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj: ../microspeech/Src/recognize_commands.cpp
+CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj -MF CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/recognize_commands.cpp
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.i"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/recognize_commands.cpp > CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.i
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.s"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/recognize_commands.cpp -o CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.s
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
+CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj: ../microspeech/Src/command_responder.cpp
+CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj -MF CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/command_responder.cpp
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.i"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/command_responder.cpp > CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.i
+
+CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.s"
+	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/microspeech/Src/command_responder.cpp -o CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.s
+
 CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj: ../Core/Src/main.cpp
 CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/main.cpp
 
 CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.i: cmake_force
@@ -1696,7 +1752,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj: ../Core/Src/audio_loopback.c
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/audio_loopback.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.i: cmake_force
@@ -1710,7 +1766,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj: ../Core/Src/audio_play.c
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/audio_play.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.i: cmake_force
@@ -1724,7 +1780,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.obj: ../Core/Src/audio_rec.c
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/audio_rec.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.i: cmake_force
@@ -1738,7 +1794,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj: ../Core/Src/camera.c
 CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/camera.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.i: cmake_force
@@ -1752,7 +1808,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj: ../Core/Src/eeprom.c
 CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/eeprom.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.i: cmake_force
@@ -1766,7 +1822,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj: ../Core/Src/lcd.c
 CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/lcd.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.i: cmake_force
@@ -1777,24 +1833,10 @@ CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.s"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/lcd.c -o CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.s
 
-CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
-CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj: ../Core/Src/log.c
-CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj"
-	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/log.c
-
-CMakeFiles/KWS_STM32.dir/Core/Src/log.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/KWS_STM32.dir/Core/Src/log.c.i"
-	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/log.c > CMakeFiles/KWS_STM32.dir/Core/Src/log.c.i
-
-CMakeFiles/KWS_STM32.dir/Core/Src/log.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/KWS_STM32.dir/Core/Src/log.c.s"
-	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/log.c -o CMakeFiles/KWS_STM32.dir/Core/Src/log.c.s
-
 CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj: ../Core/Src/qspi.c
 CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/qspi.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.i: cmake_force
@@ -1808,7 +1850,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj: ../Core/Src/sd.c
 CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/sd.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.i: cmake_force
@@ -1822,7 +1864,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj: ../Core/Src/sdram_dma.c
 CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/sdram_dma.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.i: cmake_force
@@ -1836,7 +1878,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj: ../Core/Src/sdram.c
 CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/sdram.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.i: cmake_force
@@ -1850,7 +1892,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/sdram.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.obj: ../Core/Src/touchscreen.c
 CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building C object CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.obj -MF CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.obj.d -o CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/Core/Src/touchscreen.c
 
 CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.i: cmake_force
@@ -1864,7 +1906,7 @@ CMakeFiles/KWS_STM32.dir/Core/Src/touchscreen.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.obj: ../KWS/Source/debug_log.c
 CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building C object CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Building C object CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.obj -MF CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/Source/debug_log.c
 
 CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.i: cmake_force
@@ -1878,7 +1920,7 @@ CMakeFiles/KWS_STM32.dir/KWS/Source/debug_log.c.s: cmake_force
 CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj: ../KWS/Source/ds_cnn_quantized_data.cpp
 CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj -MF CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/Source/ds_cnn_quantized_data.cpp
 
 CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.i: cmake_force
@@ -1892,7 +1934,7 @@ CMakeFiles/KWS_STM32.dir/KWS/Source/ds_cnn_quantized_data.cpp.s: cmake_force
 CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj: ../KWS/Source/model_settings.cpp
 CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj: CMakeFiles/KWS_STM32.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building CXX object CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj"
 	/usr/bin/arm-none-eabi-g++ -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj -MF CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj.d -o CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/KWS/Source/model_settings.cpp
 
 CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.i: cmake_force
@@ -1905,7 +1947,7 @@ CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.s: cmake_force
 
 CMakeFiles/KWS_STM32.dir/CubeMX/startup_stm32f746xx.s.obj: CMakeFiles/KWS_STM32.dir/flags.make
 CMakeFiles/KWS_STM32.dir/CubeMX/startup_stm32f746xx.s.obj: ../CubeMX/startup_stm32f746xx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Building ASM object CMakeFiles/KWS_STM32.dir/CubeMX/startup_stm32f746xx.s.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building ASM object CMakeFiles/KWS_STM32.dir/CubeMX/startup_stm32f746xx.s.obj"
 	/usr/bin/arm-none-eabi-gcc -fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/KWS_STM32.dir/CubeMX/startup_stm32f746xx.s.obj -c /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/CubeMX/startup_stm32f746xx.s
 
 CMakeFiles/KWS_STM32.dir/CubeMX/startup_stm32f746xx.s.i: cmake_force
@@ -1960,7 +2002,6 @@ KWS_STM32_OBJECTS = \
 "CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c.obj" \
 "CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj" \
 "CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.obj" \
-"CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj" \
 "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj" \
 "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj" \
 "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj" \
@@ -2033,6 +2074,11 @@ KWS_STM32_OBJECTS = \
 "CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj" \
 "CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj" \
 "CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj" \
+"CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj" \
+"CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj" \
+"CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj" \
+"CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj" \
+"CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj" \
 "CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj" \
 "CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj" \
 "CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj" \
@@ -2040,7 +2086,6 @@ KWS_STM32_OBJECTS = \
 "CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj" \
 "CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj" \
 "CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj" \
-"CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj" \
 "CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj" \
 "CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj" \
 "CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj" \
@@ -2096,7 +2141,6 @@ KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c.obj
-KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/c/common.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc.obj
@@ -2169,6 +2213,11 @@ KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/mem
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/kiss_fft.c.obj
+KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj
+KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj
+KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj
+KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj
+KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/main.cpp.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/audio_loopback.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/audio_play.c.obj
@@ -2176,7 +2225,6 @@ KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/audio_rec.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/camera.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/eeprom.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.obj
-KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/qspi.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/sd.c.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/Core/Src/sdram_dma.c.obj
@@ -2188,7 +2236,7 @@ KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/KWS/Source/model_settings.cpp.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/CubeMX/startup_stm32f746xx.s.obj
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/build.make
 KWS_STM32.elf: CMakeFiles/KWS_STM32.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Linking CXX executable KWS_STM32.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Linking CXX executable KWS_STM32.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/KWS_STM32.dir/link.txt --verbose=$(VERBOSE)
 	arm-none-eabi-size /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/KWS_STM32.elf
 	arm-none-eabi-objcopy -O ihex /home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/build/KWS_STM32.elf KWS_STM32.hex

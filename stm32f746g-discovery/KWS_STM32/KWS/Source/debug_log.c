@@ -30,13 +30,11 @@ extern UART_HandleTypeDef DebugUartHandler; // Defined in main.cpp
 
 /* Function Definitions -----------------------------------------------------*/
 
-/*
 int __io_putchar(int ch)
 {
 	HAL_UART_Transmit(&DebugUartHandler, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
     return ch;
 }
-*/
 
 
 // Used by TFLite error_reporter

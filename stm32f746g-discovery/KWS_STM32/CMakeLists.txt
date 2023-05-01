@@ -38,7 +38,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 ###############################################################################
 
-# Includes
+#---------------- Includes ----------------#
 set(STM32CUBEMX_INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Inc
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Inc/Legacy
@@ -75,11 +75,15 @@ set(THIRD_PARTY_INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/kissfft
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/ruy)
 
+set(MICROSPEECH_INCLUDE_DIRECTORIES
+    ${CMAKE_CURRENT_SOURCE_DIR}/microspeech/Inc)
+
 set(PROJECT_INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Include)
 
-# Sources
+
+#---------------- Sources ----------------#
 set(STM32CUBEMX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32f7xx_it.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/system_stm32f7xx.c
@@ -122,8 +126,8 @@ set(STM32CUBEMX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_hal_tim.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_hal_uart.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_ll_fmc.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Utilities/Log/lcd_log.c)
+    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c)
+    #${CMAKE_CURRENT_SOURCE_DIR}/Utilities/Log/lcd_log.c)
 
 set (TFLITE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/c/common.c
@@ -201,6 +205,13 @@ set(THIRD_PARTY_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/kissfft/tools/kiss_fftr.c
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/kissfft/kiss_fft.c)
 
+set(MICROSPEECH_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/microspeech/Src/audio_provider.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/microspeech/Src/feature_provider.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/microspeech/Src/micro_features_micro_features_generator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/microspeech/Src/recognize_commands.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/microspeech/Src/command_responder.cpp)
+
 set(PROJECT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/audio_loopback.c
@@ -209,7 +220,7 @@ set(PROJECT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/camera.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/eeprom.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/lcd.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/log.c 
+    #${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/log.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/qspi.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sd.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sdram_dma.c 
@@ -222,7 +233,8 @@ set(PROJECT_SOURCES
 add_executable(${EXECUTABLE}
     ${STM32CUBEMX_SOURCES} 
     ${TFLITE_SOURCES} 
-    ${THIRD_PARTY_SOURCES} 
+    ${THIRD_PARTY_SOURCES}
+    ${MICROSPEECH_SOURCES} 
     ${PROJECT_SOURCES}
     ${STARTUP_SCRIPT})
 
@@ -241,6 +253,9 @@ target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${THIRD_PARTY_INCLUDE_DIRECTORIES})
 
 target_include_directories(${EXECUTABLE} PRIVATE
+    ${MICROSPEECH_INCLUDE_DIRECTORIES})
+
+target_include_directories(${EXECUTABLE} PRIVATE
     ${PROJECT_INCLUDE_DIRECTORIES})
 
 ###############################################################################
@@ -256,7 +271,6 @@ target_compile_options(${EXECUTABLE} PRIVATE
     -Wundef
     -fno-common
     -Wno-unused-parameter
-    -fmessage-length=0
     $<$<COMPILE_LANGUAGE:CXX>:
         -Wconversion # STM libraries!
         -Wno-volatile

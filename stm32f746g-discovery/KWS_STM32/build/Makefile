@@ -273,30 +273,6 @@ Core/Src/lcd.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/Core/Src/lcd.c.s
 .PHONY : Core/Src/lcd.c.s
 
-Core/Src/log.obj: Core/Src/log.c.obj
-.PHONY : Core/Src/log.obj
-
-# target to build an object file
-Core/Src/log.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/Core/Src/log.c.obj
-.PHONY : Core/Src/log.c.obj
-
-Core/Src/log.i: Core/Src/log.c.i
-.PHONY : Core/Src/log.i
-
-# target to preprocess a source file
-Core/Src/log.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/Core/Src/log.c.i
-.PHONY : Core/Src/log.c.i
-
-Core/Src/log.s: Core/Src/log.c.s
-.PHONY : Core/Src/log.s
-
-# target to generate assembly for a file
-Core/Src/log.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/Core/Src/log.c.s
-.PHONY : Core/Src/log.c.s
-
 Core/Src/main.obj: Core/Src/main.cpp.obj
 .PHONY : Core/Src/main.obj
 
@@ -3257,29 +3233,125 @@ KWS/third_party/kissfft/tools/kiss_fftr.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/KWS/third_party/kissfft/tools/kiss_fftr.c.s
 .PHONY : KWS/third_party/kissfft/tools/kiss_fftr.c.s
 
-Utilities/Log/lcd_log.obj: Utilities/Log/lcd_log.c.obj
-.PHONY : Utilities/Log/lcd_log.obj
+microspeech/Src/audio_provider.obj: microspeech/Src/audio_provider.cpp.obj
+.PHONY : microspeech/Src/audio_provider.obj
 
 # target to build an object file
-Utilities/Log/lcd_log.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.obj
-.PHONY : Utilities/Log/lcd_log.c.obj
+microspeech/Src/audio_provider.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.obj
+.PHONY : microspeech/Src/audio_provider.cpp.obj
 
-Utilities/Log/lcd_log.i: Utilities/Log/lcd_log.c.i
-.PHONY : Utilities/Log/lcd_log.i
+microspeech/Src/audio_provider.i: microspeech/Src/audio_provider.cpp.i
+.PHONY : microspeech/Src/audio_provider.i
 
 # target to preprocess a source file
-Utilities/Log/lcd_log.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.i
-.PHONY : Utilities/Log/lcd_log.c.i
+microspeech/Src/audio_provider.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.i
+.PHONY : microspeech/Src/audio_provider.cpp.i
 
-Utilities/Log/lcd_log.s: Utilities/Log/lcd_log.c.s
-.PHONY : Utilities/Log/lcd_log.s
+microspeech/Src/audio_provider.s: microspeech/Src/audio_provider.cpp.s
+.PHONY : microspeech/Src/audio_provider.s
 
 # target to generate assembly for a file
-Utilities/Log/lcd_log.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/Utilities/Log/lcd_log.c.s
-.PHONY : Utilities/Log/lcd_log.c.s
+microspeech/Src/audio_provider.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/audio_provider.cpp.s
+.PHONY : microspeech/Src/audio_provider.cpp.s
+
+microspeech/Src/command_responder.obj: microspeech/Src/command_responder.cpp.obj
+.PHONY : microspeech/Src/command_responder.obj
+
+# target to build an object file
+microspeech/Src/command_responder.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.obj
+.PHONY : microspeech/Src/command_responder.cpp.obj
+
+microspeech/Src/command_responder.i: microspeech/Src/command_responder.cpp.i
+.PHONY : microspeech/Src/command_responder.i
+
+# target to preprocess a source file
+microspeech/Src/command_responder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.i
+.PHONY : microspeech/Src/command_responder.cpp.i
+
+microspeech/Src/command_responder.s: microspeech/Src/command_responder.cpp.s
+.PHONY : microspeech/Src/command_responder.s
+
+# target to generate assembly for a file
+microspeech/Src/command_responder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/command_responder.cpp.s
+.PHONY : microspeech/Src/command_responder.cpp.s
+
+microspeech/Src/feature_provider.obj: microspeech/Src/feature_provider.cpp.obj
+.PHONY : microspeech/Src/feature_provider.obj
+
+# target to build an object file
+microspeech/Src/feature_provider.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.obj
+.PHONY : microspeech/Src/feature_provider.cpp.obj
+
+microspeech/Src/feature_provider.i: microspeech/Src/feature_provider.cpp.i
+.PHONY : microspeech/Src/feature_provider.i
+
+# target to preprocess a source file
+microspeech/Src/feature_provider.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.i
+.PHONY : microspeech/Src/feature_provider.cpp.i
+
+microspeech/Src/feature_provider.s: microspeech/Src/feature_provider.cpp.s
+.PHONY : microspeech/Src/feature_provider.s
+
+# target to generate assembly for a file
+microspeech/Src/feature_provider.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/feature_provider.cpp.s
+.PHONY : microspeech/Src/feature_provider.cpp.s
+
+microspeech/Src/micro_features_micro_features_generator.obj: microspeech/Src/micro_features_micro_features_generator.cpp.obj
+.PHONY : microspeech/Src/micro_features_micro_features_generator.obj
+
+# target to build an object file
+microspeech/Src/micro_features_micro_features_generator.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.obj
+.PHONY : microspeech/Src/micro_features_micro_features_generator.cpp.obj
+
+microspeech/Src/micro_features_micro_features_generator.i: microspeech/Src/micro_features_micro_features_generator.cpp.i
+.PHONY : microspeech/Src/micro_features_micro_features_generator.i
+
+# target to preprocess a source file
+microspeech/Src/micro_features_micro_features_generator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.i
+.PHONY : microspeech/Src/micro_features_micro_features_generator.cpp.i
+
+microspeech/Src/micro_features_micro_features_generator.s: microspeech/Src/micro_features_micro_features_generator.cpp.s
+.PHONY : microspeech/Src/micro_features_micro_features_generator.s
+
+# target to generate assembly for a file
+microspeech/Src/micro_features_micro_features_generator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/micro_features_micro_features_generator.cpp.s
+.PHONY : microspeech/Src/micro_features_micro_features_generator.cpp.s
+
+microspeech/Src/recognize_commands.obj: microspeech/Src/recognize_commands.cpp.obj
+.PHONY : microspeech/Src/recognize_commands.obj
+
+# target to build an object file
+microspeech/Src/recognize_commands.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.obj
+.PHONY : microspeech/Src/recognize_commands.cpp.obj
+
+microspeech/Src/recognize_commands.i: microspeech/Src/recognize_commands.cpp.i
+.PHONY : microspeech/Src/recognize_commands.i
+
+# target to preprocess a source file
+microspeech/Src/recognize_commands.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.i
+.PHONY : microspeech/Src/recognize_commands.cpp.i
+
+microspeech/Src/recognize_commands.s: microspeech/Src/recognize_commands.cpp.s
+.PHONY : microspeech/Src/recognize_commands.s
+
+# target to generate assembly for a file
+microspeech/Src/recognize_commands.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KWS_STM32.dir/build.make CMakeFiles/KWS_STM32.dir/microspeech/Src/recognize_commands.cpp.s
+.PHONY : microspeech/Src/recognize_commands.cpp.s
 
 # Help Target
 help:
@@ -3308,9 +3380,6 @@ help:
 	@echo "... Core/Src/lcd.obj"
 	@echo "... Core/Src/lcd.i"
 	@echo "... Core/Src/lcd.s"
-	@echo "... Core/Src/log.obj"
-	@echo "... Core/Src/log.i"
-	@echo "... Core/Src/log.s"
 	@echo "... Core/Src/main.obj"
 	@echo "... Core/Src/main.i"
 	@echo "... Core/Src/main.s"
@@ -3681,9 +3750,21 @@ help:
 	@echo "... KWS/third_party/kissfft/tools/kiss_fftr.obj"
 	@echo "... KWS/third_party/kissfft/tools/kiss_fftr.i"
 	@echo "... KWS/third_party/kissfft/tools/kiss_fftr.s"
-	@echo "... Utilities/Log/lcd_log.obj"
-	@echo "... Utilities/Log/lcd_log.i"
-	@echo "... Utilities/Log/lcd_log.s"
+	@echo "... microspeech/Src/audio_provider.obj"
+	@echo "... microspeech/Src/audio_provider.i"
+	@echo "... microspeech/Src/audio_provider.s"
+	@echo "... microspeech/Src/command_responder.obj"
+	@echo "... microspeech/Src/command_responder.i"
+	@echo "... microspeech/Src/command_responder.s"
+	@echo "... microspeech/Src/feature_provider.obj"
+	@echo "... microspeech/Src/feature_provider.i"
+	@echo "... microspeech/Src/feature_provider.s"
+	@echo "... microspeech/Src/micro_features_micro_features_generator.obj"
+	@echo "... microspeech/Src/micro_features_micro_features_generator.i"
+	@echo "... microspeech/Src/micro_features_micro_features_generator.s"
+	@echo "... microspeech/Src/recognize_commands.obj"
+	@echo "... microspeech/Src/recognize_commands.i"
+	@echo "... microspeech/Src/recognize_commands.s"
 .PHONY : help
 
 
