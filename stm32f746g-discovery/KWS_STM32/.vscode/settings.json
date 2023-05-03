@@ -3,6 +3,10 @@
     "files.associations": {
         "main.h": "c",
         "debug_log.h": "c",
-        "stm32746g_discovery.h": "c"
+        "stm32746g_discovery.h": "c",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp"
     }
 }

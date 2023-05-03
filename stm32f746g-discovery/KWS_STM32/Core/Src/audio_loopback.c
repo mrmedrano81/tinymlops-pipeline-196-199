@@ -45,7 +45,7 @@ typedef enum
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-extern uint32_t  audio_rec_buffer_state;
+uint32_t  audio_rec_buffer_state;
 
 /* Private function prototypes -----------------------------------------------*/
 static void AudioLoopback_SetHint(void);
@@ -168,7 +168,55 @@ static void AudioLoopback_SetHint(void)
 
 }
 
+/*------------------------------------------------------------------------------
+       Callbacks implementation:
+           the callbacks API are defined __weak in the stm32746g_discovery_audio.c file
+           and their implementation should be done the user code if they are needed.
+           Below some examples of callback implementations.
+  ----------------------------------------------------------------------------*/
+/**
+  * @brief Manages the DMA Transfer complete interrupt.
+  * @param None
+  * @retval None
+  */
+void BSP_AUDIO_IN_TransferComplete_CallBack(void)
+{
+  audio_rec_buffer_state = BUFFER_OFFSET_FULL;
+  return;
+}
 
+/**
+  * @brief  Manages the DMA Half Transfer complete interrupt.
+  * @param  None
+  * @retval None
+  */
+void BSP_AUDIO_IN_HalfTransfer_CallBack(void)
+{
+  audio_rec_buffer_state = BUFFER_OFFSET_HALF;
+  return;
+}
+
+/**
+  * @brief  Audio IN Error callback function.
+  * @param  None
+  * @retval None
+  */
+void BSP_AUDIO_IN_Error_CallBack(void)
+{
+  /* This function is called when an Interrupt due to transfer error on or peripheral
+     error occurs. */
+  /* Display message on the LCD screen */
+  BSP_LCD_SetBackColor(LCD_COLOR_RED);
+  BSP_LCD_DisplayStringAt(0, LINE(14), (uint8_t *)"       DMA  ERROR     ", CENTER_MODE);
+
+  /* Stop the program with an infinite loop */
+  while (BSP_PB_GetState(BUTTON_KEY) != RESET)
+  {
+    return;
+  }
+  /* could also generate a system reset to recover from the error */
+  /* .... */
+}
 
 /**
   * @}

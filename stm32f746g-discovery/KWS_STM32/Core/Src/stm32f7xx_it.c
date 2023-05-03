@@ -216,16 +216,6 @@ void BSP_SDRAM_DMA_IRQHandler(void)
 }
 
 /**
-  * @brief  DMA interrupt handler.
-  * @param  None
-  * @retval None
-  */
-void DMA2_Stream1_IRQHandler(void)
-{
-  BSP_CAMERA_DMA_IRQHandler();
-}
-
-/**
   * @brief  This function handles DMA2 Stream 6 interrupt request.
   * @param  None
   * @retval None
@@ -233,26 +223,6 @@ void DMA2_Stream1_IRQHandler(void)
 void AUDIO_OUT_SAIx_DMAx_IRQHandler(void)
 {
   HAL_DMA_IRQHandler(haudio_out_sai.hdmatx);
-}
-
-/**
-  * @brief  DCMI interrupt handler.
-  * @param  None
-  * @retval None
-  */
-void DCMI_IRQHandler(void)
-{
-  BSP_CAMERA_IRQHandler();
-}
-
-/**
-  * @brief  This function handles DMA2D Handler.
-  * @param  None
-  * @retval None
-  */
-void DMA2D_IRQHandler(void)
-{
-  BSP_LCD_DMA2D_IRQHandler();
 }
 
 /**

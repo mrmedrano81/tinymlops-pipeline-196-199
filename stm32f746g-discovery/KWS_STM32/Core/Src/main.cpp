@@ -21,13 +21,10 @@ extern "C" {
   #include "main.h"
 }
 
+#include "main_functions.h"
 #include "stlogo.h"
 
-#include "tensorflow/lite/micro/kernels/all_ops_resolver.h"
-#include "tensorflow/lite/micro/micro_error_reporter.h"
-#include "tensorflow/lite/micro/micro_interpreter.h"
-#include "tensorflow/lite/schema/schema_generated.h"
-#include "tensorflow/lite/version.h"
+
 
 /** @addtogroup STM32F7xx_HAL_Examples
   * @{
@@ -43,20 +40,6 @@ extern "C" {
 /* Private variables ---------------------------------------------------------*/
 static uint8_t DemoIndex = 0;
 static uint8_t hi = 1;
-
-namespace
-{
-    tflite::ErrorReporter* error_reporter = nullptr;
-    const tflite::Model* model = nullptr;
-    tflite::MicroInterpreter* interpreter = nullptr;
-    TfLiteTensor* model_input = nullptr;
-    TfLiteTensor* model_output = nullptr;
-
-    // Create an area of memory to use for input, output, and intermediate arrays.
-    // Finding the minimum value for your model may require some trial and error.
-    constexpr uint32_t kTensorArenaSize = 20 * 1024;
-    uint8_t tensor_arena[kTensorArenaSize];
-} // namespace
 
 /* Global extern variables ---------------------------------------------------*/
 uint8_t NbLoop = 1;
@@ -74,21 +57,12 @@ static void error_handler(void);
 static void uart1_init(void);
 UART_HandleTypeDef DebugUartHandler;
 
-
-
 BSP_DemoTypedef  BSP_examples[] =
   {
-    /*{LCD_demo, "LCD", 0},
-    {Touchscreen_demo, "TOUCHSCREEN", 0},
-    {AudioRec_demo, "AUDIO RECORD", 0},*/
-    {AudioLoopback_demo, "AUDIO LOOPBACK", 0},
-    //{AudioPlay_demo, "AUDIO PLAY", 0},
-    //{SD_demo, "mSD", 0},
-    //{Log_demo, "LCD LOG", 0},
+    {AudioLoopback_demo, "AUDIO LOOPBACK", 0}
     /*{SDRAM_demo, "SDRAM", 0},
-    {SDRAM_DMA_demo, "SDRAM DMA", 0},
-    {EEPROM_demo, "EEPROM", 0},
-    {QSPI_demo, "QSPI", 0},*/
+    {SDRAM_DMA_demo, "SDRAM DMA", 0},*/
+
   };
 
 /* Private functions ---------------------------------------------------------*/
@@ -113,13 +87,17 @@ int main(void)
        - Configure the Systick to generate an interrupt each 1 msec
        - Set NVIC Group Priority to 4
        - Global MSP (MCU Support Package) initialization
-     */
+  */
   HAL_Init();
+
   /* Configure the system clock to 200 Mhz */
   SystemClock_Config();
 
   // Initialize UART
   uart1_init();
+
+  // KWS main functions setup
+  setup();
 
   BSP_LED_Init(LED1);
 
@@ -133,12 +111,6 @@ int main(void)
 
   /* Initialize the LCD Layers */
   BSP_LCD_LayerDefaultInit(LTDC_ACTIVE_LAYER, LCD_FRAME_BUFFER);
-
-
-  /*###################################  CUSTOM CODE   ######################################################*/
-  static tflite::MicroErrorReporter micro_error_reporter;
-  error_reporter = &micro_error_reporter;
-  TF_LITE_REPORT_ERROR(error_reporter, "Error Reporter Initialized");
 
   Display_DemoDescription();
 
@@ -424,13 +396,6 @@ static void error_handler(void)
     BSP_LED_On(LED_GREEN);
     while(1);
 }
-
-
-
-
-
-
-
 
 
 #ifdef  USE_FULL_ASSERT

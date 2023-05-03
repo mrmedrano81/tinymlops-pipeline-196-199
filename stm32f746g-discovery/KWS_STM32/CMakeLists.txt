@@ -1,6 +1,6 @@
 # STM32 Minimal CMake project for C/C++ projects
 cmake_minimum_required(VERSION 3.12)
-###############################################################################
+##################################################################################################
 # Set project name and source code folder location
 project(KWS_STM32)
 
@@ -21,7 +21,7 @@ set(CPU_PARAMETERS
 set(STARTUP_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/CubeMX/startup_stm32f746xx.s)
 set(MCU_LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/CubeMX/STM32F746NGHx_FLASH.ld)
 
-###############################################################################
+##################################################################################################
 set(EXECUTABLE ${CMAKE_PROJECT_NAME})
 
 enable_language(C CXX ASM)
@@ -32,9 +32,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
-###############################################################################
 
-# Includes
+############################################ Includes ############################################
+
 set(STM32CUBEMX_INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Inc
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Inc/Legacy
@@ -75,11 +75,12 @@ set(PROJECT_INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Include)
 
-# Sources
+############################################ Sources ############################################
+
 set(STM32CUBEMX_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/sysmem.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/syscalls.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/stm32f7xx_hal_msp.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/syscalls.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sysmem.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32f7xx_hal_msp.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32f7xx_it.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/system_stm32f7xx.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/Components/ft5336/ft5336.c
@@ -203,20 +204,17 @@ set(THIRD_PARTY_SOURCES
 set(PROJECT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/audio_loopback.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/audio_play.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/audio_rec.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/camera.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/eeprom.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/lcd.c 
-    #${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/log.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/qspi.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sd.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sdram_dma.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sdram.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/touchscreen.c
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/debug_log.c
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/ds_cnn_quantized_data.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/model_settings.cpp)
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/model_settings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/audio_provider.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/command_responder.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/feature_provider.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/main_functions.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/recognize_commands.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_micro_features_generator.cpp)
 
 add_executable(${EXECUTABLE}
     ${STM32CUBEMX_SOURCES} 
@@ -243,7 +241,9 @@ target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
 
 target_include_directories(${EXECUTABLE} PRIVATE
     ${PROJECT_INCLUDE_DIRECTORIES})
-###############################################################################
+
+##################################################################################################
+
 target_compile_options(${EXECUTABLE} PRIVATE
     ${CPU_PARAMETERS}
     -Wall
