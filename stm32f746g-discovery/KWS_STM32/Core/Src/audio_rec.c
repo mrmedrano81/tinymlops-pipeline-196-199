@@ -194,22 +194,25 @@ static void AudioRec_SetHint(void)
   * @param None
   * @retval None
   */
-void BSP_AUDIO_IN_TransferComplete_CallBack(void)
+
+
+/*void BSP_AUDIO_IN_TransferComplete_CallBack(void)
 {
   audio_rec_buffer_state = BUFFER_OFFSET_FULL;
   return;
-}
+}*/
 
 /**
   * @brief  Manages the DMA Half Transfer complete interrupt.
   * @param  None
   * @retval None
   */
-void BSP_AUDIO_IN_HalfTransfer_CallBack(void)
+
+/*void BSP_AUDIO_IN_HalfTransfer_CallBack(void)
 {
   audio_rec_buffer_state = BUFFER_OFFSET_HALF;
   return;
-}
+}*/
 
 /**
   * @brief  Audio IN Error callback function.

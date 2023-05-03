@@ -7,6 +7,21 @@
         "limits": "cpp",
         "stm32f7xx_hal_uart.h": "c",
         "stm32f7xx_hal.h": "c",
-        "cstdarg": "cpp"
+        "cstdarg": "cpp",
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp",
+        "functional": "cpp",
+        "ranges": "cpp",
+        "ratio": "cpp",
+        "sstream": "cpp",
+        "stop_token": "cpp",
+        "streambuf": "cpp",
+        "tuple": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "cstring": "cpp"
     }
 }

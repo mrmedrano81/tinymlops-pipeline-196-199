@@ -122,6 +122,7 @@ void setup() {
 
   // Get information about the memory area to use for the model's input.
   model_input = interpreter->input(0);
+
   if ((model_input->dims->size != 2) || (model_input->dims->data[0] != 1) ||
       (model_input->dims->data[1] !=
        (kFeatureSliceCount * kFeatureSliceSize)) ||
@@ -183,6 +184,11 @@ void loop() {
 
   // Obtain a pointer to the output tensor
   TfLiteTensor* output = interpreter->output(0);
+
+  TF_LITE_REPORT_ERROR(error_reporter, "size: %d", output->dims->size);
+  TF_LITE_REPORT_ERROR(error_reporter, "dims: %d", output->dims->data[0]);
+  TF_LITE_REPORT_ERROR(error_reporter, "kCategoryCount: %d", output->dims->data[1]);
+
   // Determine whether a command was recognized based on the output of inference
   const char* found_command = nullptr;
   uint8_t score = 0;
@@ -251,7 +257,8 @@ int main(void)
   int counter = 0;
   while (1)
   {
-    loop();
+    //loop();
+    AudioLoopback_demo();
   }
 }
 
@@ -529,6 +536,7 @@ static void error_handler(void)
     BSP_LED_On(LED_GREEN);
     while(1);
 }
+
 
 #ifdef  USE_FULL_ASSERT
 

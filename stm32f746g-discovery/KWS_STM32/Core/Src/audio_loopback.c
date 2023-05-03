@@ -38,7 +38,7 @@ typedef enum
   BUFFER_OFFSET_FULL = 2,
 }BUFFER_StateTypeDef;
 
-#define AUDIO_BLOCK_SIZE   ((uint32_t)512)
+#define AUDIO_BLOCK_SIZE   ((uint32_t)32768)
 #define AUDIO_BUFFER_IN    AUDIO_REC_START_ADDR     /* In SDRAM */
 #define AUDIO_BUFFER_OUT   (AUDIO_REC_START_ADDR + (AUDIO_BLOCK_SIZE * 2)) /* In SDRAM */
 

@@ -40,4 +40,4 @@ constexpr int kUnknownIndex = 1;
 constexpr int kCategoryCount = 12;
 extern const char* kCategoryLabels[kCategoryCount];
 
-#endif  // MICRO_MODEL_SETTINGS_H_
+#endif  // MODEL_SETTINGS_H_
