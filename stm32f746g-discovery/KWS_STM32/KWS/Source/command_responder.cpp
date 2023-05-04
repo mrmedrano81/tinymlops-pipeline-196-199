@@ -20,7 +20,7 @@ void RespondToCommand(tflite::ErrorReporter* error_reporter, int32_t current_tim
             const char* found_command, uint8_t score, bool is_new_command) {
         
         if (is_new_command == true) {
-            TF_LITE_REPORT_ERROR(error_reporter, "Command: %s, Score: %d, Time: %dms", found_command, score, current_time);
+            //TF_LITE_REPORT_ERROR(error_reporter, "Command: %s, Score: %d, Time: %dms", found_command, score, current_time);
             
             BSP_LCD_Clear(LCD_COLOR_WHITE);
             BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
@@ -35,7 +35,7 @@ void RespondToCommand(tflite::ErrorReporter* error_reporter, int32_t current_tim
             BSP_LCD_DisplayStringAt(0, 30, (uint8_t *)score, CENTER_MODE);
         }
         else {
-            TF_LITE_REPORT_ERROR(error_reporter, "Command: %s, Score: %d, Time: %dms", found_command, score, current_time);
+            //TF_LITE_REPORT_ERROR(error_reporter, "Command: %s, Score: %d, Time: %dms", found_command, score, current_time);
             BSP_LCD_Clear(LCD_COLOR_WHITE);
             BSP_LCD_SetTextColor(LCD_COLOR_RED);
             BSP_LCD_FillRect(0, 0, BSP_LCD_GetXSize(), 90);

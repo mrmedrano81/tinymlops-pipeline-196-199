@@ -1,16 +1,17 @@
 #include "main.h"
 #include <stdio.h>
 #include "string.h"
+
 #include "audio_provider.h"
 #include "model_settings.h"
+//#include "micro_features_micro_model_settings.h"
 #include "stm32746g_discovery_audio.h"
 #include "stm32746g_discovery_sdram.h"
 
 
 namespace {
-
 bool g_is_audio_initialized = false;
-constexpr int kAudioCaptureBufferSize = kMaxAudioSampleSize * 16;
+constexpr int kAudioCaptureBufferSize = kAudioSampleFrequency * 0.5; //8192
 int16_t g_audio_capture_buffer[kAudioCaptureBufferSize];
 int16_t g_audio_output_buffer[kMaxAudioSampleSize];
 int32_t g_latest_audio_timestamp = 0;
@@ -22,15 +23,16 @@ typedef enum {
 } BUFFER_StateTypeDef;
 
 #define AUDIO_BLOCK_SIZE ((uint32_t)2048)
-#define AUDIO_BUFFER_IN SDRAM_DEVICE_ADDR /* In SDRAM */
-#define AUDIO_BUFFER_OUT (SDRAM_DEVICE_ADDR + (AUDIO_BLOCK_SIZE * 2)) /* In SDRAM */
+#define AUDIO_BUFFER_IN AUDIO_REC_START_ADDR /* In SDRAM */
+#define AUDIO_BUFFER_OUT (AUDIO_REC_START_ADDR + (AUDIO_BLOCK_SIZE * 2)) /* In SDRAM */
 
-__IO uint32_t g_audio_rec_buffer_state = BUFFER_OFFSET_NONE;
+volatile uint32_t g_audio_rec_buffer_state = BUFFER_OFFSET_NONE;
 
 
 TfLiteStatus InitAudioRecording(tflite::ErrorReporter* error_reporter) {
 
-  if (BSP_AUDIO_IN_OUT_Init(INPUT_DEVICE_DIGITAL_MICROPHONE_2, OUTPUT_DEVICE_HEADPHONE, DEFAULT_AUDIO_IN_FREQ, DEFAULT_AUDIO_IN_BIT_RESOLUTION, DEFAULT_AUDIO_IN_CHANNEL_NBR) == AUDIO_OK) {
+  if (BSP_AUDIO_IN_OUT_Init(INPUT_DEVICE_DIGITAL_MICROPHONE_2, OUTPUT_DEVICE_HEADPHONE, 
+      DEFAULT_AUDIO_IN_FREQ, DEFAULT_AUDIO_IN_BIT_RESOLUTION, DEFAULT_AUDIO_IN_CHANNEL_NBR) == AUDIO_OK) {
     BSP_LCD_Clear(LCD_COLOR_WHITE);
     BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
     BSP_LCD_FillRect(0, 0, BSP_LCD_GetXSize(), 90);
@@ -52,17 +54,7 @@ TfLiteStatus InitAudioRecording(tflite::ErrorReporter* error_reporter) {
   memset((uint16_t*)AUDIO_BUFFER_OUT, 0, AUDIO_BLOCK_SIZE * 2);
   g_audio_rec_buffer_state = BUFFER_OFFSET_NONE;
 
-
-  /* Start Recording */
-  if (BSP_AUDIO_IN_Record((uint16_t *)AUDIO_BUFFER_IN, AUDIO_BLOCK_SIZE) != AUDIO_OK) {
-      printf("BSP_AUDIO_IN_Record error\n");
-  }
-
-  /* Start Playback */
-  BSP_AUDIO_OUT_SetAudioFrameSlot(CODEC_AUDIOFRAME_SLOT_02);
-  if (BSP_AUDIO_OUT_Play((uint16_t *)AUDIO_BUFFER_OUT, AUDIO_BLOCK_SIZE * 2) != AUDIO_OK) {
-      printf("BSP_AUDIO_OUT_Play error\n");
-  }
+  BSP_AUDIO_IN_SetVolume(85);
 
   // Start Recording.
   BSP_AUDIO_IN_Record((uint16_t*)AUDIO_BUFFER_IN, AUDIO_BLOCK_SIZE);
@@ -75,13 +67,17 @@ TfLiteStatus InitAudioRecording(tflite::ErrorReporter* error_reporter) {
 }
 
 void CaptureSamples(const int16_t* sample_data) {
-  const int sample_size = AUDIO_BLOCK_SIZE / (sizeof(int16_t) * 2);
-  const int32_t time_in_ms = g_latest_audio_timestamp + (sample_size / (kAudioSampleFrequency / 1000));
+  
+  const int sample_size = AUDIO_BLOCK_SIZE / (sizeof(int16_t) * 2); // 512
+  
+  const int32_t time_in_ms = g_latest_audio_timestamp + (sample_size / (kAudioSampleFrequency / 1000)); // 32ms diff
 
-  const int32_t start_sample_offset = g_latest_audio_timestamp * (kAudioSampleFrequency / 1000);
+  const int32_t start_sample_offset = g_latest_audio_timestamp * (kAudioSampleFrequency / 1000); // 512
+
   for (int i = 0; i < sample_size; ++i) {
     const int capture_index = (start_sample_offset + i) % kAudioCaptureBufferSize;
     g_audio_capture_buffer[capture_index] = (sample_data[(i * 2) + 0] / 2) + (sample_data[(i * 2) + 1] / 2);
+    //g_audio_capture_buffer[capture_index] = (sample_data[i * 2]);
   }
   // This is how we let the outside world know that new audio data has arrived.
   g_latest_audio_timestamp = time_in_ms;
@@ -92,27 +88,28 @@ void CaptureSamples(const int16_t* sample_data) {
 // These callbacks need to be linkable symbols, because they override weak
 // default versions.
 
-/*
+
 void BSP_AUDIO_IN_TransferComplete_CallBack(void) {
   g_audio_rec_buffer_state = BUFFER_OFFSET_FULL;
+
+  memcpy((uint16_t*)(AUDIO_BUFFER_OUT + (AUDIO_BLOCK_SIZE)),
+         (uint16_t*)(AUDIO_BUFFER_IN + (AUDIO_BLOCK_SIZE)), AUDIO_BLOCK_SIZE);
+  CaptureSamples(reinterpret_cast<int16_t*>(AUDIO_BUFFER_IN + AUDIO_BLOCK_SIZE));
   
-  memcpy((uint16_t*)(AUDIO_BUFFER_OUT), (uint16_t*)(AUDIO_BUFFER_IN),
-         AUDIO_BLOCK_SIZE);
-  CaptureSamples(reinterpret_cast<int16_t*>(AUDIO_BUFFER_IN));
   return;
 }
 
-// Another weak symbol override.
+
 void BSP_AUDIO_IN_HalfTransfer_CallBack(void) {
+
   g_audio_rec_buffer_state = BUFFER_OFFSET_HALF;
+
+  memcpy((uint16_t*)(AUDIO_BUFFER_OUT), (uint16_t*)(AUDIO_BUFFER_IN), AUDIO_BLOCK_SIZE);
+  CaptureSamples(reinterpret_cast<int16_t*>(AUDIO_BUFFER_IN));
   
-  memcpy((uint16_t*)(AUDIO_BUFFER_OUT + (AUDIO_BLOCK_SIZE)),
-         (uint16_t*)(AUDIO_BUFFER_IN + (AUDIO_BLOCK_SIZE)), AUDIO_BLOCK_SIZE);
-  CaptureSamples(
-      reinterpret_cast<int16_t*>(AUDIO_BUFFER_IN + AUDIO_BLOCK_SIZE));
   return;
 }
-*/
+
 
 // Main entry point for getting audio data.
 TfLiteStatus GetAudioSamples(tflite::ErrorReporter* error_reporter,

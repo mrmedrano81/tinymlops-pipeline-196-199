@@ -78,12 +78,6 @@
 #define AUDIO_SRC_FILE_ADDRESS       0x08080000   /* Audio file address in flash */
 
 /* Exported types ------------------------------------------------------------*/
-typedef struct
-{
-  void   (*DemoFunc)(void);
-  uint8_t DemoName[50]; 
-  uint32_t DemoIndex;
-}BSP_DemoTypedef;
 
 typedef enum {
   AUDIO_ERROR_NONE = 0,
@@ -102,7 +96,6 @@ extern uint32_t    ErrorCounter;
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 
-#define COUNT_OF_EXAMPLE(x)    (sizeof(x)/sizeof(BSP_DemoTypedef))
 /* Exported functions ------------------------------------------------------- */
 void AudioLoopback_demo (void);
 void SDRAM_demo(void);

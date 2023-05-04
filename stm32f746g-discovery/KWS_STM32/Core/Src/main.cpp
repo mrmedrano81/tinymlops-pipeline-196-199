@@ -57,14 +57,6 @@ static void error_handler(void);
 static void uart1_init(void);
 UART_HandleTypeDef DebugUartHandler;
 
-BSP_DemoTypedef  BSP_examples[] =
-  {
-    {AudioLoopback_demo, "AUDIO LOOPBACK", 0}
-    /*{SDRAM_demo, "SDRAM", 0},
-    {SDRAM_DMA_demo, "SDRAM DMA", 0},*/
-
-  };
-
 /* Private functions ---------------------------------------------------------*/
 
 /**
@@ -117,15 +109,8 @@ int main(void)
   /* Wait For User inputs */
   while (1)
   {
-    if (BSP_PB_GetState(BUTTON_KEY) != RESET)
-    {
-      HAL_Delay(100);
-      while (BSP_PB_GetState(BUTTON_KEY) != RESET);
-
-      BSP_examples[DemoIndex++].DemoFunc();
-
-      Display_DemoDescription();
-    }
+    loop();
+    //AudioLoopback_demo();
   }
 }
 
@@ -187,8 +172,11 @@ static void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  ret = HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5);
+  ret = HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_7);
   ASSERT(ret != HAL_OK);
+
+  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_4);
+
 }
 
 /**
@@ -213,8 +201,8 @@ static void Display_DemoDescription(void)
   BSP_LCD_SetTextColor(LCD_COLOR_DARKBLUE);
 
   /* Display LCD messages */
-  BSP_LCD_DisplayStringAt(0, 10, (uint8_t *)"STM32F746G BSP", CENTER_MODE);
-  BSP_LCD_DisplayStringAt(0, 35, (uint8_t *)"Drivers examples", CENTER_MODE);
+  BSP_LCD_DisplayStringAt(0, 10, (uint8_t *)"TINYMLOPS PIPELINE 196-199", CENTER_MODE);
+  BSP_LCD_DisplayStringAt(0, 35, (uint8_t *)"KWS on STM32F746g-disco", CENTER_MODE);
 
   /* Draw Bitmap */
   BSP_LCD_DrawBitmap((BSP_LCD_GetXSize() - 80) / 2, 65, (uint8_t *)stlogo);
@@ -225,11 +213,6 @@ static void Display_DemoDescription(void)
   BSP_LCD_SetFont(&Font16);
   BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
   BSP_LCD_FillRect(0, BSP_LCD_GetYSize() / 2 + 15, BSP_LCD_GetXSize(), 60);
-  BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
-  BSP_LCD_SetBackColor(LCD_COLOR_BLUE);
-  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize() / 2 + 30, (uint8_t *)"Press User Button to start :", CENTER_MODE);
-  sprintf((char *)desc, "%s example", BSP_examples[DemoIndex].DemoName);
-  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize() / 2 + 45, (uint8_t *)desc, CENTER_MODE);
 }
 
 /**

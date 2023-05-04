@@ -215,6 +215,9 @@ set(PROJECT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/main_functions.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/recognize_commands.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_micro_features_generator.cpp)
+    
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_micro_model_settings.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_model.cpp)
 
 add_executable(${EXECUTABLE}
     ${STM32CUBEMX_SOURCES} 

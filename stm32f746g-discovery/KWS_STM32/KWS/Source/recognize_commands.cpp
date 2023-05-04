@@ -55,6 +55,8 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
     return kTfLiteError;
   }
 
+  TF_LITE_REPORT_ERROR(error_reporter_, "check 2");
+
   if ((!previous_results_.empty()) &&
       (current_time_ms < previous_results_.front().time_)) {
     TF_LITE_REPORT_ERROR(
@@ -64,6 +66,8 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
         current_time_ms, previous_results_.front().time_);
     return kTfLiteError;
   }
+
+  TF_LITE_REPORT_ERROR(error_reporter_, "check 3");
 
   // Add the latest results to the head of the queue.
   previous_results_.push_back({current_time_ms, latest_results->data.int8});
@@ -75,19 +79,25 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
     previous_results_.pop_front();
   }
 
+  TF_LITE_REPORT_ERROR(error_reporter_, "check 4");
   // If there are too few results, assume the result will be unreliable and
   // bail.
   const int64_t how_many_results = previous_results_.size();
   const int64_t earliest_time = previous_results_.front().time_;
   const int64_t samples_duration = current_time_ms - earliest_time;
+
+  TF_LITE_REPORT_ERROR(error_reporter_, "hmr: %d, et: %d, sd: %d", how_many_results, earliest_time, samples_duration);
+  
   if ((how_many_results < minimum_count_) ||
       (samples_duration < (average_window_duration_ms_ / 4))) {
+    TF_LITE_REPORT_ERROR(error_reporter_, "hmr < mc: %d", (how_many_results < minimum_count_));
     *found_command = previous_top_label_;
     *score = 0;
     *is_new_command = false;
     return kTfLiteOk;
   }
 
+  TF_LITE_REPORT_ERROR(error_reporter_, "check 5");
   // Calculate the average score across all the results in the window.
   int32_t average_scores[kCategoryCount];
   for (int offset = 0; offset < previous_results_.size(); ++offset) {
@@ -106,6 +116,7 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
     average_scores[i] /= how_many_results;
   }
 
+  TF_LITE_REPORT_ERROR(error_reporter_, "check 6");
   // Find the current highest scoring category.
   int current_top_index = 0;
   int32_t current_top_score = 0;
@@ -115,7 +126,10 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
       current_top_index = i;
     }
   }
+
   const char* current_top_label = kCategoryLabels[current_top_index];
+  TF_LITE_REPORT_ERROR(error_reporter_, "current_top_score: %d current_top_index: %d current_top_label: %s", 
+                       current_top_score, current_top_index, current_top_label);
 
   // If we've recently had another label trigger, assume one that occurs too
   // soon afterwards is a bad result.

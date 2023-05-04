@@ -20,7 +20,10 @@ limitations under the License.
 #include "command_responder.h"
 
 #include "ds_cnn_quantized_data.h"
+//#include "micro_features_model.h"
+
 #include "model_settings.h"
+//#include "micro_features_micro_model_settings.h"
 
 #include "tensorflow/lite/micro/kernels/all_ops_resolver.h"
 #include "tensorflow/lite/micro/micro_error_reporter.h"
@@ -41,7 +44,7 @@ int32_t previous_time = 0;
 // Create an area of memory to use for input, output, and intermediate arrays.
 // The size of this will depend on the model you're using, and may need to be
 // determined by experimentation.
-constexpr int kTensorArenaSize = 70 * 1024;
+constexpr int kTensorArenaSize = 50 * 1024;
 __attribute__((aligned(16)))uint8_t tensor_arena[kTensorArenaSize];
 int8_t feature_buffer[kFeatureElementCount];
 int8_t* model_input_buffer = nullptr;
@@ -54,6 +57,7 @@ void setup() {
   error_reporter = &micro_error_reporter;
 
   model = tflite::GetModel(g_ds_cnn_quantized_data);
+  //model = tflite::GetModel(g_model);
   if (model->version() != TFLITE_SCHEMA_VERSION) {
     TF_LITE_REPORT_ERROR(error_reporter,
                          "Model provided is schema version %d not equal "
@@ -105,7 +109,6 @@ void setup() {
 
   previous_time = 0;
 
-
 }
 
 // The name of this function is important for Arduino compatibility.
@@ -131,6 +134,10 @@ void loop() {
     model_input_buffer[i] = feature_buffer[i];
   }
 
+  
+  // Obtain a pointer to the output tensor
+
+
   // Run the model on the spectrogram input and make sure it succeeds.
   TfLiteStatus invoke_status = interpreter->Invoke();
   if (invoke_status != kTfLiteOk) {
@@ -138,8 +145,12 @@ void loop() {
     return;
   }
 
-  // Obtain a pointer to the output tensor
   TfLiteTensor* output = interpreter->output(0);
+  TF_LITE_REPORT_ERROR(error_reporter, "0: %d, 1: %d 2: %d, 3: %d, 4: %d, 5: %d, 6: %d, 7: %d, 8: %d, 9: %d, 10: %d, 11: %d, 12: %d, dims: %d", 
+                       output->data.int8[0], output->data.int8[1], output->data.int8[2], output->data.int8[3], output->data.int8[4]
+                       , output->data.int8[5], output->data.int8[6], output->data.int8[7], output->data.int8[8], output->data.int8[9]
+                       , output->data.int8[10], output->data.int8[11], output->data.int8[12], output->dims->data[1]);
+
   // Determine whether a command was recognized based on the output of inference
   const char* found_command = nullptr;
   uint8_t score = 0;
