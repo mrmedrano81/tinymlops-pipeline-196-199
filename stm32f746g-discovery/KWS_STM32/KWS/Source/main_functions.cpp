@@ -12,7 +12,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
-
 #include "main_functions.h"
 #include "audio_provider.h"
 #include "feature_provider.h"
@@ -25,7 +24,8 @@ limitations under the License.
 #include "model_settings.h"
 //#include "micro_features_micro_model_settings.h"
 
-#include "tensorflow/lite/micro/kernels/all_ops_resolver.h"
+#include "tensorflow/lite/micro/all_ops_resolver.h"
+#include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/schema/schema_generated.h"
@@ -66,7 +66,8 @@ void setup() {
     return;
   }
 
-  static tflite::ops::micro::AllOpsResolver resolver;
+  //ops resolver
+  tflite::AllOpsResolver resolver;
 
   // Build an interpreter to run the model with.
   static tflite::MicroInterpreter static_interpreter(model, resolver, tensor_arena, kTensorArenaSize, error_reporter);

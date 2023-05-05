@@ -14,6 +14,8 @@ limitations under the License.
 ==============================================================================*/
 
 #include "tensorflow/lite/c/common.h"
+#include "tensorflow/lite/c/c_api_types.h"
+
 #ifndef TF_LITE_STATIC_MEMORY
 #include <stdlib.h>
 #include <string.h>
@@ -203,10 +205,14 @@ const char* TfLiteTypeGetName(TfLiteType type) {
       return "INT8";
     case kTfLiteInt64:
       return "INT64";
+    case kTfLiteUInt64:
+      return "UINT64";
     case kTfLiteBool:
       return "BOOL";
     case kTfLiteComplex64:
       return "COMPLEX64";
+    case kTfLiteComplex128:
+      return "COMPLEX128";
     case kTfLiteString:
       return "STRING";
     case kTfLiteFloat16:

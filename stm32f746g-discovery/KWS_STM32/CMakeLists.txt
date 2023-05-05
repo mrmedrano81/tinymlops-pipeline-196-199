@@ -47,6 +47,7 @@ set(STM32CUBEMX_INCLUDE_DIRECTORIES
 
 set(TFLITE_INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/core/public
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite
@@ -60,16 +61,32 @@ set(TFLITE_INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/kernels/internal/reference/integer_ops
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/memory_planner
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/testing
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/schema)
 
+set(CMSIS_INCLUDE_DIRECTORIES
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/Core
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/Core/Include
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/DSP
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/DSP/Include
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/DSP/Include/dsp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Include)
+
 set(THIRD_PARTY_INCLUDE_DIRECTORIES
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/flatbuffers/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/gemmlowp
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/kissfft
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/ruy)
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/third_party
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/third_party/flatbuffers/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/third_party/flatbuffers/include/flatbuffers
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/third_party/gemmlowp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/third_party/kissfft
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/third_party/ruy)
 
 set(PROJECT_INCLUDE_DIRECTORIES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc
@@ -127,10 +144,10 @@ set(STM32CUBEMX_SOURCES
 
 set (TFLITE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/c/common.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/core/api/error_reporter.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/core/api/flatbuffer_conversions.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/core/api/op_resolver.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/core/api/tensor_utils.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft_util.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/fft.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/filterbank_util.c
@@ -146,60 +163,148 @@ set (TFLITE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/pcan_gain_control.c
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window_util.c
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/experimental/microfrontend/lib/window.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_optional_debug_tools.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_string.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_time.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/add.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/all_ops_resolver.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/conv.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/depthwise_conv.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/fully_connected.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/mul.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/pooling.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/softmax.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/testing/test_utils.cc)
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/kernels/kernel_util.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/kernels/internal/quantization_util.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/all_ops_resolver.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/memory_helpers.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_allocator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_error_reporter.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_interpreter.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_profiler.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_string.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_time.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/micro_utils.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/recording_micro_allocator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/recording_simple_memory_allocator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/simple_memory_allocator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/test_helpers.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn/add.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn/conv.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn/depthwise_conv.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn/fully_connected.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn/mul.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn/pooling.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn/softmax.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/cmsis-nn/svdf.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/activations.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/arg_min_max.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/ceil.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/circular_buffer.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/comparisons.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/concatenation.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/conv_test_common.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/dequantize.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/detection_postprocess.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/elementwise.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/ethosu.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/flexbuffers_generated_data.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/floor.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/hard_swish.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/kernel_runner.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/kernel_util_full.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/l2norm.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/logical.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/logistic.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/maximum_minimum.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/neg.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/pack.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/pad.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/prelu.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize_common.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/quantize.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/reduce.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/reshape.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/round.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/shape.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/split_v.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/split.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/strided_slice.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/sub.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/svdf_common.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/tanh.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/transpose_conv.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/kernels/unpack.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/memory_planner/linear_memory_planner.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/testing/test_conv_model.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/schema/schema_utils.cpp)
+
+set(CMSIS_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/arm_nn_activations_q7.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/arm_nn_activations_q15.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/arm_relu_q7.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/arm_relu_q15.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ActivationFunctions/arm_relu6_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/BasicMathFunctions/arm_elementwise_add_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/BasicMathFunctions/arm_elementwise_mul_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_w.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_x.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_y.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_z.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_1_x_n_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_1x1_HWC_q7_fast_nonsquare.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_1x1_s8_fast.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_basic_nonsquare.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_basic.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_fast_nonsquare.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_fast.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_RGB.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q15_basic.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q15_fast_nonsquare.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q15_fast.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_wrapper_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_3x3_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_s8_opt.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_u8_basic_ver1.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_wrapper_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_separable_conv_HWC_q7_nonsquare.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_separable_conv_HWC_q7.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_depthwise_conv_s8_core.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_q7_q15_reordered.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_q7_q15.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_s8_s16_reordered.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_s8_s16.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_mat_q7_vec_q15_opt.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_mat_q7_vec_q15.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q7_opt.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q7.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q15_opt.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q15.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_accumulate_q7_to_q15.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_add_q7.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_depthwise_conv_nt_t_padded_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_depthwise_conv_nt_t_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mul_core_1x_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mul_core_4x_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mult_nt_t_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mult_q7.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mult_q15.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nn_vec_mat_mult_t_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_nntables.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_no_shift.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_reordered_no_shift.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_reordered_with_offset.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_with_offset.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/PoolingFunctions/arm_avgpool_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/PoolingFunctions/arm_max_pool_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/PoolingFunctions/arm_pool_q7_HWC.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/ReshapeFunctions/arm_reshape_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_q7.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_q15.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_s8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_u8.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_with_batch_q7.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Source/SVDFunctions/arm_svdf_s8.c
+)
 
 set(THIRD_PARTY_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/kissfft/tools/kiss_fftr.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/third_party/kissfft/kiss_fft.c)
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/third_party/kissfft/tools/kiss_fftr.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/third_party/kissfft/kiss_fft.c)
 
 set(PROJECT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.cpp
@@ -221,7 +326,8 @@ set(PROJECT_SOURCES
 
 add_executable(${EXECUTABLE}
     ${STM32CUBEMX_SOURCES} 
-    ${TFLITE_SOURCES} 
+    ${TFLITE_SOURCES}
+    ${CMSIS_SOURCES}
     ${THIRD_PARTY_SOURCES} 
     ${PROJECT_SOURCES}
     ${STARTUP_SCRIPT})
@@ -238,11 +344,31 @@ target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${TFLITE_INCLUDE_DIRECTORIES})
 
+target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
+    ${CMSIS_INCLUDE_DIRECTORIES})
+
 #mike
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${THIRD_PARTY_INCLUDE_DIRECTORIES})
 
 target_include_directories(${EXECUTABLE} PRIVATE
+    ${PROJECT_INCLUDE_DIRECTORIES})
+
+target_link_directories(${EXECUTABLE} PUBLIC
+    ${STM32CUBEMX_INCLUDE_DIRECTORIES})
+
+#mike
+target_link_directories(${EXECUTABLE} PUBLIC
+    ${TFLITE_INCLUDE_DIRECTORIES})
+
+target_link_directories(${EXECUTABLE} PUBLIC
+    ${CMSIS_INCLUDE_DIRECTORIES})
+
+#mike
+target_link_directories(${EXECUTABLE} PUBLIC
+    ${THIRD_PARTY_INCLUDE_DIRECTORIES})
+
+target_link_directories(${EXECUTABLE} PUBLIC
     ${PROJECT_INCLUDE_DIRECTORIES})
 
 ##################################################################################################
@@ -279,6 +405,11 @@ target_link_options(${EXECUTABLE} PRIVATE
     -lc
     -lm
     -lstdc++
+    -Wl,--verbose
+    -Wl,--trace,--trace
+    -Wl,--trace-symbol,symbol_name
+    -Wl,-Map=output.map
+    -Wl,--cref
     -Wl,--end-group
     -Wl,--print-memory-usage)
 
