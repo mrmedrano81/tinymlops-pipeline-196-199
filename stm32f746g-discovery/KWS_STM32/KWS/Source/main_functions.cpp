@@ -137,7 +137,8 @@ void loop() {
   
   // Obtain a pointer to the output tensor
 
-
+  TfLiteTensor* output = interpreter->output(0);
+  
   // Run the model on the spectrogram input and make sure it succeeds.
   TfLiteStatus invoke_status = interpreter->Invoke();
   if (invoke_status != kTfLiteOk) {
@@ -145,11 +146,13 @@ void loop() {
     return;
   }
 
-  TfLiteTensor* output = interpreter->output(0);
-  TF_LITE_REPORT_ERROR(error_reporter, "0: %d, 1: %d 2: %d, 3: %d, 4: %d, 5: %d, 6: %d, 7: %d, 8: %d, 9: %d, 10: %d, 11: %d, 12: %d, dims: %d", 
-                       output->data.int8[0], output->data.int8[1], output->data.int8[2], output->data.int8[3], output->data.int8[4]
-                       , output->data.int8[5], output->data.int8[6], output->data.int8[7], output->data.int8[8], output->data.int8[9]
-                       , output->data.int8[10], output->data.int8[11], output->data.int8[12], output->dims->data[1]);
+  TF_LITE_REPORT_ERROR(error_reporter, "Down-0: %d, Go-1: %d Left-2: %d, No-3: %d, Off-4: %d, On-5: %d",
+                       output->data.int8[0], output->data.int8[1], output->data.int8[2], 
+                       output->data.int8[3], output->data.int8[4], output->data.int8[5]);
+  TF_LITE_REPORT_ERROR(error_reporter, "Right-6: %d, Stop-7: %d, Up-8: %d, Yes-9: %d, Silence-10: %d, Unknown-11: %d", 
+                       output->data.int8[6], output->data.int8[7], output->data.int8[8], 
+                       output->data.int8[9], output->data.int8[10], output->data.int8[11]);
+  TF_LITE_REPORT_ERROR(error_reporter,"dims: %d", output->dims->data[1]);
 
   // Determine whether a command was recognized based on the output of inference
   const char* found_command = nullptr;
