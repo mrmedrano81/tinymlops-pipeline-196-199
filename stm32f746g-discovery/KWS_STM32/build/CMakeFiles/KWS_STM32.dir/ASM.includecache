@@ -1,0 +1,10 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/michael/Github/tinymlops-pipeline-196-199/stm32f746g-discovery/KWS_STM32/CubeMX/startup_stm32f746xx.s
+
