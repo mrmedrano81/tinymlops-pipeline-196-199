@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2020 Arm Limited or its affiliates. All rights reserved.
+ * SPDX-FileCopyrightText: Copyright 2010-2022 Arm Limited and/or its affiliates <open-source-office@arm.com>
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -21,14 +21,14 @@
  * Title:        arm_q7_to_q15_no_shift.c
  * Description:  Converts the elements of the Q7 vector to Q15 vector without left-shift
  *
- * $Date:        May 29, 2020
- * $Revision:    V.1.0.2
+ * $Date:        4 Aug 2022
+ * $Revision:    V.1.0.3
  *
  * Target Processor:  Cortex-M cores
  *
  * -------------------------------------------------------------------- */
 
-#include "tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Include/arm_nnsupportfunctions.h"
+#include "arm_nnsupportfunctions.h"
 
 /**
  * @ingroup groupSupport
@@ -39,31 +39,20 @@
  * @{
  */
 
-/**
+/*
  * @brief Converts the elements of the Q7 vector to Q15 vector without left-shift
- * @param[in]       *pSrc points to the Q7 input vector
- * @param[out]      *pDst points to the Q15 output vector
- * @param[in]       blockSize length of the input vector
- *
- * \par Description:
- *
- * The equation used for the conversion process is:
- *
- * <pre>
- * 	pDst[n] = (q15_t) pSrc[n];   0 <= n < blockSize.
- * </pre>
- *
+ * Refer function header for details
  */
 
-void arm_q7_to_q15_no_shift(const q7_t * pSrc, q15_t * pDst, uint32_t blockSize)
+void arm_q7_to_q15_no_shift(const q7_t *pSrc, q15_t *pDst, uint32_t blockSize)
 {
     const q7_t *pIn = pSrc;
-    uint32_t  blkCnt;
+    uint32_t blkCnt;
 
 #if defined(ARM_MATH_DSP)
-    q31_t     in;
-    q31_t     in1, in2;
-    q31_t     out1, out2;
+    q31_t in;
+    q31_t in1, in2;
+    q31_t out1, out2;
 
     /*loop Unrolling */
     blkCnt = blockSize >> 2u;
@@ -86,8 +75,8 @@ void arm_q7_to_q15_no_shift(const q7_t * pSrc, q15_t * pDst, uint32_t blockSize)
         out1 = (int32_t)__PKHTB(in1, in2, 16);
         out2 = (int32_t)__PKHBT(in2, in1, 16);
 #endif
-        write_q15x2_ia(&pDst, out1);
-        write_q15x2_ia(&pDst, out2);
+        arm_nn_write_q15x2_ia(&pDst, out1);
+        arm_nn_write_q15x2_ia(&pDst, out2);
 
         /* Decrement the loop counter */
         blkCnt--;
@@ -104,7 +93,7 @@ void arm_q7_to_q15_no_shift(const q7_t * pSrc, q15_t * pDst, uint32_t blockSize)
     /* Loop over blockSize number of values */
     blkCnt = blockSize;
 
-#endif                          /* #ifndef ARM_MATH_CM0_FAMILY */
+#endif /* #ifndef ARM_MATH_CM0_FAMILY */
 
     while (blkCnt > 0u)
     {
@@ -114,7 +103,6 @@ void arm_q7_to_q15_no_shift(const q7_t * pSrc, q15_t * pDst, uint32_t blockSize)
         /* Decrement the loop counter */
         blkCnt--;
     }
-
 }
 
 /**

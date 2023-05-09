@@ -18,18 +18,18 @@ limitations under the License.
 #include "recognize_commands.h"
 #include "command_responder.h"
 
+#include "gen_micro_mutable_op_resolver.h"
 #include "ds_cnn_quantized_data.h"
 //#include "micro_features_model.h"
 
 #include "model_settings.h"
 //#include "micro_features_micro_model_settings.h"
 
-#include "tensorflow/lite/micro/all_ops_resolver.h"
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/schema/schema_generated.h"
-#include "tensorflow/lite/version.h"
+
 
 // Globals, used for compatibility with Arduino-style sketches.
 namespace {
@@ -67,7 +67,7 @@ void setup() {
   }
 
   //ops resolver
-  tflite::AllOpsResolver resolver;
+  tflite::MicroMutableOpResolver<kNumberOperators> resolver = get_resolver();
 
   // Build an interpreter to run the model with.
   static tflite::MicroInterpreter static_interpreter(model, resolver, tensor_arena, kTensorArenaSize, error_reporter);

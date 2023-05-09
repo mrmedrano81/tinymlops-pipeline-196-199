@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2020 Arm Limited or its affiliates. All rights reserved.
+ * Copyright (C) 2010-2022 Arm Limited or its affiliates.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -22,15 +22,14 @@
  * Description:  Wrapper API to select appropriate depthwise conv API based
  *               on dimensions.
  *
- * $Date:        May 29, 2020
- * $Revision:    V.1.0.1
+ * $Date:        19 April 2022
+ * $Revision:    V.2.0.0
  *
  * Target Processor:  Cortex-M CPUs
  *
  * -------------------------------------------------------------------- */
-#include "tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/DSP/Include/arm_math.h"
-#include "tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Include/arm_nnfunctions.h"
-#include "tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Include/arm_nnsupportfunctions.h"
+
+#include "arm_nnfunctions.h"
 
 /**
  *  @ingroup groupNN
@@ -42,28 +41,30 @@
  */
 
 /*
-   *  s8 Depthwise conv wrapper function
-   *
-   *  Refer header file for details.
-   *
-   */
-arm_status arm_depthwise_conv_wrapper_s8(const cmsis_nn_context *ctx,
-                                         const cmsis_nn_dw_conv_params *dw_conv_params,
-                                         const cmsis_nn_per_channel_quant_params *quant_params,
-                                         const cmsis_nn_dims *input_dims,
-                                         const q7_t *input,
-                                         const cmsis_nn_dims *filter_dims,
-                                         const q7_t *filter,
-                                         const cmsis_nn_dims *bias_dims,
-                                         const int32_t *bias,
-                                         const cmsis_nn_dims *output_dims,
-                                         q7_t *output)
+ *  s8 Depthwise conv wrapper function
+ *
+ *  Refer header file for details.
+ *
+ */
+arm_cmsis_nn_status arm_depthwise_conv_wrapper_s8(const cmsis_nn_context *ctx,
+                                                  const cmsis_nn_dw_conv_params *dw_conv_params,
+                                                  const cmsis_nn_per_channel_quant_params *quant_params,
+                                                  const cmsis_nn_dims *input_dims,
+                                                  const q7_t *input,
+                                                  const cmsis_nn_dims *filter_dims,
+                                                  const q7_t *filter,
+                                                  const cmsis_nn_dims *bias_dims,
+                                                  const int32_t *bias,
+                                                  const cmsis_nn_dims *output_dims,
+                                                  q7_t *output)
 {
-    arm_status status = ARM_MATH_SUCCESS;
-    if (1 == dw_conv_params->ch_mult)
+    arm_cmsis_nn_status status = ARM_CMSIS_NN_SUCCESS;
+    if (1 == dw_conv_params->ch_mult && input_dims->n == 1 && dw_conv_params->dilation.w == 1 &&
+        dw_conv_params->dilation.h == 1)
     {
 #if !defined(ARM_MATH_MVEI)
-        if ((filter_dims->w == 3) && (filter_dims->h == 3) && (dw_conv_params->padding.h <= 1))
+        if ((filter_dims->w == 3) && (filter_dims->h == 3) && (dw_conv_params->padding.h <= 1) &&
+            (dw_conv_params->padding.w <= 1))
         {
             status = arm_depthwise_conv_3x3_s8(ctx,
                                                dw_conv_params,
@@ -120,7 +121,8 @@ int32_t arm_depthwise_conv_wrapper_s8_get_buffer_size(const cmsis_nn_dw_conv_par
     (void)dw_conv_params;
     int32_t size = 0;
 
-    if (input_dims->c == output_dims->c)
+    if (input_dims->c == output_dims->c && input_dims->n == 1 && dw_conv_params->dilation.w == 1 &&
+        dw_conv_params->dilation.h == 1)
     {
         size = arm_depthwise_conv_s8_opt_get_buffer_size(input_dims, filter_dims);
     }

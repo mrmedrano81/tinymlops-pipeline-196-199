@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2020 Arm Limited or its affiliates. All rights reserved.
+ * SPDX-FileCopyrightText: Copyright 2010-2022 Arm Limited and/or its affiliates <open-source-office@arm.com>
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -21,28 +21,26 @@
  * Title:        arm_max_pool_s8.c
  * Description:  Pooling function implementations
  *
- * $Date:        June 11, 2020
- * $Revision:    V.2.0.0
+ * $Date:        16 August 2022
+ * $Revision:    V.3.0.1
  *
  * Target Processor:  Cortex-M CPUs
  *
  * -------------------------------------------------------------------- */
 
-#include "tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/DSP/Include/arm_math.h"
-#include "tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/NN/Include/arm_nnfunctions.h"
+#include "arm_nnfunctions.h"
+#include "arm_nnsupportfunctions.h"
 
-static void compare_and_replace_if_larger_q7(q7_t *base,
-                                             const q7_t *target,
-                                             int32_t length)
+static void compare_and_replace_if_larger_q7(q7_t *base, const q7_t *target, int32_t length)
 {
 #if defined(ARM_MATH_MVEI)
     int32_t loop_count = (length + 15) / 16;
     for (int i = 0; i < loop_count; i++)
     {
-        mve_pred16_t p = vctp16q((uint32_t)length);
+        mve_pred16_t p = vctp8q((uint32_t)length);
         const int8x16_t op_1 = vldrbq_z_s8(base, p);
         const int8x16_t op_2 = vldrbq_z_s8(target, p);
-        const int8x16_t max = vmaxq_m_s8(vuninitializedq_s8(), op_1, op_2, p);
+        const int8x16_t max = vmaxq_x_s8(op_1, op_2, p);
         vstrbq_p_s8(base, max, p);
         base += 16;
         target += 16;
@@ -77,7 +75,7 @@ static void compare_and_replace_if_larger_q7(q7_t *base,
             ref_max.bytes[3] = comp_max.bytes[3];
         }
 
-        write_q7x4_ia(&dst, ref_max.word);
+        arm_nn_write_q7x4_ia(&dst, ref_max.word);
 
         cnt--;
     }
@@ -96,22 +94,20 @@ static void compare_and_replace_if_larger_q7(q7_t *base,
 #endif
 }
 
-static void
-clamp_output(q7_t *source, int32_t length, const int32_t act_min, const int32_t act_max)
+static void clamp_output(q7_t *source, int32_t length, const int32_t act_min, const int32_t act_max)
 {
 #if defined(ARM_MATH_MVEI)
-    int32_t
-        loop_count = (length + 15) / 16;
+    int32_t loop_count = (length + 15) / 16;
+    const int8x16_t vmin = vdupq_n_s8((int8_t)act_min);
+    const int8x16_t vmax = vdupq_n_s8((int8_t)act_max);
+
     for (int i = 0; i < loop_count; i++)
     {
-        mve_pred16_t p = vctp16q((uint32_t)length);
+        mve_pred16_t p = vctp8q((uint32_t)length);
         length -= 16;
         const int8x16_t src = vldrbq_z_s8(source, p);
-        const int8x16_t predicated_min = vdupq_m_n_s8(vuninitializedq_s8(), (int8_t)act_min, p);
-        const int8x16_t predicated_max = vdupq_m_n_s8(vuninitializedq_s8(), (int8_t)act_max, p);
-        int8x16_t
-            res = vmaxq_m_s8(vuninitializedq_s8(), src, predicated_min, p);
-        res = vminq_m_s8(vuninitializedq_s8(), src, predicated_max, p);
+        int8x16_t res = vmaxq_x_s8(src, vmin, p);
+        res = vminq_x_s8(res, vmax, p);
         vstrbq_p_s8(source, res, p);
         source += 16;
     }
@@ -132,7 +128,7 @@ clamp_output(q7_t *source, int32_t length, const int32_t act_min, const int32_t 
         in.bytes[3] = MAX(in.bytes[3], act_min);
         in.bytes[3] = MIN(in.bytes[3], act_max);
 
-        write_q7x4_ia(&source, in.word);
+        arm_nn_write_q7x4_ia(&source, in.word);
         cnt--;
     }
 
@@ -158,20 +154,19 @@ clamp_output(q7_t *source, int32_t length, const int32_t act_min, const int32_t 
  */
 
 /*
-   * Optimized s8 max pooling function
-   *
-   * Refer to header file for details.
-   *
-   */
+ * Optimized s8 max pooling function
+ *
+ * Refer to header file for details.
+ *
+ */
 
-arm_status
-arm_max_pool_s8(const cmsis_nn_context *ctx,
-                const cmsis_nn_pool_params *pool_params,
-                const cmsis_nn_dims *input_dims,
-                const q7_t *src,
-                const cmsis_nn_dims *filter_dims,
-                const cmsis_nn_dims *output_dims,
-                q7_t *dst)
+arm_cmsis_nn_status arm_max_pool_s8(const cmsis_nn_context *ctx,
+                                    const cmsis_nn_pool_params *pool_params,
+                                    const cmsis_nn_dims *input_dims,
+                                    const q7_t *src,
+                                    const cmsis_nn_dims *filter_dims,
+                                    const cmsis_nn_dims *output_dims,
+                                    q7_t *dst)
 {
     const int32_t input_y = input_dims->h;
     const int32_t input_x = input_dims->w;
@@ -211,7 +206,7 @@ arm_max_pool_s8(const cmsis_nn_context *ctx,
 
                     if (count == 0)
                     {
-                        memcpy(dst, start, channel_in);
+                        arm_memcpy_q7(dst, start, channel_in);
                         count++;
                     }
                     else
@@ -227,7 +222,7 @@ arm_max_pool_s8(const cmsis_nn_context *ctx,
 
     clamp_output(dst_base, output_x * output_y * channel_in, act_min, act_max);
 
-    return ARM_MATH_SUCCESS;
+    return ARM_CMSIS_NN_SUCCESS;
 }
 
 /**
