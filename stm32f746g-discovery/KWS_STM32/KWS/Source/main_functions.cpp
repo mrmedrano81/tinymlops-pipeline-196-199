@@ -25,7 +25,7 @@ limitations under the License.
 #include "model_settings.h"
 //#include "micro_features_micro_model_settings.h"
 
-#include "tensorflow/lite/micro/kernels/all_ops_resolver.h"
+#include "tensorflow/lite/micro/all_ops_resolver.h"
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/schema/schema_generated.h"
@@ -66,7 +66,7 @@ void setup() {
     return;
   }
 
-  static tflite::ops::micro::AllOpsResolver resolver;
+  tflite::AllOpsResolver resolver;
 
   // Build an interpreter to run the model with.
   static tflite::MicroInterpreter static_interpreter(model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
