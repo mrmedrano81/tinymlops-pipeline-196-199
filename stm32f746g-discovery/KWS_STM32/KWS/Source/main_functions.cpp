@@ -25,7 +25,8 @@ limitations under the License.
 #include "model_settings.h"
 //#include "micro_features_micro_model_settings.h"
 
-#include "tensorflow/lite/micro/all_ops_resolver.h"
+#include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
+//#include "tensorflow/lite/micro/all_ops_resolver.h"
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 #include "tensorflow/lite/micro/micro_interpreter.h"
 #include "tensorflow/lite/schema/schema_generated.h"
@@ -66,17 +67,35 @@ void setup() {
     return;
   }
 
-  tflite::AllOpsResolver resolver;
+  //tflite::AllOpsResolver resolver;
+  static tflite::MicroMutableOpResolver<6> micro_op_resolver(error_reporter);
+  if (micro_op_resolver.AddAveragePool2D() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddConv2D() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddDepthwiseConv2D() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddFullyConnected() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddReshape() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddSoftmax() != kTfLiteOk) {
+    return;
+  }
 
   // Build an interpreter to run the model with.
-  static tflite::MicroInterpreter static_interpreter(model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
+  static tflite::MicroInterpreter static_interpreter(model, micro_op_resolver, tensor_arena, kTensorArenaSize, error_reporter);
   interpreter = &static_interpreter;
 
   // Allocate memory from the tensor_arena for the model's tensors.
   TfLiteStatus allocate_status = interpreter->AllocateTensors();
   if (allocate_status != kTfLiteOk) {
     TF_LITE_REPORT_ERROR(error_reporter, "AllocateTensors() failed");
-    //Display_Application_Description();
     return;
   }
 
