@@ -7,9 +7,6 @@ project(KWS_STM32)
 option(DUMP_ASM "Create full assembly of final executable" OFF)
 
 # Set microcontroller information
-# TODO (if time permits): 
-#   -set BSP info for portability between stm32 mcu families 
-#
 set(MCU_FAMILY STM32F7xx)
 set(MCU_MODEL STM32F746xx)
 set(CPU_PARAMETERS
@@ -28,7 +25,7 @@ enable_language(C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
@@ -89,17 +86,10 @@ set(STM32CUBEMX_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32f7xx_hal_msp.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/stm32f7xx_it.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/system_stm32f7xx.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/Components/ft5336/ft5336.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/Components/ov9655/ov9655.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/Components/wm8994/wm8994.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_audio.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_camera.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_eeprom.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_qspi.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sd.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.c
-    #${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_ts.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_hal_cortex.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/${MCU_FAMILY}_HAL_Driver/Src/stm32f7xx_hal_rcc.c
@@ -286,6 +276,8 @@ target_compile_options(${EXECUTABLE} PRIVATE
     -Wundef
     -fno-common
     -Wno-unused-parameter
+    -DTF_LITE_STATIC_MEMORY
+    -DPORTABLE_OPTIMIZED
     #-fmessage-length=0
     #-Wno-missing-field-initializers
     #-fno-exceptions
@@ -297,6 +289,8 @@ target_compile_options(${EXECUTABLE} PRIVATE
         -Wold-style-cast
         -Wuseless-cast
         -Wsuggest-override>
+        -DTF_LITE_STATIC_MEMORY
+        -DPORTABLE_OPTIMIZED
         #-fno-builtin
         #-funsigned-char
         #-MMD
