@@ -21,7 +21,10 @@ extern "C" {
   #include "main.h"
 }
 
+#include "main_functions.h"
 #include "stlogo.h"
+
+
 
 /** @addtogroup STM32F7xx_HAL_Examples
   * @{
@@ -50,21 +53,9 @@ static void SystemClock_Config(void);
 static void Display_DemoDescription(void);
 static void CPU_CACHE_Enable(void);
 
-
-BSP_DemoTypedef  BSP_examples[] =
-  {
-    /*{LCD_demo, "LCD", 0},
-    {Touchscreen_demo, "TOUCHSCREEN", 0},
-    {AudioRec_demo, "AUDIO RECORD", 0},*/
-    {AudioLoopback_demo, "AUDIO LOOPBACK", 0} /*,
-    {AudioPlay_demo, "AUDIO PLAY", 0},
-    {SD_demo, "mSD", 0},
-    {Log_demo, "LCD LOG", 0},
-    {SDRAM_demo, "SDRAM", 0},
-    {SDRAM_DMA_demo, "SDRAM DMA", 0},
-    {EEPROM_demo, "EEPROM", 0},
-    {QSPI_demo, "QSPI", 0},*/
-  };
+static void error_handler(void);
+static void uart1_init(void);
+UART_HandleTypeDef DebugUartHandler;
 
 /* Private functions ---------------------------------------------------------*/
 
@@ -88,10 +79,17 @@ int main(void)
        - Configure the Systick to generate an interrupt each 1 msec
        - Set NVIC Group Priority to 4
        - Global MSP (MCU Support Package) initialization
-     */
+  */
   HAL_Init();
+
   /* Configure the system clock to 200 Mhz */
   SystemClock_Config();
+
+  // Initialize UART
+  uart1_init();
+
+  // KWS main functions setup
+  setup();
 
   BSP_LED_Init(LED1);
 
@@ -111,21 +109,8 @@ int main(void)
   /* Wait For User inputs */
   while (1)
   {
-    if (BSP_PB_GetState(BUTTON_KEY) != RESET)
-    {
-      HAL_Delay(10);
-      while (BSP_PB_GetState(BUTTON_KEY) != RESET);
-
-      BSP_examples[DemoIndex++].DemoFunc();
-
-      if (DemoIndex >= COUNT_OF_EXAMPLE(BSP_examples))
-      {
-        /* Increment number of loops which be used by EEPROM example */
-        NbLoop++;
-        DemoIndex = 0;
-      }
-      Display_DemoDescription();
-    }
+    loop();
+    //AudioLoopback_demo();
   }
 }
 
@@ -187,8 +172,11 @@ static void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  ret = HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5);
+  ret = HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_7);
   ASSERT(ret != HAL_OK);
+
+  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_4);
+
 }
 
 /**
@@ -213,8 +201,8 @@ static void Display_DemoDescription(void)
   BSP_LCD_SetTextColor(LCD_COLOR_DARKBLUE);
 
   /* Display LCD messages */
-  BSP_LCD_DisplayStringAt(0, 10, (uint8_t *)"STM32F746G BSP", CENTER_MODE);
-  BSP_LCD_DisplayStringAt(0, 35, (uint8_t *)"Drivers examples", CENTER_MODE);
+  BSP_LCD_DisplayStringAt(0, 10, (uint8_t *)"TINYMLOPS PIPELINE 196-199", CENTER_MODE);
+  BSP_LCD_DisplayStringAt(0, 35, (uint8_t *)"KWS on STM32F746g-disco", CENTER_MODE);
 
   /* Draw Bitmap */
   BSP_LCD_DrawBitmap((BSP_LCD_GetXSize() - 80) / 2, 65, (uint8_t *)stlogo);
@@ -225,11 +213,6 @@ static void Display_DemoDescription(void)
   BSP_LCD_SetFont(&Font16);
   BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
   BSP_LCD_FillRect(0, BSP_LCD_GetYSize() / 2 + 15, BSP_LCD_GetXSize(), 60);
-  BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
-  BSP_LCD_SetBackColor(LCD_COLOR_BLUE);
-  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize() / 2 + 30, (uint8_t *)"Press User Button to start :", CENTER_MODE);
-  sprintf((char *)desc, "%s example", BSP_examples[DemoIndex].DemoName);
-  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize() / 2 + 45, (uint8_t *)desc, CENTER_MODE);
 }
 
 /**
@@ -360,6 +343,43 @@ static void MPU_Config(void)
   /* Enable the MPU */
   HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
 }
+
+/*############################################################################################*/
+
+static void uart1_init(void)
+{
+    /*##-1- Configure the UART peripheral ######################################*/
+	/* Put the USART peripheral in the Asynchronous mode (UART Mode)
+	   UART configured as follows:
+	      - Word Length = 8 Bits
+	      - Stop Bit = One Stop bit
+	      - Parity = None
+	      - BaudRate = 9600 baud
+	      - Hardware flow control disabled (RTS and CTS signals)
+	 */
+
+	DebugUartHandler.Instance        = DISCOVERY_COM1;
+	DebugUartHandler.Init.BaudRate   = 9600;
+	DebugUartHandler.Init.WordLength = UART_WORDLENGTH_8B;
+	DebugUartHandler.Init.StopBits   = UART_STOPBITS_1;
+	DebugUartHandler.Init.Parity     = UART_PARITY_NONE;
+	DebugUartHandler.Init.HwFlowCtl  = UART_HWCONTROL_NONE;
+	DebugUartHandler.Init.Mode       = UART_MODE_TX_RX;
+	DebugUartHandler.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+
+	if(HAL_UART_Init(&DebugUartHandler) != HAL_OK)
+	{
+	    error_handler();
+	}
+}
+
+static void error_handler(void)
+{
+    // Turn Green LED ON
+    BSP_LED_On(LED_GREEN);
+    while(1);
+}
+
 
 #ifdef  USE_FULL_ASSERT
 

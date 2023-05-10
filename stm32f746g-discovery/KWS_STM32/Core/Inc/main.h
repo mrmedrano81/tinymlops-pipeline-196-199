@@ -23,14 +23,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stdio.h"
 #include "stm32746g_discovery.h"
-#include "stm32746g_discovery_ts.h"
 #include "stm32746g_discovery_lcd.h"
 #include "stm32746g_discovery_sdram.h"
-#include "stm32746g_discovery_sd.h"
-#include "stm32746g_discovery_eeprom.h"
-#include "stm32746g_discovery_camera.h"
 #include "stm32746g_discovery_audio.h"
-#include "stm32746g_discovery_qspi.h"
+
 
 /* Macros --------------------------------------------------------------------*/
 #ifdef USE_FULL_ASSERT
@@ -82,12 +78,6 @@
 #define AUDIO_SRC_FILE_ADDRESS       0x08080000   /* Audio file address in flash */
 
 /* Exported types ------------------------------------------------------------*/
-typedef struct
-{
-  void   (*DemoFunc)(void);
-  uint8_t DemoName[50]; 
-  uint32_t DemoIndex;
-}BSP_DemoTypedef;
 
 typedef enum {
   AUDIO_ERROR_NONE = 0,
@@ -106,23 +96,11 @@ extern uint32_t    ErrorCounter;
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 
-#define COUNT_OF_EXAMPLE(x)    (sizeof(x)/sizeof(BSP_DemoTypedef))
 /* Exported functions ------------------------------------------------------- */
-void AudioPlay_demo (void);
-void AudioRec_demo (void);
 void AudioLoopback_demo (void);
-void Touchscreen_demo (void);
-void LCD_demo (void);
-void Log_demo(void);
 void SDRAM_demo(void);
 void SDRAM_DMA_demo(void);
-void SD_demo (void);
-void EEPROM_demo(void);
-void Camera_demo(void);
-uint8_t AUDIO_Process(void);
-void QSPI_demo(void);
 uint8_t CheckForUserInput(void);
-void BSP_LCD_DMA2D_IRQHandler(void);
 #ifdef USE_FULL_ASSERT
 void assert_failed(uint8_t* file, uint32_t line);
 #endif

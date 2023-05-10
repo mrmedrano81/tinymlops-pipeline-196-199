@@ -35,3 +35,28 @@ exit
 cd training/keyword_spotting/
 sh make_model_c_file 
 exit
+ls
+cd stm32f746g-discovery/
+cd KWS_STM32/
+ls
+make -j8
+exit
+ls
+cd stm32f746g-discovery/KWS_STM32/
+make -j8
+exit
+cd stm32f746g-discovery/KWS_STM32/
+make clean
+ls
+make -j8
+exit
+cd stm32f746g-discovery/KWS_STM32/
+ls
+make -j8
+make build
+exit
+cd stm32f746g-discovery/KWS_STM32/
+ls
+make clean
+make build
+exit

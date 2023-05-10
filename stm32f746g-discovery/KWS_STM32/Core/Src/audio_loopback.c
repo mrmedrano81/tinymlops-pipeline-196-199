@@ -45,7 +45,7 @@ typedef enum
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-extern uint32_t  audio_rec_buffer_state;
+uint32_t  audio_rec_buffer_state;
 
 /* Private function prototypes -----------------------------------------------*/
 static void AudioLoopback_SetHint(void);
@@ -168,8 +168,32 @@ static void AudioLoopback_SetHint(void)
 
 }
 
+/*
+void BSP_AUDIO_IN_TransferComplete_CallBack(void)
+{
+  audio_rec_buffer_state = BUFFER_OFFSET_FULL;
+  return;
+}
 
 
+void BSP_AUDIO_IN_HalfTransfer_CallBack(void)
+{
+  audio_rec_buffer_state = BUFFER_OFFSET_HALF;
+  return;
+}
+
+void BSP_AUDIO_IN_Error_CallBack(void)
+{
+
+  BSP_LCD_SetBackColor(LCD_COLOR_RED);
+  BSP_LCD_DisplayStringAt(0, LINE(14), (uint8_t *)"       DMA  ERROR     ", CENTER_MODE);
+  while (BSP_PB_GetState(BUTTON_KEY) != RESET)
+  {
+    return;
+  }
+
+}
+*/
 /**
   * @}
   */
