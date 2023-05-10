@@ -3,8 +3,8 @@
 #include "string.h"
 
 #include "audio_provider.h"
-#include "model_settings.h"
-//#include "micro_features_micro_model_settings.h"
+//#include "model_settings.h"
+#include "micro_features_micro_model_settings.h"
 #include "stm32746g_discovery_audio.h"
 #include "stm32746g_discovery_sdram.h"
 

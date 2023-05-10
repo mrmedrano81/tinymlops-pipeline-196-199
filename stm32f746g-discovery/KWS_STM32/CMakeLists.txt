@@ -224,17 +224,18 @@ set(PROJECT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sdram_dma.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sdram.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/debug_log.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/ds_cnn_quantized_data.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/model_settings.cpp
+    
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/ds_cnn_quantized_data.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/model_settings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_micro_model_settings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_model.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/audio_provider.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/command_responder.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/feature_provider.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/main_functions.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/recognize_commands.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_micro_features_generator.cpp)
-    
-    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_micro_model_settings.cpp
-    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_model.cpp)
 
 add_executable(${EXECUTABLE}
     ${STM32CUBEMX_SOURCES} 
