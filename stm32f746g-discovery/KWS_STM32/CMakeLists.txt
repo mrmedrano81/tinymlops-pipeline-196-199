@@ -139,6 +139,7 @@ set (TFLITE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/lite/core/api/flatbuffer_conversions.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/lite/core/api/op_resolver.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/lite/core/api/tensor_utils.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/lite/schema/schema_utils.cc
     
     #tflite kernel
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/tensorflow/lite/kernels/kernel_util.cc
@@ -247,8 +248,8 @@ set(PROJECT_SOURCES
 
 add_executable(${EXECUTABLE}
     ${STM32CUBEMX_SOURCES} 
-    ${TFLITE_SOURCES} 
-    ${THIRD_PARTY_SOURCES} 
+    ${THIRD_PARTY_SOURCES}
+    ${TFLITE_SOURCES}  
     ${PROJECT_SOURCES}
     ${STARTUP_SCRIPT})
 
@@ -260,13 +261,14 @@ target_compile_definitions(${EXECUTABLE} PRIVATE
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${STM32CUBEMX_INCLUDE_DIRECTORIES})
 
+    #mike
+target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
+    ${THIRD_PARTY_INCLUDE_DIRECTORIES})
+
 #mike
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${TFLITE_INCLUDE_DIRECTORIES})
 
-#mike
-target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
-    ${THIRD_PARTY_INCLUDE_DIRECTORIES})
 
 target_include_directories(${EXECUTABLE} PRIVATE
     ${PROJECT_INCLUDE_DIRECTORIES})
