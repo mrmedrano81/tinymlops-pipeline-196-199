@@ -19,11 +19,11 @@ limitations under the License.
 #include "recognize_commands.h"
 #include "command_responder.h"
 
-#include "ds_cnn_quantized_data.h"
-//#include "micro_features_model.h"
+//#include "ds_cnn_quantized_data.h"
+#include "micro_features_model.h"
 
-#include "model_settings.h"
-//#include "micro_features_micro_model_settings.h"
+//#include "model_settings.h"
+#include "micro_features_micro_model_settings.h"
 
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 //#include "tensorflow/lite/micro/all_ops_resolver.h"
@@ -57,8 +57,8 @@ void setup() {
   static tflite::MicroErrorReporter micro_error_reporter;
   error_reporter = &micro_error_reporter;
 
-  model = tflite::GetModel(g_ds_cnn_quantized_data);
-  //model = tflite::GetModel(g_model);
+  //model = tflite::GetModel(g_ds_cnn_quantized_data);
+  model = tflite::GetModel(g_model);
   if (model->version() != TFLITE_SCHEMA_VERSION) {
     TF_LITE_REPORT_ERROR(error_reporter,
                          "Model provided is schema version %d not equal "
@@ -67,7 +67,12 @@ void setup() {
     return;
   }
 
+  //ALL OPS RESOLVER
   //tflite::AllOpsResolver resolver;
+
+  // DS CNN 
+  // MICRO MUTABLE OP RESOLVER
+  /* 
   static tflite::MicroMutableOpResolver<6> micro_op_resolver(error_reporter);
   if (micro_op_resolver.AddAveragePool2D() != kTfLiteOk) {
     return;
@@ -85,6 +90,22 @@ void setup() {
     return;
   }
   if (micro_op_resolver.AddSoftmax() != kTfLiteOk) {
+    return;
+  }
+  */
+
+  // MICROSPEECH EXAMPLE MICRO MUTABLE OP RESOLVER
+    static tflite::MicroMutableOpResolver<4> micro_op_resolver(error_reporter);
+  if (micro_op_resolver.AddDepthwiseConv2D() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddFullyConnected() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddSoftmax() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddReshape() != kTfLiteOk) {
     return;
   }
 
