@@ -34,8 +34,8 @@ constexpr int kFeatureSliceStrideMs = 20;
 constexpr int kFeatureSliceDurationMs = 30;
 
 // Variables for the model's output categories.
-constexpr int kSilenceIndex = 0;
-constexpr int kUnknownIndex = 1;
+constexpr int kSilenceIndex = 10;
+constexpr int kUnknownIndex = 11;
 // If you modify the output categories, you need to update the following values.
 constexpr int kCategoryCount = 12;
 extern const char* kCategoryLabels[kCategoryCount];
