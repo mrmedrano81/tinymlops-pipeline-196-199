@@ -16,7 +16,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 - cloned from MLCommon's tinyML benchmark github repository. contains the training directory for both the keyword spotting and visual wakeword tinyML applications.
 - The training processes have been integrated with MLFlow and Dagshub for experiment tracking.
 
-## 3. stm32f746g-discovery
+### 3. stm32f746g-discovery
 - Directory for the STM32F746g-discovery board tinyML applications
 - For this project it contains only the keyword spotting application located in the KWS_STM32 folder.
 - Currently contains the working Makefile and CMakeLists.txt file for automating the build process.
