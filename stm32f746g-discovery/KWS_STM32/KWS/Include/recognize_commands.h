@@ -22,6 +22,7 @@ limitations under the License.
 
 #include "micro_features_micro_model_settings.h"
 //#include "model_settings.h"
+
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 
 // Partial implementation of std::dequeue, just providing the functionality
@@ -134,7 +135,7 @@ class RecognizeCommands {
   // help reduce spurious recognitions.
   explicit RecognizeCommands(tflite::ErrorReporter* error_reporter,
                              int32_t average_window_duration_ms = 1000,
-                             uint8_t detection_threshold = 200,
+                             uint8_t detection_threshold = 150,
                              int32_t suppression_ms = 1500,
                              int32_t minimum_count = 3);
 

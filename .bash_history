@@ -60,3 +60,27 @@ ls
 make clean
 make build
 exit
+ls
+cd stm32f746g-discovery/KWS_STM32/
+ls
+exit
+ls
+exit
+exit
+ls
+exit
+exit
+exit
+exit
+exit
+exit
+printenv
+exit\
+printenv
+exit
+printenv
+exit
+printenv
+pwd
+ls
+exit

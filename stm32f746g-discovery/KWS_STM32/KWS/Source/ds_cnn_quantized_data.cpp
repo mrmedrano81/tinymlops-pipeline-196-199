@@ -3,16 +3,24 @@
 
 #ifdef __has_attribute
 #define HAVE_ATTRIBUTE(x) __has_attribute(x)
-#else
+#else   /* __has_attribute */
 #define HAVE_ATTRIBUTE(x) 0
-#endif
-#if HAVE_ATTRIBUTE(aligned) || (defined(__GNUC__) && !defined(__clang__))
-#define DATA_ALIGN_ATTRIBUTE __attribute__((aligned(4)))
-#else
-#define DATA_ALIGN_ATTRIBUTE
-#endif
+#endif  /* __has_attribute */
 
-const unsigned char g_ds_cnn_quantized_data[] DATA_ALIGN_ATTRIBUTE = {
+#if HAVE_ATTRIBUTE(aligned) || (defined(__GNUC__) && !defined(__clang__))
+
+/* We want all buffers/sections to be aligned to 16 byte  */
+#define ALIGNMENT_REQ               aligned(16)
+/* Form the attributes, alignment is mandatory */
+#define ALIGNMENT_ATTRIBUTE   __attribute__((ALIGNMENT_REQ))
+
+#else /* HAVE_ATTRIBUTE(aligned) || (defined(__GNUC__) && !defined(__clang__)) */
+
+#define ALIGNMENT_ATTRIBUTE
+
+#endif /* HAVE_ATTRIBUTE(aligned) || (defined(__GNUC__) && !defined(__clang__)) */
+
+const unsigned char g_ds_cnn_quantized_data[] ALIGNMENT_ATTRIBUTE = {
   0x20, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x00, 0x00, 0x00, 0x00,
   0x14, 0x00, 0x20, 0x00, 0x1c, 0x00, 0x18, 0x00, 0x14, 0x00, 0x10, 0x00,
   0x0c, 0x00, 0x00, 0x00, 0x08, 0x00, 0x04, 0x00, 0x14, 0x00, 0x00, 0x00,

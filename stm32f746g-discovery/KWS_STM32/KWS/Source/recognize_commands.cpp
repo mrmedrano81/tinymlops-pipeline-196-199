@@ -86,11 +86,13 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
   const int64_t earliest_time = previous_results_.front().time_;
   const int64_t samples_duration = current_time_ms - earliest_time;
 
-  TF_LITE_REPORT_ERROR(error_reporter_, "hmr: %d, et: %d, sd: %d", how_many_results, earliest_time, samples_duration);
+  TF_LITE_REPORT_ERROR(error_reporter_, "hmr: %d, et: %d, sd: %d, awd/4: ",
+     how_many_results, earliest_time, samples_duration, (average_window_duration_ms_ / 4));
   
   if ((how_many_results < minimum_count_) ||
       (samples_duration < (average_window_duration_ms_ / 4))) {
-    TF_LITE_REPORT_ERROR(error_reporter_, "hmr < mc: %d", (how_many_results < minimum_count_));
+    TF_LITE_REPORT_ERROR(error_reporter_, "hmr %d < mc %d", how_many_results, minimum_count_);
+    TF_LITE_REPORT_ERROR(error_reporter_, "s_d %d < awd/4 %d", samples_duration,  (average_window_duration_ms_ / 4));
     *found_command = previous_top_label_;
     *score = 0;
     *is_new_command = false;
