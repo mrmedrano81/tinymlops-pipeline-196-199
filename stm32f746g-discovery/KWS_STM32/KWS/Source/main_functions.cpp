@@ -59,6 +59,7 @@ void setup() {
 
   //model = tflite::GetModel(g_ds_cnn_quantized_data);
   model = tflite::GetModel(g_model);
+
   if (model->version() != TFLITE_SCHEMA_VERSION) {
     TF_LITE_REPORT_ERROR(error_reporter,
                          "Model provided is schema version %d not equal "
@@ -72,7 +73,7 @@ void setup() {
 
   // DS CNN 
   // MICRO MUTABLE OP RESOLVER
-  /* 
+  /*
   static tflite::MicroMutableOpResolver<6> micro_op_resolver(error_reporter);
   if (micro_op_resolver.AddAveragePool2D() != kTfLiteOk) {
     return;
@@ -93,8 +94,9 @@ void setup() {
     return;
   }
   */
-
-  // MICROSPEECH EXAMPLE MICRO MUTABLE OP RESOLVER
+  // MICROSPEECH EXAMPLE 
+  // MICRO MUTABLE OP RESOLVER
+  
     static tflite::MicroMutableOpResolver<4> micro_op_resolver(error_reporter);
   if (micro_op_resolver.AddDepthwiseConv2D() != kTfLiteOk) {
     return;
@@ -108,6 +110,7 @@ void setup() {
   if (micro_op_resolver.AddReshape() != kTfLiteOk) {
     return;
   }
+  
 
   // Build an interpreter to run the model with.
   static tflite::MicroInterpreter static_interpreter(model, micro_op_resolver, tensor_arena, kTensorArenaSize, error_reporter);
@@ -186,10 +189,10 @@ void loop() {
     return;
   }
 
-  TF_LITE_REPORT_ERROR(error_reporter, "Down-0: %d, Go-1: %d Left-2: %d, No-3: %d, Off-4: %d, On-5: %d",
+  TF_LITE_REPORT_ERROR(error_reporter, "Silence-0: %d, Unkown-1: %d yes-2: %d, no-3: %d, up-4: %d, down-5: %d",
                        output->data.int8[0], output->data.int8[1], output->data.int8[2], 
                        output->data.int8[3], output->data.int8[4], output->data.int8[5]);
-  TF_LITE_REPORT_ERROR(error_reporter, "Right-6: %d, Stop-7: %d, Up-8: %d, Yes-9: %d, Silence-10: %d, Unknown-11: %d", 
+  TF_LITE_REPORT_ERROR(error_reporter, "left-6: %d, right-7: %d, on-8: %d, off-9: %d, stop-10: %d, go-11: %d", 
                        output->data.int8[6], output->data.int8[7], output->data.int8[8], 
                        output->data.int8[9], output->data.int8[10], output->data.int8[11]);
   TF_LITE_REPORT_ERROR(error_reporter,"dims: %d", output->dims->data[1]);
