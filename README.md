@@ -16,6 +16,13 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 - cloned from MLCommon's tinyML benchmark github repository. contains the training directory for both the keyword spotting and visual wakeword tinyML applications.
 - The training processes have been integrated with MLFlow and Dagshub for experiment tracking.
 
+## 3. stm32f746g-discovery
+- Directory for the STM32F746g-discovery board tinyML applications
+- For this project it contains only the keyword spotting application located in the KWS_STM32 folder.
+- Currently contains the working Makefile and CMakeLists.txt file for automating the build process.
+- Keyword spotting application currently only supports the micro_speech example from tensorflow lite micro that detects 2 keywords (Yes, No).
+- *TBA - working example using DS CNN model from tinyMLPerf for 12 keywords*
+
 ---
 ## Initialization Phase Files
 
@@ -26,8 +33,10 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 ### 2. Makefile
 - provides commands for building of each phase
-- build and run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container using: `make build-container`
+- build and run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container using: `make build-container` with the following arguments specified for the MLFLOW run instance for training: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`
 - clean up docker image after exiting with: `make clean-image`
-- *TBA - sections in the makefile for automating microcontroller code build and deployment*
+- Build STM32F746g-discovery board Keyword Spotting application .elf, .hex, and .bin files and store them in the build folder using `make build-stm32-app`.
+- *TBA - raspberry pi pico visual wake word app build make command*
+- *TBA - sections in the makefile for automating microcontroller code  deployment*
 
 --- 
