@@ -2,14 +2,26 @@
 Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone project.
 
 ---
+## Usage
+
+### Windows
+1. Install and activate [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install)
+- *note: tested on Ubuntu-22.04 WSL distribution.*
+2. Download and install [Docker backend for WSL](https://nickjanetakis.com/blog/install-docker-in-wsl-2-without-docker-desktop) or [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
+3. Install [Nvidia container toolkit for docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) inside WSL
+4. Install make in WSL by running `sudo apt-get -y install make`
+5. run specified make commands in makefile description.
+
+### Linux (Ubuntu 22.04)
+1. Download and install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+2. Install [Nvidia container toolkit for docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
+3. run specified make commands in makefile description.
 
 ## Directory
 
 ### 1. Containers (temporary)
 - temporary directory for microcontroller build environments and other relevant code
-
 - stm32: Includes the relevant files for setting up the container for embedded development on STM32 microcontrollers. Includes the Dockerfile, Makefile, CMakelist.txt file, and relevant microcontroller source files, headers, and libraries. 
-
 - rpico: Includes a single Dockerfile that downloads and installs the necessary dependencies for pico initialization.
 
 ### 2. training
@@ -36,6 +48,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 - build and run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container using: `make build-container` with the following arguments specified for the MLFLOW run instance for training: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`
 - clean up docker image after exiting with: `make clean-image`
 - Build STM32F746g-discovery board Keyword Spotting application .elf, .hex, and .bin files and store them in the build folder using `make build-stm32-app`.
+- clean up stm32 docker image after exiting with: `make clean-stm32-image`
 - *TBA - raspberry pi pico visual wake word app build make command*
 - *TBA - sections in the makefile for automating microcontroller code  deployment*
 

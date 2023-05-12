@@ -6,11 +6,10 @@ ARG NEEDRESTART_MODE=a
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-#######################-------MODEL TRAINING AND OPTIMIZATION-------#########################
-
-# Set of all dependencies needed for pyenv to work on Ubuntu
+# Set of all package dependencies needed
 RUN apt update && apt-get update && apt upgrade -y && \
-    apt-get install -y --no-install-recommends --fix-missing \
+    apt-get install -y --no-install-recommends\
+    #training
     ffmpeg \
     make \
     build-essential \
@@ -31,7 +30,32 @@ RUN apt update && apt-get update && apt upgrade -y && \
     libffi-dev \
     liblzma-dev \
     mecab-ipadic-utf8 \
-    git
+    git \
+    #embedded
+    usbutils \
+    lbzip2 \
+    nano \
+    findutils \
+    cmake \
+    xxd \
+    stlink-tools \
+    openocd
+
+# Download gcc-arm-none-eabi to bz2 format in tmp directory
+#RUN wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2 -O /tmp/gcc-arm-none-eabi.tar.bz2
+RUN wget --no-check-certificate https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -O /tmp/gcc-arm-none-eabi.tar.bz2
+# Extract files into new gcc folder in opt
+RUN mkdir -p /opt/gcc-arm-none-eabi
+RUN tar xjfv /tmp/gcc-arm-none-eabi.tar.bz2 -C /opt/gcc-arm-none-eabi --strip-components 1
+
+# Link executables to usr local bin
+RUN ln -s /opt/gcc-arm-none-eabi-10.3/bin/* /usr/local/bin
+
+# Clear tmp folder and configure compiler path
+RUN rm -rf /tmp/*
+ENV PATH="/opt/gcc-arm-none-eabi/bin:${PATH}"
+
+#######################-------MODEL TRAINING AND OPTIMIZATION-------#########################
 
 # Set up necessary environment variables for pyenv
 ENV PYENV_ROOT /root/.pyenv
@@ -76,46 +100,6 @@ COPY /training/keyword_spotting/requirements.txt .
 # Run pip install requirements.txt
 RUN pip install -r requirements.txt
 
-#######################-------APPLICATION BUILD AND DEPLOY-------#########################
-
-# lib utils
-RUN apt install -y usbutils && apt install -y lbzip2
-
-# Utils
-RUN apt install -y nano && apt install -y findutils && apt install -y cmake && apt install xxd
-
-# STM32 Flash/Debug tools
-RUN apt install -y stlink-tools && apt install -y openocd
-
-# Download gcc-arm-none-eabi to bz2 format in tmp directory
-#RUN wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2 -O /tmp/gcc-arm-none-eabi.tar.bz2
-RUN wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -O /tmp/gcc-arm-none-eabi.tar.bz2
-# Extract files into new gcc folder in opt
-RUN mkdir -p /opt/gcc-arm-none-eabi
-RUN tar xjfv /tmp/gcc-arm-none-eabi.tar.bz2 -C /opt/gcc-arm-none-eabi --strip-components 1
-
-# Link executables to usr local bin
-RUN ln -s /opt/gcc-arm-none-eabi-10.3/bin/* /usr/local/bin
-
-# Clear tmp folder and configure compiler path
-RUN rm -rf /tmp/*
-ENV PATH="/opt/gcc-arm-none-eabi/bin:${PATH}"
-
-WORKDIR /app
-
-# set user config
-ARG UID
-ARG GID
-ARG USERNAME
-ARG GROUPNAME
-
-RUN groupadd --gid $GID $GROUPNAME
-RUN useradd --uid $UID --gid $GID $USERNAME
-RUN usermod --append --groups $GROUPNAME $USERNAME
-RUN usermod --shell /bin/bash $USERNAME
-
-USER $USERNAME
-
 # set mlflow config
 ARG MLFLOW_TRACKING_USERNAME
 ARG MLFLOW_TRACKING_PASSWORD
@@ -127,3 +111,5 @@ ENV MLFLOW_RUN_NAME=$MLFLOW_RUN_NAME
 
 # set other env vars
 ENV HOME=/app
+
+WORKDIR /app
