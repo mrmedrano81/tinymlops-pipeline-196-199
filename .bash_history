@@ -84,3 +84,97 @@ printenv
 pwd
 ls
 exit
+pyenv
+pyenv
+pyenvs
+python
+ls
+cd ..
+cd ..
+ls
+cd tmp/
+ls
+cd
+cd ..
+ls
+printenv
+python
+python3
+which python
+where python
+find python
+find pyenv
+pyenv
+exit
+python
+pip
+cd ..
+cd opt/
+ls
+printenv
+exit
+pyenv
+python
+python3
+exit
+ls
+pyenv
+users
+whoami
+sudo
+exit
+arm-none-eabi-gcc --version
+exit
+ls
+pyenv
+users
+whoami
+ls
+nvidia-smi
+cd training/
+ls
+cd keyword_spotting/
+ls
+nano
+nano build_ds_cnn.sh 
+cat build_ds_cnn.sh 
+sh build_ds_cnn.sh 
+pyenv
+pyenvs
+pyenv list
+pyenv activate
+pyenv --versions
+pyenv --version
+python
+~/.bash
+ls
+cd
+cd ..
+ls
+cd bin
+ls
+cd bash
+ls -a
+cd ..
+ls
+ls -a
+cd home/
+ls
+ls -a
+cd ..
+pyenv
+pyenv virtualenvs
+pyenv activate keyword_spotting
+pyenv global keyword_spotting
+pyenv virtualenvs
+pyenv local keyword_spotting
+pyenv virtualenvs
+cd app/training/keyword_spotting/
+ls
+sh build_ds_cnn.sh 
+ls
+cd train
+cd trained_models/
+ls
+exit
+exit

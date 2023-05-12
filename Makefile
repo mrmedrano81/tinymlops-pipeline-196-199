@@ -2,7 +2,6 @@
 ###########################| MAIN PROJECT MAKEFILE |############################
 ################################################################################
 
-
 # platform setup
 UID ?= $(shell id -u)
 GID ?= $(shell id -g)
@@ -18,10 +17,26 @@ else
     WORKDIR_VOLUME = "$$(pwd):/app"
 endif
 
+#container information
+CONTAINER_TOOL ?= docker
+
 ################## STM32 project configuration for container ###################
 
 STM32_PROJECT_VOLUME = "$$(pwd)/stm32f746g-discovery/KWS_STM32:/app"
-CONTAINER_NAME_STM32 := stm32-app
+STM32_DOCKERFILE:=stm32f746g-discovery/KWS_STM32/Dockerfile
+STM32_IMAGE_NAME:= stm32-build-kws-app
+STM32_CONTAINER_NAME := stm32-app
+STM32_NEED_IMAGE = $(shell $(CONTAINER_TOOL) image inspect $(STM32_IMAGE_NAME) 2> /dev/null > /dev/null || echo stm32-image)
+
+CONTAINER_RUN_STM32_APP = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
+				--gpus all \
+				--name $(STM32_CONTAINER_NAME) \
+				--rm \
+				-it \
+				-v $(STM32_PROJECT_VOLUME)\
+				--security-opt label=disable \
+				--hostname $(CONTAINER_NAME) \
+				-t $(STM32_IMAGE_NAME)
 
 ############################ MLFLOW configuration ##############################
 
@@ -62,15 +77,11 @@ $(warning [NOTICE] MLFLOW_RUN_NAME argument not specified. Using default values)
 endif
 
 ######################## Main Container Configuration ##########################
-
-#container information
-CONTAINER_TOOL ?= docker
 CONTAINER_FILE := Dockerfile
 IMAGE_NAME := tinymlops-pipeline
 CONTAINER_NAME := tinymlops-pipeline
 
 NEED_IMAGE = $(shell $(CONTAINER_TOOL) image inspect $(IMAGE_NAME) 2> /dev/null > /dev/null || echo image)
-
 # main container commands
 #	-runs container interactively with gpu access
 #	-sets working volume and enters automatically into working directory path once run
@@ -85,45 +96,43 @@ CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				--hostname $(CONTAINER_NAME) \
 				-t $(IMAGE_NAME)
 
-
-CONTAINER_RUN_STM32_APP = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
-				--gpus all \
-				--name $(CONTAINER_NAME_STM32) \
-				--rm \
-				-it \
-				-v $(STM32_PROJECT_VOLUME)\
-				--security-opt label=disable \
-				--hostname $(CONTAINER_NAME) \
-				-t $(IMAGE_NAME)
-
-
 ##################################### Targets #######################################
 
 # build docker image and run container 
 build-container: $(NEED_IMAGE)
 	$(CONTAINER_RUN)
 
-# build docker image, run container, and build microcontroller application code
-build-stm32-app:
-	$(CONTAINER_RUN_STM32_APP) bash -lc 'make -j$(shell nproc)'
-
 # docker image build step
 image: $(CONTAINER_FILE)
 	$(CONTAINER_TOOL) build \
 		-t $(IMAGE_NAME) \
 		-f=$(CONTAINER_FILE) \
+		--build-arg MLFLOW_TRACKING_USERNAME=$(MLFLOW_TRACKING_USERNAME) \
+		--build-arg MLFLOW_TRACKING_PASSWORD=$(MLFLOW_TRACKING_PASSWORD) \
+		--build-arg MLFLOW_RUN_NAME=$(MLFLOW_RUN_NAME) \
+		.
+
+# build docker image, run container, and build microcontroller application code
+build-stm32-app: $(STM32_NEED_IMAGE)
+	$(CONTAINER_RUN_STM32_APP) bash -lc 'make -j$(shell nproc)'
+
+stm32-image: $(CONTAINER_FILE)
+	$(CONTAINER_TOOL) build \
+		-t $(STM32_IMAGE_NAME) \
+		-f=$(STM32_DOCKERFILE) \
 		--build-arg UID=$(UID) \
 		--build-arg GID=$(GID) \
 		--build-arg USERNAME=$(USER) \
 		--build-arg GROUPNAME=$(GROUP) \
-		--build-arg MLFLOW_TRACKING_USERNAME=$(MLFLOW_TRACKING_USERNAME) \
-		--build-arg MLFLOW_TRACKING_PASSWORD=$(MLFLOW_TRACKING_PASSWORD) \
-		--build-arg MLFLOW_RUN_NAME=$(MLFLOW_RUN_NAME) \
 		.
 
 # cleanup
 clean-image:
 	$(CONTAINER_TOOL) container rm -f $(CONTAINER_NAME) 2> /dev/null > /dev/null || true
 	$(CONTAINER_TOOL) image rmi -f $(IMAGE_NAME) 2> /dev/null > /dev/null || true
+
+clean-stm32-image:
+	$(CONTAINER_TOOL) container rm -f $(STM32_CONTAINER_NAME) 2> /dev/null > /dev/null || true
+	$(CONTAINER_TOOL) image rmi -f $(STM32_IMAGE_NAME) 2> /dev/null > /dev/null || true
 
 clean-all: clean clean-image
