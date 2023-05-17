@@ -1,6 +1,22 @@
+# Copyright 2023 Michael Medrano
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#     http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 #######################-------INITIALIZATION-------#########################
 
-FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
+#FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu20.04
+#FROM nvidia/cuda:12.0.1-cudnn8-runtime-ubuntu20.04
 
 ARG NEEDRESTART_MODE=a
 
@@ -9,7 +25,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Set of all package dependencies needed
 RUN apt update && apt-get update && apt upgrade -y && \
     apt-get install -y --no-install-recommends\
-    #training
+    #model-training
     ffmpeg \
     make \
     build-essential \
@@ -31,7 +47,7 @@ RUN apt update && apt-get update && apt upgrade -y && \
     liblzma-dev \
     mecab-ipadic-utf8 \
     git \
-    #embedded
+    #application-deployment
     usbutils \
     lbzip2 \
     nano \
@@ -42,8 +58,8 @@ RUN apt update && apt-get update && apt upgrade -y && \
     openocd
 
 # Download gcc-arm-none-eabi to bz2 format in tmp directory
-#RUN wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2 -O /tmp/gcc-arm-none-eabi.tar.bz2
 RUN wget --no-check-certificate https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -O /tmp/gcc-arm-none-eabi.tar.bz2
+
 # Extract files into new gcc folder in opt
 RUN mkdir -p /opt/gcc-arm-none-eabi
 RUN tar xjfv /tmp/gcc-arm-none-eabi.tar.bz2 -C /opt/gcc-arm-none-eabi --strip-components 1
@@ -55,8 +71,6 @@ RUN ln -s /opt/gcc-arm-none-eabi-10.3/bin/* /usr/local/bin
 RUN rm -rf /tmp/*
 ENV PATH="/opt/gcc-arm-none-eabi/bin:${PATH}"
 
-#######################-------MODEL TRAINING AND OPTIMIZATION-------#########################
-
 # Set up necessary environment variables for pyenv
 ENV PYENV_ROOT /root/.pyenv
 ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
@@ -65,37 +79,33 @@ ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 RUN set -ex \
     && curl https://pyenv.run | bash \
     && pyenv update \
-    && pyenv install 3.7 \
     && pyenv install 3.8 \
     && pyenv global 3.8 \
     && pyenv rehash
 
 # Set up virtual environments for projects
-RUN pyenv virtualenv 3.7 image_classification
-RUN pyenv virtualenv 3.8 keyword_spotting
+RUN pyenv virtualenv 3.8 mlperf-kws
 
-#----Set up image classification project environment----#
-ENV PATH="/opt/pyenv/versions/image_classification/bin:$PATH"
+#----Set up MLPerf KWS training environment----#
+ENV PATH="/opt/pyenv/versions/mlperf-kws/bin:$PATH"
 
-RUN pyenv local image_classification
+RUN pyenv local mlperf-kws
 RUN python -m pip install --upgrade pip setuptools wheel
 
 # Copy directory to workdir in docker container
 WORKDIR /tmp
-COPY /training/image_classification/requirements.txt .
+COPY /model_training/MLPerf/training/keyword_spotting/requirements.txt .
 
-# Run pip install requirements.txt
-RUN pip install -r requirements.txt
+#----Set up ARM-ML-Zoo KWS training environment----#
+RUN pyenv virtualenv 3.8 arm-kws
+ENV PATH="/opt/pyenv/versions/arm-kws/bin:$PATH"
 
-#----Set up keyword spotting project environment----#
-ENV PATH="/opt/pyenv/versions/keyword_spotting/bin:$PATH"
-
-RUN pyenv local keyword_spotting
+RUN pyenv local arm-kws
 RUN python -m pip install --upgrade pip setuptools wheel
 
 # Copy directory to workdir in docker container
 WORKDIR /tmp
-COPY /training/keyword_spotting/requirements.txt .
+COPY /model_training/ARM-ML-Zoo/keyword_spotting/requirements.txt .
 
 # Run pip install requirements.txt
 RUN pip install -r requirements.txt
