@@ -1,5 +1,8 @@
 # Keyword Spotting STM32 Project
-The application currently supports and is set up using the TinyConv model from the  tensorflow lite micro micro_speech example that detects 2 keywords (Yes, No).
+The application currently supports and is set up using the TinyConv model from the  tensorflow lite micro micro_speech example that detects 2 keywords (Yes, No). 
+
+The build phase was adapted from the [stm32 project template repository](https://github.com/prtzl/stm32) by prtzl and the keyword spotting application was adapted from the [tflite-micro micro_speech example](https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/micro/examples/micro_speech) and integrated with the stm32f746g discovery board.
+
 ---
 
 ## Directories

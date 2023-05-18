@@ -37,15 +37,20 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 - contains all necessary dependencies in setting up the docker environment for the project.
 - For the training and optimization phase, the dockerfile sets up the training environment for both keyword spotting and visual wake word by installing the respective python versions and library dependencies in their respective python virtual environments.
 - For the application code build and deploy phase, the stm32 debug/flash tools are setup along with the ARM compiler.
-- When choosing which nvidia/cuda docker base image to use, make sure that the build configuration is compatible by checking the version compatibilities listed in the [build from source](https://www.tensorflow.org/install/source#linux) section in the tensorflow website. 
+- When choosing which nvidia/cuda docker base image to use, make sure that the build configuration is compatible with the training process to be used by checking the version compatibilities listed in the [build from source](https://www.tensorflow.org/install/source#linux) section in the tensorflow website. 
 
 ### 2. Makefile
-- Provides commands for building of each phase. Adapted from [stm32 project template repository](https://github.com/prtzl/stm32) by prtzl.
-- Build and run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container using: `make build-container` with the following arguments specified for the MLFLOW run instance for training: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`
-- Clean up docker image after exiting with: `make clean-image`
-- Build STM32F746g-discovery board Keyword Spotting application .elf, .hex, and .bin files and store them in the build folder using `make build-stm32-app`. Clean the build folder by running `make clean-stm32-app` which removes the entire build directory and its contents.
-- Clean up stm32 docker image after exiting with: `make clean-stm32-image`
-- *TBA - raspberry pi pico visual wake word app build and clean make command*
-- *TBA - sections in the makefile for automating microcontroller code  deployment*
+- Provides targets for each phase of the project pipeline.
+- *TBA - raspberry pi pico visual wake word app build, flash, and clean make command*
+- Listed in the table below are the available targets to be run with `make[command]` :
+
+| Command | Description |
+| ----------- | ----------- |
+| `build-main-container` | Run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container for training. You can specify the following arguments for mlflow tracking: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`|
+| `build-stm32-app` | Build the STM32F746g-discovery board keyword spotting application .elf, .hex, and .bin files and store them in the build folder | 
+|`flash-stm32-app`|Builds and flashes the {PROJECT_NAME}.bin file to the stm32 microcontroller. The flashing process is repeated if the first one fails (a workaround for a bug within the st-link tool for certain stm32 mcus).|
+|`clean-stm32-app`|Removes STM32 application project 'build' folder|
+|`clean-all-images`|Runs the `clean-image` and `clean-stm32-image` targets to clean both main and STM32 docker images.|
+
 
 --- 
