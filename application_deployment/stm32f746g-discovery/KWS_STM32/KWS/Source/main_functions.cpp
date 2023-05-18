@@ -23,11 +23,8 @@ limitations under the License.
 //#include "ds_cnn_quantized_data.h"
 //#include "model_settings.h"
 
-//#include "micro_features_model.h"
-//#include "micro_features_micro_model_settings.h"
-
-#include "tiny_conv.h"
-#include "tiny_conv_settings.h"
+#include "micro_features_model.h"
+#include "micro_features_micro_model_settings.h"
 
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 //#include "tensorflow/lite/micro/all_ops_resolver.h"
@@ -55,15 +52,14 @@ int8_t feature_buffer[kFeatureElementCount];
 int8_t* model_input_buffer = nullptr;
 }  // namespace
 
-// The name of this function is important for Arduino compatibility.
 void setup() {
 
   static tflite::MicroErrorReporter micro_error_reporter;
   error_reporter = &micro_error_reporter;
 
   //model = tflite::GetModel(g_ds_cnn_quantized_data);
-  //model = tflite::GetModel(g_model);
-  model = tflite::GetModel(g_tiny_conv);
+  model = tflite::GetModel(g_model);
+  
 
   if (model->version() != TFLITE_SCHEMA_VERSION) {
     TF_LITE_REPORT_ERROR(error_reporter,
@@ -103,7 +99,7 @@ void setup() {
 
   // MICROSPEECH EXAMPLE 
   // MICRO MUTABLE OP RESOLVER
-  /*
+  
   static tflite::MicroMutableOpResolver<4> micro_op_resolver(error_reporter);
   if (micro_op_resolver.AddDepthwiseConv2D() != kTfLiteOk) {
     return;
@@ -117,22 +113,7 @@ void setup() {
   if (micro_op_resolver.AddReshape() != kTfLiteOk) {
     return;
   }
-  */
-
-  //TINY CONV model
-  static tflite::MicroMutableOpResolver<4> micro_op_resolver(error_reporter);
-  if (micro_op_resolver.AddConv2D() != kTfLiteOk) {
-    return;
-  }
-  if (micro_op_resolver.AddFullyConnected() != kTfLiteOk) {
-    return;
-  }
-  if (micro_op_resolver.AddSoftmax() != kTfLiteOk) {
-    return;
-  }
-  if (micro_op_resolver.AddReshape() != kTfLiteOk) {
-    return;
-  }
+  
 
   // Build an interpreter to run the model with.
   static tflite::MicroInterpreter static_interpreter(model, micro_op_resolver, tensor_arena, kTensorArenaSize, error_reporter);
@@ -194,17 +175,12 @@ void loop() {
     return;
   }
 
-  TF_LITE_REPORT_ERROR(error_reporter, "how many new slices: %d", how_many_new_slices);
-
-
   // Copy feature buffer to input tensor
   for (int i = 0; i < kFeatureElementCount; i++) {
     model_input_buffer[i] = feature_buffer[i];
   }
 
-  
   // Obtain a pointer to the output tensor
-
   TfLiteTensor* output = interpreter->output(0);
   
   // Run the model on the spectrogram input and make sure it succeeds.
@@ -213,14 +189,6 @@ void loop() {
     TF_LITE_REPORT_ERROR(error_reporter, "Invoke failed");
     return;
   }
-
-  TF_LITE_REPORT_ERROR(error_reporter, "Silence-0: %d, Unknown-1: %d yes-2: %d, no-3: %d, up-4: %d, down-5: %d",
-                       output->data.int8[0], output->data.int8[1], output->data.int8[2], 
-                       output->data.int8[3], output->data.int8[4], output->data.int8[5]);
-  TF_LITE_REPORT_ERROR(error_reporter, "left-6: %d, right-7: %d, on-8: %d, off-9: %d, stop-10: %d, go-11: %d", 
-                       output->data.int8[6], output->data.int8[7], output->data.int8[8], 
-                       output->data.int8[9], output->data.int8[10], output->data.int8[11]);
-  TF_LITE_REPORT_ERROR(error_reporter,"dims: %d", output->dims->data[1]);
 
   // Determine whether a command was recognized based on the output of inference
   const char* found_command = nullptr;

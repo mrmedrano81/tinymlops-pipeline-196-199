@@ -17,15 +17,12 @@ limitations under the License.
 #include "stm32746g_discovery_lcd.h"
 
 void RespondToCommand(tflite::ErrorReporter* error_reporter, int32_t current_time, 
-            const char* found_command, uint8_t score, bool is_new_command) {
-        
+    const char* found_command, uint8_t score, bool is_new_command) {
         if (is_new_command == true) {
-            //TF_LITE_REPORT_ERROR(error_reporter, "Command: %s, Score: %d, Time: %dms", found_command, score, current_time);
-            
             BSP_LCD_Clear(LCD_COLOR_BLACK);
             BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
             BSP_LCD_SetBackColor(LCD_COLOR_GREEN);
             BSP_LCD_SetFont(&LCD_DEFAULT_FONT);
-            BSP_LCD_DisplayStringAt(0, 200, (uint8_t *)found_command, CENTER_MODE);
+            BSP_LCD_DisplayStringAt(0, 50, (uint8_t *)found_command, CENTER_MODE);
         }
 }

@@ -14,8 +14,8 @@
 
 #######################-------INITIALIZATION-------#########################
 
-#FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
-FROM nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
+#FROM nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu20.04
 #FROM nvidia/cuda:12.0.1-cudnn8-runtime-ubuntu20.04
 
 ARG NEEDRESTART_MODE=a
@@ -109,6 +109,17 @@ COPY /model_training/ARM-ML-Zoo/keyword_spotting/requirements.txt .
 
 # Run pip install requirements.txt
 RUN pip install -r requirements.txt
+
+# Set up virtual environments for projects
+RUN pyenv virtualenv 3.8 speech_commands
+
+#----Set up TF-speech_commands project environment----#
+ENV PATH="/opt/pyenv/versions/speech_commands/bin:$PATH"
+
+RUN pyenv local speech_commands
+RUN python -m pip install --upgrade pip setuptools wheel
+
+RUN pip install tensorflow-gpu==2.4.0
 
 # set mlflow config
 ARG MLFLOW_TRACKING_USERNAME

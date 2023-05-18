@@ -36,7 +36,6 @@ int __io_putchar(int ch)
     return ch;
 }
 
-
 // Used by TFLite error_reporter
 void DebugLog(const char *s)
 {

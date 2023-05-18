@@ -5,8 +5,7 @@
 #include "audio_provider.h"
 
 //#include "model_settings.h"
-//#include "micro_features_micro_model_settings.h"
-#include "tiny_conv_settings.h"
+#include "micro_features_micro_model_settings.h"
 
 #include "stm32746g_discovery_audio.h"
 #include "stm32746g_discovery_sdram.h"
@@ -58,7 +57,7 @@ TfLiteStatus InitAudioRecording(tflite::ErrorReporter* error_reporter) {
   memset((uint16_t*)AUDIO_BUFFER_OUT, 0, AUDIO_BLOCK_SIZE * 2);
   g_audio_rec_buffer_state = BUFFER_OFFSET_NONE;
 
-  BSP_AUDIO_IN_SetVolume(90);
+  //BSP_AUDIO_IN_SetVolume(90);
 
   // Start Recording.
   BSP_AUDIO_IN_Record((uint16_t*)AUDIO_BUFFER_IN, AUDIO_BLOCK_SIZE);

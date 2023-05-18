@@ -97,9 +97,6 @@ extern uint32_t    ErrorCounter;
 /* Exported macro ------------------------------------------------------------*/
 
 /* Exported functions ------------------------------------------------------- */
-void AudioLoopback_demo (void);
-void SDRAM_demo(void);
-void SDRAM_DMA_demo(void);
 uint8_t CheckForUserInput(void);
 #ifdef USE_FULL_ASSERT
 void assert_failed(uint8_t* file, uint32_t line);

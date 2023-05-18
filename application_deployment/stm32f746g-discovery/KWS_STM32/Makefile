@@ -18,10 +18,7 @@ cmake: ${BUILD_DIR}/Makefile
 build: cmake
 	$(MAKE) -C ${BUILD_DIR} --no-print-directory
 
-SRCS := $(shell find . -name '*.[ch]' -or -name '*.[ch]pp')
-%.format: %
-	clang-format -i $<
-format: $(addsuffix .format, ${SRCS})
+SRCS := $(shell find . -name '*.[ch]' -or -name '*.[ch]pp' -or -name '*.cc')
 
 clean:
 	rm -rf $(BUILD_DIR)

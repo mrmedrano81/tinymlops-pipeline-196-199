@@ -55,8 +55,6 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
     return kTfLiteError;
   }
 
-  TF_LITE_REPORT_ERROR(error_reporter_, "check 2");
-
   if ((!previous_results_.empty()) &&
       (current_time_ms < previous_results_.front().time_)) {
     TF_LITE_REPORT_ERROR(
@@ -67,32 +65,22 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
     return kTfLiteError;
   }
 
-  TF_LITE_REPORT_ERROR(error_reporter_, "check 3");
-
   // Add the latest results to the head of the queue.
   previous_results_.push_back({current_time_ms, latest_results->data.int8});
-  const int64_t how_many = previous_results_.size();
-  TF_LITE_REPORT_ERROR(error_reporter_, "hmr before check4: %d", how_many);
 
   // Prune any earlier results that are too old for the averaging window.
   const int64_t time_limit = current_time_ms - average_window_duration_ms_;
-  TF_LITE_REPORT_ERROR(error_reporter_, "time limit: %d", time_limit);
-  TF_LITE_REPORT_ERROR(error_reporter_, "time front of queue: %d", previous_results_.front().time_);
 
   while ((!previous_results_.empty()) &&
          previous_results_.front().time_ < time_limit) {
     previous_results_.pop_front();
   }
 
-  TF_LITE_REPORT_ERROR(error_reporter_, "check 4");
   // If there are too few results, assume the result will be unreliable and
   // bail.
   const int64_t how_many_results = previous_results_.size();
   const int64_t earliest_time = previous_results_.front().time_;
   const int64_t samples_duration = current_time_ms - earliest_time;
-
-  TF_LITE_REPORT_ERROR(error_reporter_, "hmr: %d, et: %d, sd: %d, awd/4: ",
-     how_many_results, earliest_time, samples_duration, (average_window_duration_ms_ / 4));
   
   if ((how_many_results < minimum_count_) ||
       (samples_duration < (average_window_duration_ms_ / 4))) {
@@ -102,7 +90,6 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
     return kTfLiteOk;
   }
 
-  TF_LITE_REPORT_ERROR(error_reporter_, "check 5");
   // Calculate the average score across all the results in the window.
   int32_t average_scores[kCategoryCount];
   for (int offset = 0; offset < previous_results_.size(); ++offset) {
@@ -121,7 +108,6 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
     average_scores[i] /= how_many_results;
   }
 
-  TF_LITE_REPORT_ERROR(error_reporter_, "check 6");
   // Find the current highest scoring category.
   int current_top_index = 0;
   int32_t current_top_score = 0;

@@ -23,6 +23,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 - Directory for the model training phase of the pipeline and consists of different repositories for training specific models.
 - *MLPerf*: cloned from [MLCommon's tinyML benchmark](https://github.com/mlcommons/tiny) github repository training directory. contains the training directory for both the keyword spotting and visual wakeword tinyML applications.
 - *ARM-ML-Zoo*: cloned from the [ML-Zoo](https://github.com/ARM-software/ML-zoo) repository of ARM, namely the training package for cnn_small and ds_cnn small models for keyword spotting.
+- *Tensorflow*: cloned from tensorflow [speech commands example](https://github.com/tensorflow/tensorflow/tree/v2.4.0/tensorflow/examples/speech_commands). Contains the training package for the micro_speech model training and audio recognition tutorial.
 
 ### 2. application_deployment
 - Directory for different microcontroller applications as part of the deployment phase of the pipeline.

@@ -1,4 +1,3 @@
-# STM32 Minimal CMake project for C/C++ projects
 cmake_minimum_required(VERSION 3.12)
 ##################################################################################################
 # Set project name and source code folder location
@@ -220,19 +219,13 @@ set(THIRD_PARTY_SOURCES
 
 set(PROJECT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/main.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/audio_loopback.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sdram_dma.c 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/sdram.c 
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/debug_log.c
     
     #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/ds_cnn_quantized_data.cpp
     #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/model_settings.cpp
     
-    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_micro_model_settings.cpp
-    #${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_model.cpp
-
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/tiny_conv_settings.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/tiny_conv.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_micro_model_settings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/micro_features_model.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/audio_provider.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/KWS/Source/command_responder.cpp
@@ -256,14 +249,11 @@ target_compile_definitions(${EXECUTABLE} PRIVATE
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${STM32CUBEMX_INCLUDE_DIRECTORIES})
 
-    #mike
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${THIRD_PARTY_INCLUDE_DIRECTORIES})
 
-#mike
 target_include_directories(${EXECUTABLE} SYSTEM PRIVATE
     ${TFLITE_INCLUDE_DIRECTORIES})
-
 
 target_include_directories(${EXECUTABLE} PRIVATE
     ${PROJECT_INCLUDE_DIRECTORIES})
@@ -318,7 +308,6 @@ target_link_options(${EXECUTABLE} PRIVATE
     -Wl,--end-group
     -Wl,--print-memory-usage)
 
-# The last command can take a couple of seconds on larger project, usefull for debugging
 add_custom_command(TARGET ${EXECUTABLE} POST_BUILD
     COMMAND ${CMAKE_SIZE} $<TARGET_FILE:${EXECUTABLE}>
     COMMAND ${CMAKE_OBJCOPY} -O ihex $<TARGET_FILE:${EXECUTABLE}> ${EXECUTABLE}.hex

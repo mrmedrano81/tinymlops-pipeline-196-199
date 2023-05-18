@@ -21,8 +21,7 @@ limitations under the License.
 #include "tensorflow/lite/c/common.h"
 
 //#include "model_settings.h"
-//#include "micro_features_micro_model_settings.h"
-#include "tiny_conv_settings.h"
+#include "micro_features_micro_model_settings.h"
 
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 
@@ -135,7 +134,7 @@ class RecognizeCommands {
   // further recognitions for a set time after one has been triggered, which can
   // help reduce spurious recognitions.
   explicit RecognizeCommands(tflite::ErrorReporter* error_reporter,
-                             int32_t average_window_duration_ms = 1500,
+                             int32_t average_window_duration_ms = 1200,
                              uint8_t detection_threshold = 150,
                              int32_t suppression_ms = 1500,
                              int32_t minimum_count = 3);
