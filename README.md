@@ -40,7 +40,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 - When choosing which nvidia/cuda docker base image to use, make sure that the build configuration is compatible by checking the version compatibilities listed in the [build from source](https://www.tensorflow.org/install/source#linux) section in the tensorflow website. 
 
 ### 2. Makefile
-- Provides commands for building of each phase
+- Provides commands for building of each phase. Adapted from [stm32 project template repository](https://github.com/prtzl/stm32) by prtzl.
 - Build and run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container using: `make build-container` with the following arguments specified for the MLFLOW run instance for training: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`
 - Clean up docker image after exiting with: `make clean-image`
 - Build STM32F746g-discovery board Keyword Spotting application .elf, .hex, and .bin files and store them in the build folder using `make build-stm32-app`. Clean the build folder by running `make clean-stm32-app` which removes the entire build directory and its contents.
