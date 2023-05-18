@@ -44,7 +44,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 - *TBA - raspberry pi pico visual wake word app build, flash, and clean make command*
 - Listed in the table below are the available targets to be run with `make[command]` :
 
-| Command | Description |
+| <div style="width:180px">Command</div> | Description |
 | ----------- | ----------- |
 | `build-main-container` | Run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container for training. You can specify the following arguments for mlflow tracking: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`|
 | `build-stm32-app` | Build the STM32F746g-discovery board keyword spotting application .elf, .hex, and .bin files and store them in the build folder | 
