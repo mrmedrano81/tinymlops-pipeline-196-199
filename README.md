@@ -36,8 +36,14 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 ### 1. Dockerfile
 - contains all necessary dependencies in setting up the docker environment for the project.
 - For the training and optimization phase, the dockerfile sets up the training environment for both keyword spotting and visual wake word by installing the respective python versions and library dependencies in their respective python virtual environments.
-- For the application code build and deploy phase, the stm32 debug/flash tools are setup along with the ARM compiler.
-- When choosing which nvidia/cuda docker base image to use, make sure that the build configuration is compatible with the training process to be used by checking the version compatibilities listed in the [build from source](https://www.tensorflow.org/install/source#linux) section in the tensorflow website. 
+- For the application code build and deploy phase, each microcontroller has it's own Dockerfile in the project root. For the stm32, the arm-gcc-none-eabi compiler and stlink tool is set up.
+- When choosing which nvidia/cuda docker base image to use, make sure that the build configuration is compatible with the training process to be used by checking the version compatibilities listed in the [build from source](https://www.tensorflow.org/install/source#linux) section in the tensorflow website.
+- The project currently supports the following nvidia/cuda docker images along with which training directories use it: 
+
+|Image|Training Directories|
+| ----------- | ----------- |
+|`nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04`|Tensorflow/speech_commands|
+|`nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu20.04`|ARM-ML-Zoo/keyword_spotting, MLPerf/training/keyword_spotting|
 
 ### 2. Makefile
 - Provides targets for each phase of the project pipeline.
@@ -46,9 +52,9 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 | <div style="width:180px">Command</div> | Description |
 | ----------- | ----------- |
-| `build-main-container` | Run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container for training. You can specify the following arguments for mlflow tracking: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`|
+| `build-main-container` | Run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container for training. You can specify the following arguments for mlflow tracking: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`. The base nvidia/cuda image version can also be specified using for example `NVIDIA_CUDA_IMAGE=11.0.3-cudnn8-runtime-ubuntu20.04`, where the options are listed in the table under the Dockerfile description|
 | `build-stm32-app` | Build the STM32F746g-discovery board keyword spotting application .elf, .hex, and .bin files and store them in the build folder | 
-|`flash-stm32-app`|Builds and flashes the {PROJECT_NAME}.bin file to the stm32 microcontroller. The flashing process is repeated if the first one fails (a workaround for a bug within the st-link tool for certain stm32 mcus).|
+|`flash-stm32-app`|Builds and flashes the {PROJECT_NAME}.bin file to the stm32 microcontroller.|
 |`clean-stm32-app`|Removes STM32 application project 'build' folder|
 |`clean-all-images`|Runs the `clean-image` and `clean-stm32-image` targets to clean both main and STM32 docker images.|
 

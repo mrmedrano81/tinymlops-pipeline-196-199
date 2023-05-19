@@ -12,9 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#######################-------INITIALIZATION-------#########################
+ARG NVIDIA_CUDA_IMAGE_VERSION
 
-FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:$NVIDIA_CUDA_IMAGE_VERSION
+#FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
 #FROM nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu20.04
 #FROM nvidia/cuda:12.0.1-cudnn8-runtime-ubuntu20.04
 
@@ -22,10 +23,9 @@ ARG NEEDRESTART_MODE=a
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Set of all package dependencies needed
+# Dependencies needed for pyenv to function inside docker
 RUN apt update && apt-get update && apt upgrade -y && \
-    apt-get install -y --no-install-recommends\
-    #model-training
+    apt-get install -y --no-install-recommends \
     ffmpeg \
     make \
     build-essential \
@@ -47,29 +47,7 @@ RUN apt update && apt-get update && apt upgrade -y && \
     liblzma-dev \
     mecab-ipadic-utf8 \
     git \
-    #application-deployment
-    usbutils \
-    lbzip2 \
-    nano \
-    findutils \
-    cmake \
-    xxd \
-    stlink-tools \
-    openocd
-
-# Download gcc-arm-none-eabi to bz2 format in tmp directory
-RUN wget --no-check-certificate https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -O /tmp/gcc-arm-none-eabi.tar.bz2
-
-# Extract files into new gcc folder in opt
-RUN mkdir -p /opt/gcc-arm-none-eabi
-RUN tar xjfv /tmp/gcc-arm-none-eabi.tar.bz2 -C /opt/gcc-arm-none-eabi --strip-components 1
-
-# Link executables to usr local bin
-RUN ln -s /opt/gcc-arm-none-eabi-10.3/bin/* /usr/local/bin
-
-# Clear tmp folder and configure compiler path
-RUN rm -rf /tmp/*
-ENV PATH="/opt/gcc-arm-none-eabi/bin:${PATH}"
+    xxd
 
 # Set up necessary environment variables for pyenv
 ENV PYENV_ROOT /root/.pyenv
@@ -83,43 +61,44 @@ RUN set -ex \
     && pyenv global 3.8 \
     && pyenv rehash
 
-# Set up virtual environments for projects
-RUN pyenv virtualenv 3.8 mlperf-kws
+ARG INSTALL_MLPERF_KWS_REQS=false
+ARG INSTALL_ARM_KWS_REQS=false
+ARG INSTALL_TF_SPEECH_COMMANDS_REQS=false
 
-#----Set up MLPerf KWS training environment----#
-ENV PATH="/opt/pyenv/versions/mlperf-kws/bin:$PATH"
+# Set up PATHS
+ENV PATH="/opt/pyenv/versions/MLPERF-KWS/bin:$PATH"
+ENV PATH="/opt/pyenv/versions/ARM-KWS/bin:$PATH"
+ENV PATH="/opt/pyenv/versions/TF-SPEECH-COMMANDS/bin:$PATH"
 
-RUN pyenv local mlperf-kws
-RUN python -m pip install --upgrade pip setuptools wheel
+# Set up virtual environments model training
 
-# Copy directory to workdir in docker container
+# MLperf keyword spotting 
+RUN if [ "$INSTALL_MLPERF_KWS_REQS" = "true" ]; then \
+    pyenv virtualenv 3.8 MLPERF-KWS && \
+    pyenv local MLPERF-KWS && \
+    python -m pip install --upgrade pip setuptools wheel; \ 
+    fi
 WORKDIR /tmp
 COPY /model_training/MLPerf/training/keyword_spotting/requirements.txt .
+RUN if [ "$INSTALL_MLPERF_KWS_REQS" = "true" ]; then python -m pip install -r requirements.txt; fi
 
-#----Set up ARM-ML-Zoo KWS training environment----#
-RUN pyenv virtualenv 3.8 arm-kws
-ENV PATH="/opt/pyenv/versions/arm-kws/bin:$PATH"
-
-RUN pyenv local arm-kws
-RUN python -m pip install --upgrade pip setuptools wheel
-
-# Copy directory to workdir in docker container
+# ARM-ML-Zoo keyword spotting
+RUN if [ "$INSTALL_ARM_KWS_REQS" = "true" ]; then \
+    pyenv virtualenv 3.8 ARM-KWS && \
+    pyenv local ARM-KWS && \
+    python -m pip install --upgrade pip setuptools wheel; \
+    fi
 WORKDIR /tmp
 COPY /model_training/ARM-ML-Zoo/keyword_spotting/requirements.txt .
+RUN if [ "$INSTALL_ARM_KWS_REQS" = "true" ]; then python -m pip install -r requirements.txt; fi
 
-# Run pip install requirements.txt
-RUN pip install -r requirements.txt
-
-# Set up virtual environments for projects
-RUN pyenv virtualenv 3.8 speech_commands
-
-#----Set up TF-speech_commands project environment----#
-ENV PATH="/opt/pyenv/versions/speech_commands/bin:$PATH"
-
-RUN pyenv local speech_commands
-RUN python -m pip install --upgrade pip setuptools wheel
-
-RUN pip install tensorflow-gpu==2.4.0
+# Tensorflow Speech Commands
+RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then \
+    pyenv virtualenv 3.8 TF-SPEECH-COMMANDS && \
+    pyenv local TF-SPEECH-COMMANDS && \
+    python -m pip install --upgrade pip setuptools wheel; \
+    fi
+RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then pip install tensorflow-gpu==2.4.0; fi
 
 # set mlflow config
 ARG MLFLOW_TRACKING_USERNAME

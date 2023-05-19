@@ -36,15 +36,32 @@ CONTAINER_TOOL ?= docker
 ################## STM32 project configuration for container ###################
 
 # STM32 application project specific variables to be manually setup
-STM32_PROJECT_LOCATION = application_deployment/stm32f746g-discovery/KWS_STM32
-STM32_PROJECT_NAME = KWS_STM32
-STM32_IMAGE_NAME := stm32-app
-STM32_CONTAINER_NAME := stm32-app
+#	- the STM32_PROJECT_BUILD_DIR path is relative to the STM32 project root
+STM32_PROJECT_LOCATION ?= application_deployment/stm32f746g-discovery/KWS_STM32
+STM32_PROJECT_BUILD_DIR ?= build
+STM32_PROJECT_NAME ?= KWS_STM32
+STM32_IMAGE_NAME ?= stm32-app
+STM32_CONTAINER_NAME ?= stm32-app
 
-# Additional variables
+override STM32_PROJECT_LOCATION := $(or $(STM32_PROJECT_LOCATION),$(filter STM32_PROJECT_LOCATION=%,$(MAKECMDGOALS)))
+override STM32_PROJECT_BUILD_DIR := $(or $(STM32_PROJECT_BUILD_DIR),$(filter STM32_PROJECT_BUILD_DIR=%,$(MAKECMDGOALS)))
+override STM32_PROJECT_NAME := $(or $(STM32_PROJECT_NAME),$(filter STM32_PROJECT_NAME=%,$(MAKECMDGOALS)))
+override STM32_IMAGE_NAME := $(or $(STM32_IMAGE_NAME),$(filter STM32_IMAGE_NAME=%,$(MAKECMDGOALS)))
+override STM32_CONTAINER_NAME := $(or $(STM32_CONTAINER_NAME),$(filter STM32_CONTAINER_NAME=%,$(MAKECMDGOALS)))
+
+.PHONY: stm32-args
+
+stm32-args:
+	@echo "[INFO] STM32_PROJECT_LOCATION: $(STM32_PROJECT_LOCATION)"
+	@echo "[INFO] STM32_PROJECT_BUILD_DIR: $(STM32_PROJECT_BUILD_DIR)"
+	@echo "[INFO] STM32_PROJECT_NAME: $(STM32_PROJECT_NAME)"
+	@echo "[INFO] STM32_IMAGE_NAME: $(STM32_IMAGE_NAME)"
+	@echo "[INFO] STM32_CONTAINER_NAME: $(STM32_CONTAINER_NAME)"
+
+# Additional generated variables
 STM32_PROJECT_VOLUME = "$$(pwd)/$(STM32_PROJECT_LOCATION):/app"
 STM32_DOCKERFILE:=$(STM32_PROJECT_LOCATION)/Dockerfile
-STM32_APP_BIN_FILE = build/$(STM32_PROJECT_NAME).bin
+STM32_APP_BIN_FILE = $(STM32_PROJECT_BUILD_DIR)/$(STM32_PROJECT_NAME).bin
 STM32_NEED_IMAGE = $(shell $(CONTAINER_TOOL) image inspect $(STM32_IMAGE_NAME) 2> /dev/null > /dev/null || echo stm32-image)
 
 # STM32 application container run rule
@@ -68,40 +85,42 @@ CONTAINER_RUN_STM32_APP = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 
 ############################ MLFLOW configuration ##############################
 
-# Defaults initialized for demonstration purposes only.
-# In a practical setting defaults will be initialized as empty.
-MLFLOW_TRACKING_USERNAME :=
-MLFLOW_TRACKING_PASSWORD :=
-MLFLOW_RUN_NAME :=
+# Default MLFLOW user configurations 
+# 	-in a practical setting these will be set as empty
+#	 and are only filled for testing and demonstration purposes
+MLFLOW_TRACKING_USERNAME ?= mrmedrano81
+MLFLOW_TRACKING_PASSWORD ?= 70334c6f3a4e81cd5c9271e67de06f62eb307c19
+MLFLOW_RUN_NAME ?= test_run
 
-# Override MLFLOW_TRACKING_USERNAME if the user passes an argument to make
-ifeq ($(filter MLFLOW_TRACKING_USERNAME=%,$(MAKECMDGOALS)),MLFLOW_TRACKING_USERNAME=)
-    MLFLOW_TRACKING_USERNAME := $(subst MLFLOW_TRACKING_USERNAME=,,$(filter MLFLOW_TRACKING_USERNAME=%,$(MAKECMDGOALS)))
-endif
+# Override variables with command line arguments if provided
+override MLFLOW_TRACKING_USERNAME := $(or $(MLFLOW_TRACKING_USERNAME),$(filter MLFLOW_TRACKING_USERNAME=%,$(MAKECMDGOALS)))
+override MLFLOW_TRACKING_PASSWORD := $(or $(MLFLOW_TRACKING_PASSWORD),$(filter MLFLOW_TRACKING_PASSWORD=%,$(MAKECMDGOALS)))
+override MLFLOW_RUN_NAME := $(or $(MLFLOW_RUN_NAME),$(filter MLFLOW_RUN_NAME=%,$(MAKECMDGOALS)))
 
-# Override MLFLOW_TRACKING_PASSWORD if the user passes an argument to make
-ifeq ($(filter MLFLOW_TRACKING_PASSWORD=%,$(MAKECMDGOALS)),MLFLOW_TRACKING_PASSWORD=)
-    MLFLOW_TRACKING_PASSWORD := $(subst MLFLOW_TRACKING_PASSWORD=,,$(filter MLFLOW_TRACKING_PASSWORD=%,$(MAKECMDGOALS)))
-endif
+.PHONY: mlflow-args
 
-# Override MLFLOW_RUN_NAME if the user passes an argument to make
-ifeq ($(filter MLFLOW_RUN_NAME=%,$(MAKECMDGOALS)),MLFLOW_RUN_NAME=)
-    MLFLOW_RUN_NAME := $(subst MLFLOW_RUN_NAME=,,$(filter MLFLOW_RUN_NAME=%,$(MAKECMDGOALS)))
-endif
+mlflow-args:
+	@echo "[INFO] MLFLOW_TRACKING_USERNAME: $(MLFLOW_TRACKING_USERNAME)"
+	@echo "[INFO] MLFLOW_TRACKING_PASSWORD: $(MLFLOW_TRACKING_PASSWORD)"
+	@echo "[INFO] MLFLOW_RUN_NAME: $(MLFLOW_RUN_NAME)"
 
-ifndef MLFLOW_TRACKING_USERNAME
-$(warning [NOTICE] MLFLOW_TRACKING_USERNAME argument not specified. Using default values)
-	MLFLOW_TRACKING_USERNAME := mrmedrano81
-endif
+############################ Training Configuration ################################
 
-ifndef MLFLOW_TRACKING_PASSWORD
-$(warning [NOTICE] MLFLOW_TRACKING_PASSWORD argument not specified. Using default values)
-	MLFLOW_TRACKING_PASSWORD := 70334c6f3a4e81cd5c9271e67de06f62eb307c19
-endif
+NVIDIA_CUDA_IMAGE_VERSION?=11.2.0-cudnn8-runtime-ubuntu20.04
 
-ifndef MLFLOW_RUN_NAME
-$(warning [NOTICE] MLFLOW_RUN_NAME argument not specified. Using default values)
-	MLFLOW_RUN_NAME := test_run
+INSTALL_MLPERF_KWS_REQS?=false
+INSTALL_ARM_KWS_REQS?=false
+INSTALL_TF_SPEECH_COMMANDS_REQS?=false
+
+# Check NVIDIA_CUDA_IMAGE_VERSION and set INSTAL_REQ variables accordingly
+ifeq ($(NVIDIA_CUDA_IMAGE_VERSION),11.0.3-cudnn8-runtime-ubuntu20.04)
+	INSTALL_TF_SPEECH_COMMANDS_REQS:=true
+else ifeq ($(NVIDIA_CUDA_IMAGE_VERSION),11.2.0-cudnn8-runtime-ubuntu20.04)
+	INSTALL_MLPERF_KWS_REQS:=true
+	INSTALL_ARM_KWS_REQS:=true
+else
+$(error NVIDIA_CUDA_IMAGE_VERSION '$(NVIDIA_CUDA_IMAGE_VERSION)' is not supported. \
+Please use either '11.0.3-cudnn8-runtime-ubuntu20.04' or '11.2.0-cudnn8-runtime-ubuntu20.04'.)
 endif
 
 ########################## Main Container Configuration ############################
@@ -128,7 +147,7 @@ CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 ################################### Targets #######################################
 
 # build main docker image and run container 
-build-main-container: $(NEED_IMAGE)
+build-main-container: $(NEED_IMAGE) mlflow-args
 	$(CONTAINER_RUN)
 
 # main docker image build step
@@ -139,19 +158,23 @@ image: $(CONTAINER_FILE)
 		--build-arg MLFLOW_TRACKING_USERNAME=$(MLFLOW_TRACKING_USERNAME) \
 		--build-arg MLFLOW_TRACKING_PASSWORD=$(MLFLOW_TRACKING_PASSWORD) \
 		--build-arg MLFLOW_RUN_NAME=$(MLFLOW_RUN_NAME) \
+		--build-arg NVIDIA_CUDA_IMAGE_VERSION=$(NVIDIA_CUDA_IMAGE_VERSION) \
+		--build-arg INSTALL_MLPERF_KWS_REQS=$(INSTALL_MLPERF_KWS_REQS) \
+		--build-arg INSTALL_ARM_KWS_REQS=$(INSTALL_ARM_KWS_REQS) \
+		--build-arg INSTALL_TF_SPEECH_COMMANDS_REQS=$(INSTALL_TF_SPEECH_COMMANDS_REQS) \
 		.
 
 
 #------ STM32 application targets ------#
 
 # build docker image, run container, and build microcontroller application code
-build-stm32-app: $(STM32_NEED_IMAGE)
+build-stm32-app: $(STM32_NEED_IMAGE) stm32-args
 	$(CONTAINER_RUN_STM32_APP) bash -lc 'make -j$(shell nproc)'
 
 # builds and flashes binary to the stm32 microcontroller
 # 	- the flashing process is repeated if the first one fails 
 #	  (a workaround for a bug within the st-link tool for certain stm32 mcus)
-flash-stm32-app: $(STM32_NEED_IMAGE)
+flash-stm32-app: $(STM32_NEED_IMAGE) stm32-args
 	$(CONTAINER_RUN_STM32_APP) bash -lc 'make -j$(shell nproc) && \
 	st-flash --reset write $(STM32_APP_BIN_FILE) 0x08000000 || \
 	st-flash --reset write $(STM32_APP_BIN_FILE) 0x08000000'
