@@ -10,7 +10,8 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 2. Download and install [Docker backend for WSL](https://nickjanetakis.com/blog/install-docker-in-wsl-2-without-docker-desktop) or [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
 3. Install [Nvidia container toolkit for docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) inside WSL
 4. Install make in WSL by running `sudo apt-get -y install make`
-5. run specified make commands in makefile description.
+5. Install usbipd-win ([guide](https://www.xda-developers.com/wsl-connect-usb-devices-windows-11/) for flashing the STM32F746g-discovery board. You will need to then attach the STM32 using `usbipd wsl attach --busid <busid>` in the Windows CLI. 
+6. run specified make commands in makefile description.
 
 ### Linux (Ubuntu 22.04)
 1. Download and install [Docker](https://docs.docker.com/engine/install/ubuntu/)
