@@ -113,14 +113,12 @@ INSTALL_ARM_KWS_REQS?=false
 INSTALL_TF_SPEECH_COMMANDS_REQS?=false
 
 # Check NVIDIA_CUDA_IMAGE_VERSION and set INSTAL_REQ variables accordingly
-ifeq ($(NVIDIA_CUDA_IMAGE_VERSION),11.0.3-cudnn8-runtime-ubuntu20.04)
+ifeq ($(NVIDIA_CUDA_IMAGE_VERSION),11.2.0-cudnn8-runtime-ubuntu20.04)
 	INSTALL_TF_SPEECH_COMMANDS_REQS:=true
-else ifeq ($(NVIDIA_CUDA_IMAGE_VERSION),11.2.0-cudnn8-runtime-ubuntu20.04)
 	INSTALL_MLPERF_KWS_REQS:=true
 	INSTALL_ARM_KWS_REQS:=true
 else
-$(error NVIDIA_CUDA_IMAGE_VERSION '$(NVIDIA_CUDA_IMAGE_VERSION)' is not supported. \
-Please use either '11.0.3-cudnn8-runtime-ubuntu20.04' or '11.2.0-cudnn8-runtime-ubuntu20.04'.)
+$(error NVIDIA_CUDA_IMAGE_VERSION '$(NVIDIA_CUDA_IMAGE_VERSION)' is not supported.)
 endif
 
 ########################## Main Container Configuration ############################

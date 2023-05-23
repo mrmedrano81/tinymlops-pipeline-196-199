@@ -15,9 +15,6 @@
 ARG NVIDIA_CUDA_IMAGE_VERSION
 
 FROM nvidia/cuda:$NVIDIA_CUDA_IMAGE_VERSION
-#FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
-#FROM nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu20.04
-#FROM nvidia/cuda:12.0.1-cudnn8-runtime-ubuntu20.04
 
 ARG NEEDRESTART_MODE=a
 
@@ -98,7 +95,7 @@ RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then \
     pyenv local TF-SPEECH-COMMANDS && \
     python -m pip install --upgrade pip setuptools wheel; \
     fi
-RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then pip install tensorflow-gpu==2.4.0; fi
+RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then pip install tensorflow-gpu==2.10.0; fi
 
 # set mlflow config
 ARG MLFLOW_TRACKING_USERNAME
