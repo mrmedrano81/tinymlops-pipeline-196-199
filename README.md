@@ -43,8 +43,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 |Image|Training Directories|
 | ----------- | ----------- |
-|`nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04`|Tensorflow/speech_commands|
-|`nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu20.04`|ARM-ML-Zoo/keyword_spotting, MLPerf/training/keyword_spotting|
+|`nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu20.04`|ARM-ML-Zoo/keyword_spotting, MLPerf/training/keyword_spotting, Tensorflow/speech_commands|
 
 ### 2. Makefile
 - Provides targets for each phase of the project pipeline.
