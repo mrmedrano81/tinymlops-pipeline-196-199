@@ -82,7 +82,7 @@ import input_data
 import models
 from tensorflow.python.platform import gfile
 
-#import mlflow
+import mlflow
 
 FLAGS = None
 
@@ -90,8 +90,42 @@ FLAGS = None
 def main(_):
 
   #mlflow.tensorflow.autolog()
-  #mlflow.set_tracking_uri('https://dagshub.com/mrmedrano81/tinymlops-pipeline-196-199.mlflow')
-  #mlflow.set_experiment("speech_commands")
+  mlflow.set_tracking_uri('https://dagshub.com/mrmedrano81/tinymlops-pipeline-196-199.mlflow')
+  mlflow.set_experiment("speech_commands")
+  
+  mlflow_params = {
+    "data_url": FLAGS.data_url,
+    "data_dir": FLAGS.data_dir,
+    "background_volume": FLAGS.background_volume,
+    "background_frequency": FLAGS.background_frequency,
+    "silence_percentage": FLAGS.silence_percentage,
+    "unknown_percentage": FLAGS.unknown_percentage,
+    "time_shift_ms": FLAGS.time_shift_ms,
+    "testing_percentage": FLAGS.testing_percentage,
+    "validation_percentage": FLAGS.validation_percentage,
+    "sample_rate": FLAGS.sample_rate,
+    "clip_duration_ms": FLAGS.clip_duration_ms,
+    "window_size_ms": FLAGS.window_size_ms,
+    "window_stride_ms": FLAGS.window_stride_ms,
+    "feature_bin_count": FLAGS.feature_bin_count,
+    "how_many_training_steps": FLAGS.how_many_training_steps,
+    "eval_step_interval": FLAGS.eval_step_interval,
+    "learning_rate": FLAGS.learning_rate,
+    "batch_size": FLAGS.batch_size,
+    "summaries_dir": FLAGS.summaries_dir,
+    "wanted_words": FLAGS.wanted_words,
+    "train_dir": FLAGS.train_dir,
+    "save_step_interval": FLAGS.save_step_interval,
+    "start_checkpoint": FLAGS.start_checkpoint,
+    "model_architecture": FLAGS.model_architecture,
+    "check_nans": FLAGS.check_nans,
+    "quantize": FLAGS.quantize,
+    "preprocess": FLAGS.preprocess
+    }
+  mlflow.start_run()
+  mlflow.set_tag("model architecture", FLAGS.model_architecture)
+  mlflow.log_params(mlflow_params)
+  print("mlflow setup completed\n")
 
   # Set the verbosity based on flags (default is INFO, so we see all messages)
   tf.compat.v1.logging.set_verbosity(FLAGS.verbosity)
@@ -257,6 +291,11 @@ def main(_):
             learning_rate_input: learning_rate_value,
             dropout_rate: 0.5
         })
+    
+    #mlflow logging
+    mlflow_train_metrics = {"training step": training_step, "learning rate": learning_rate_value, "cross entropy": cross_entropy_value}
+    mlflow.log_metrics(mlflow_train_metrics)
+
     train_writer.add_summary(train_summary, training_step)
     tf.compat.v1.logging.debug(
         'Step #%d: rate %f, accuracy %.1f%%, cross entropy %f' %
@@ -291,6 +330,7 @@ def main(_):
           total_conf_matrix = conf_matrix
         else:
           total_conf_matrix += conf_matrix
+      mlflow.log_metric("validation accuracy", (total_accuracy * 100))
       tf.compat.v1.logging.info('Confusion Matrix:\n %s' % (total_conf_matrix))
       tf.compat.v1.logging.info('Step %d: Validation accuracy = %.1f%% (N=%d)' %
                                 (training_step, total_accuracy * 100, set_size))
@@ -325,10 +365,12 @@ def main(_):
     else:
       total_conf_matrix += conf_matrix
   
-  #mlflow.log_metric("test_accuracy", float(total_accuracy))
+  mlflow.log_metric("test_accuracy", float(total_accuracy))
+  mlflow.end_run()
   tf.compat.v1.logging.warn('Confusion Matrix:\n %s' % (total_conf_matrix))
   tf.compat.v1.logging.warn('Final test accuracy = %.1f%% (N=%d)' %
                             (total_accuracy * 100, set_size))
+      
 
 
 if __name__ == '__main__':

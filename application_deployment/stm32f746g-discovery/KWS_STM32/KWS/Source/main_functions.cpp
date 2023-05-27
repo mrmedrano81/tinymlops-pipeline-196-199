@@ -100,8 +100,27 @@ void setup() {
   // MICROSPEECH EXAMPLE 
   // MICRO MUTABLE OP RESOLVER
   
+  /*
   static tflite::MicroMutableOpResolver<4> micro_op_resolver(error_reporter);
   if (micro_op_resolver.AddDepthwiseConv2D() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddFullyConnected() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddSoftmax() != kTfLiteOk) {
+    return;
+  }
+  if (micro_op_resolver.AddReshape() != kTfLiteOk) {
+    return;
+  }*/
+
+  // MICROSPEECH EXAMPLE NEW
+  // MICRO MUTABLE OP RESOLVER
+  
+  
+  static tflite::MicroMutableOpResolver<4> micro_op_resolver(error_reporter);
+  if (micro_op_resolver.AddConv2D() != kTfLiteOk) {
     return;
   }
   if (micro_op_resolver.AddFullyConnected() != kTfLiteOk) {
@@ -183,12 +202,17 @@ void loop() {
   // Obtain a pointer to the output tensor
   TfLiteTensor* output = interpreter->output(0);
   
+  uint32_t start = HAL_GetTick();
   // Run the model on the spectrogram input and make sure it succeeds.
   TfLiteStatus invoke_status = interpreter->Invoke();
   if (invoke_status != kTfLiteOk) {
     TF_LITE_REPORT_ERROR(error_reporter, "Invoke failed");
     return;
   }
+
+  uint32_t end = HAL_GetTick();
+  uint32_t latency = (end - start);
+  TF_LITE_REPORT_ERROR(error_reporter, "latency: %d", latency);
 
   // Determine whether a command was recognized based on the output of inference
   const char* found_command = nullptr;
@@ -201,6 +225,9 @@ void loop() {
                          "RecognizeCommands::ProcessLatestResults() failed");
     return;
   }
+
+
+
   // Do something based on the recognized command. The default implementation
   // just prints to the error console, but you should replace this with your
   // own function for a real application.

@@ -11,7 +11,7 @@ import tensorflow as tf
 # The options are: yes,no,up,down,left,right,on,off,stop,go
 # All the other words will be used to train an "unknown" label and silent
 # audio data with no spoken words will be used to train a "silence" label.
-WANTED_WORDS = "off,on"
+WANTED_WORDS = "yes,no"
 
 # The number of steps and learning rates can be specified as comma-separated
 # lists to define the rate at each stage. For example,

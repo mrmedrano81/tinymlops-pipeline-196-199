@@ -119,8 +119,8 @@ TfLiteStatus RecognizeCommands::ProcessLatestResults(
   }
 
   const char* current_top_label = kCategoryLabels[current_top_index];
-  TF_LITE_REPORT_ERROR(error_reporter_, "current_top_score: %d current_top_index: %d current_top_label: %s", 
-                       current_top_score, current_top_index, current_top_label);
+  //TF_LITE_REPORT_ERROR(error_reporter_, "current_top_score: %d current_top_index: %d current_top_label: %s", 
+  //                     current_top_score, current_top_index, current_top_label);
 
   // If we've recently had another label trigger, assume one that occurs too
   // soon afterwards is a bad result.

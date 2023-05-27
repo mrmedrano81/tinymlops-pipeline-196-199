@@ -95,7 +95,10 @@ RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then \
     pyenv local TF-SPEECH-COMMANDS && \
     python -m pip install --upgrade pip setuptools wheel; \
     fi
-RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then pip install tensorflow-gpu==2.10.0; fi
+RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then \
+    pip install tensorflow-gpu==2.10.0 && \
+    pip install mlflow; \
+    fi
 
 # set mlflow config
 ARG MLFLOW_TRACKING_USERNAME
