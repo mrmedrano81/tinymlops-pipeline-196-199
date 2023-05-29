@@ -47,16 +47,19 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 ### 2. Makefile
 - Provides targets for each phase of the project pipeline.
-- *TBA - raspberry pi pico visual wake word app build, flash, and clean make command*
+- *TBA - raspberry pi pico visual wake word app flash command*
 - Listed in the table below are the available targets to be run with `make[command]` :
 
 | <div style="width:180px">Command</div> | Description |
 | ----------- | ----------- |
 | `build-main-container` | Run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container for training. You can specify the following arguments for mlflow tracking: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`. The base nvidia/cuda image version can also be specified using for example `NVIDIA_CUDA_IMAGE=11.0.3-cudnn8-runtime-ubuntu20.04`, where the options are listed in the table under the Dockerfile description|
-| `build-stm32-app` | Build the STM32F746g-discovery board keyword spotting application .elf, .hex, and .bin files and store them in the build folder | 
+| `build-stm32-app` | Builds the STM32F746g-discovery board keyword spotting application .elf, .hex, and .bin files and stores them in the build folder | 
 |`flash-stm32-app`|Builds and flashes the {PROJECT_NAME}.bin file to the stm32 microcontroller.|
 |`clean-stm32-app`|Removes STM32 application project 'build' folder|
-|`clean-all-images`|Runs the `clean-image` and `clean-stm32-image` targets to clean both main and STM32 docker images.|
+| `build-pico-app` | Builds the Raspberry Pi Pico visual wake word application, .elf, .hex, .bin, and .uf2 files and stores them in the build folder | 
+|`flash-pico-app`|Builds and flashes the person_detection_int8.uf2 file to the pico microcontroller.|
+|`clean-pico-app`|Removes Pico application project 'build' folder|
+|`clean-all-images`|Runs the `clean-image`, `clean-stm32-image`, and `clean-pico-image` targets to clean the main, STM32, and Pico docker images.|
 
 
 --- 
