@@ -76,12 +76,44 @@ CONTAINER_RUN_STM32_APP = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				-t $(STM32_IMAGE_NAME)
 
 ############ Raspberry Pi Pico project configuration for container #############
+PICO_PROJECT_LOCATION ?= application_deployment/raspberry-pi-pico/VWW_PICO/
+PICO_PROJECT_LOCATION_app ?= RPI-Pico-Cam/tflmicro
+PICO_PROJECT_BUILD_DIR ?= build
+PICO_PROJECT_NAME ?= VWW_PICO
+PICO_IMAGE_NAME ?= pico-app
+PICO_CONTAINER_NAME ?= pico-app
 
+override PICO_PROJECT_LOCATION := $(or $(PICO_PROJECT_LOCATION),$(filter PICO_PROJECT_LOCATION=%,$(MAKECMDGOALS)))
+override PICO_PROJECT_BUILD_DIR := $(or $(PICO_PROJECT_BUILD_DIR),$(filter PICO_PROJECT_BUILD_DIR=%,$(MAKECMDGOALS)))
+override PICO_PROJECT_NAME := $(or $(PICO_PROJECT_NAME),$(filter PICO_PROJECT_NAME=%,$(MAKECMDGOALS)))
+override PICO_IMAGE_NAME := $(or $(PICO_IMAGE_NAME),$(filter PICO_IMAGE_NAME=%,$(MAKECMDGOALS)))
+override PICO_CONTAINER_NAME := $(or $(PICO_CONTAINER_NAME),$(filter PICO_CONTAINER_NAME=%,$(MAKECMDGOALS)))
 
-#									TBA
+.PHONY: pico-args
 
+pico-args:
+	@echo "[INFO] PICO_PROJECT_LOCATION: $(PICO_PROJECT_LOCATION)"
+	@echo "[INFO] PICO_PROJECT_BUILD_DIR: $(PICO_PROJECT_BUILD_DIR)"
+	@echo "[INFO] PICO_PROJECT_NAME: $(PICO_PROJECT_NAME)"
+	@echo "[INFO] PICO_IMAGE_NAME: $(PICO_IMAGE_NAME)"
+	@echo "[INFO] PICO_CONTAINER_NAME: $(PICO_CONTAINER_NAME)"
 
+# Additional generated variables
+PICO_PROJECT_VOLUME = "$$(pwd)/$(PICO_PROJECT_LOCATION):/app"
+PICO_DOCKERFILE := $(PICO_PROJECT_LOCATION)/Dockerfile
+PICO_APP_UF2_FILE = $(PICO_PROJECT_BUILD_DIR)/examples/person_detection/person_detection_int8.uf2
+PICO_NEED_IMAGE = $(shell $(CONTAINER_TOOL) image inspect $(PICO_IMAGE_NAME) 2> /dev/null > /dev/null || echo pico-image)
 
+# PICO application container run rule
+CONTAINER_RUN_PICO_APP = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
+				--name $(PICO_CONTAINER_NAME) \
+				--rm \
+				-it \
+				--privileged \
+				-v $(PICO_PROJECT_VOLUME)\
+				--security-opt label=disable \
+				--hostname $(CONTAINER_NAME) \
+				-t $(PICO_IMAGE_NAME)
 
 ############################ MLFLOW configuration ##############################
 
@@ -161,13 +193,12 @@ image: $(CONTAINER_FILE)
 		--build-arg INSTALL_ARM_KWS_REQS=$(INSTALL_ARM_KWS_REQS) \
 		--build-arg INSTALL_TF_SPEECH_COMMANDS_REQS=$(INSTALL_TF_SPEECH_COMMANDS_REQS) \
 		.
-
-
 #------ STM32 application targets ------#
 
 # build docker image, run container, and build microcontroller application code
 build-stm32-app: $(STM32_NEED_IMAGE) stm32-args
-	$(CONTAINER_RUN_STM32_APP) bash -lc 'make -j$(shell nproc)'
+	$(CONTAINER_RUN_STM32_APP) 
+	bash -lc 'make -j$(shell nproc)'
 
 # builds and flashes binary to the stm32 microcontroller
 # 	- the flashing process is repeated if the first one fails 
@@ -190,7 +221,24 @@ stm32-image: $(CONTAINER_FILE)
 
 #------ Raspberry Pi Pico application targets ------#
 
-# 					   TBA
+# build docker image, run container, and build microcontroller application code
+build-pico-app: $(PICO_NEED_IMAGE) pico-args
+	$(CONTAINER_RUN_PICO_APP) bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cmake .. && make -j$(shell nproc)'
+
+# builds and flashes the uf2 file to the pico
+flash-stm32-app: $(PICO_NEED_IMAGE) pico-args
+	$(CONTAINER_RUN_PICO_APP) bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cmake .. && make -j$(shell nproc)'
+	
+# removes PICO application project build folder
+clean-pico-app: $(PICO_NEED_IMAGE)
+	$(CONTAINER_RUN_PICO_APP) bash -lc 'rm -r $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR)'
+
+# pico image build step
+pico-image: $(CONTAINER_FILE)
+	$(CONTAINER_TOOL) build \
+		-t $(PICO_IMAGE_NAME) \
+		-f=$(PICO_DOCKERFILE) \
+		$(PICO_PROJECT_LOCATION)
 
 #------ Image cleanup targets ------#
 
@@ -202,4 +250,8 @@ clean-stm32-image:
 	$(CONTAINER_TOOL) container rm -f $(STM32_CONTAINER_NAME) 2> /dev/null > /dev/null || true
 	$(CONTAINER_TOOL) image rmi -f $(STM32_IMAGE_NAME) 2> /dev/null > /dev/null || true
 
-clean-all-images: clean-image clean-stm32-image
+clean-pico-image:
+	$(CONTAINER_TOOL) container rm -f $(PICO_CONTAINER_NAME) 2> /dev/null > /dev/null || true
+	$(CONTAINER_TOOL) image rmi -f $(PICO_IMAGE_NAME) 2> /dev/null > /dev/null || true
+
+clean-all-images: clean-image clean-stm32-image clean-pico-image
