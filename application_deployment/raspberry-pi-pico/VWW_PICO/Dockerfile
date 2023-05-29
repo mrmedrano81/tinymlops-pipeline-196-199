@@ -24,13 +24,17 @@ RUN apt install -y nano
 RUN apt install -y wget
 RUN apt install -y findutils
 
-#make and cmake
+#make, cmake and GCC cross compiler
 RUN apt install -y make
-RUN apt install -y cmake
+RUN apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
 
 #Thonny, micropython
 RUN apt install -y thonny
 RUN apt install -y micropython
 ##RUN pip3 show thonny
 ##RUN pip3 show micropython
+
+RUN mkdir /app
+
+WORKDIR /app
 
