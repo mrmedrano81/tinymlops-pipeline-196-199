@@ -37,7 +37,7 @@ CONTAINER_TOOL ?= docker
 
 # STM32 application project specific variables to be manually setup
 #	- the STM32_PROJECT_BUILD_DIR path is relative to the STM32 project root
-STM32_PROJECT_LOCATION ?= application_deployment/stm32f746g-discovery/KWS_STM32
+STM32_PROJECT_LOCATION ?= application_deployment/stm32f746-discovery-board/KWS_STM32
 STM32_PROJECT_BUILD_DIR ?= build
 STM32_PROJECT_NAME ?= KWS_STM32
 STM32_IMAGE_NAME ?= stm32-app
@@ -154,6 +154,12 @@ INSTALL_TF_VWW_REQS?=false
 #$(error NVIDIA_CUDA_IMAGE_VERSION '$(NVIDIA_CUDA_IMAGE_VERSION)' is not supported.)
 #endif
 
+training-args:
+	@echo "[INFO] MLPERF-KWS pyenv status: $(INSTALL_MLPERF_KWS_REQS)"
+	@echo "[INFO] ARM-KWS pyenv status: $(INSTALL_ARM_KWS_REQS)"
+	@echo "[INFO] TF-SPEECH-COMMANDS pyenv status: $(INSTALL_TF_SPEECH_COMMANDS_REQS)"
+	@echo "[INFO] TF_VWW pyenv status: $(INSTALL_TF_VWW_REQS)"
+
 ########################## Main Container Configuration ############################
 
 CONTAINER_FILE := Dockerfile
@@ -178,7 +184,7 @@ CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 ################################### Targets #######################################
 
 # build main docker image and run container 
-build-main-container: $(NEED_IMAGE) mlflow-args
+build-main-container: $(NEED_IMAGE) training-args mlflow-args
 	$(CONTAINER_RUN)
 
 # main docker image build step
@@ -199,8 +205,7 @@ image: $(CONTAINER_FILE)
 
 # build docker image, run container, and build microcontroller application code
 build-stm32-app: $(STM32_NEED_IMAGE) stm32-args
-	$(CONTAINER_RUN_STM32_APP) 
-	bash -lc 'make -j$(shell nproc)'
+	$(CONTAINER_RUN_STM32_APP) bash -lc 'make -j$(shell nproc)'
 
 # builds and flashes binary to the stm32 microcontroller
 # 	- the flashing process is repeated if the first one fails 
@@ -228,7 +233,7 @@ build-pico-app: $(PICO_NEED_IMAGE) pico-args
 	$(CONTAINER_RUN_PICO_APP) bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cmake .. && make -j$(shell nproc)'
 
 # builds and flashes the uf2 file to the pico
-flash-stm32-app: $(PICO_NEED_IMAGE) pico-args
+flash-pico-app: $(PICO_NEED_IMAGE) pico-args
 	$(CONTAINER_RUN_PICO_APP) bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cmake .. && make -j$(shell nproc)'
 	
 # removes PICO application project build folder

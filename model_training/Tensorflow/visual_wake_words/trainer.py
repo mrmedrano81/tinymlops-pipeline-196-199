@@ -4,8 +4,8 @@ import subprocess
 subprocess.run(["git", "clone", "https://github.com/tensorflow/models.git"])
 
 # Install dependencies
-subprocess.run(["pip", "install", "--upgrade", "pip"])
-subprocess.run(["pip", "install", "contextlib2"])
+#subprocess.run(["pip", "install", "--upgrade", "pip"])
+#subprocess.run(["pip", "install", "contextlib2"])
 
 # Run context.py
 subprocess.run(["python3", "context.py"])
