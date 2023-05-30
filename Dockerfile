@@ -103,14 +103,12 @@ RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then \
     fi
 
 WORKDIR /model_training/Tensorflow/visual_wake_words
+
 #  Tensorflow Visual Wake Word
 RUN if [ "$INSTALL_TF_VWW_REQS" = "true" ]; then \
     pyenv virtualenv 3.8 TF_VWW && \
     pyenv local TF_VWW && \
-    python -m pip install --upgrade pip setuptools wheel; \
-    fi
-RUN if [ "$INSTALL_TF_VWW_REQS" = "true" ]; then \
-    git clone https://github.com/tensorflow/models.git \
+    python -m pip install --upgrade pip setuptools wheel && \
     pip install contextlib2; \
     fi
 

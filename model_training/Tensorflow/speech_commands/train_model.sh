@@ -1,8 +1,18 @@
-#modify train variable to false if there is already a trained model
-train=true
-
-if [ "$train" = true ]
+if [ -d "/app/model_training/Tensorflow/speech_commands/dataset" ]; 
 then
+    echo "[INFO] dataset path exists, skipping download..."
+else
+    echo "[INFO] Downloading speech commands v2 dataset..."
+    wget -P dataset http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz
+    echo "[INFO] Extracting..."
+    tar -xf dataset/speech_commands_v0.02.tar.gz -C dataset
+    echo "[INFO] Extraction completed!"
+fi
+
+if [ -d "/app/model_training/Tensorflow/speech_commands/train" ];
+then
+    echo "[INFO] train path exists, skipping training..."
+else
 python train.py \
 --data_dir='dataset/' \
 --wanted_words="yes,no" \
@@ -27,9 +37,14 @@ python freeze.py \
 --start_checkpoint='train/tiny_conv.ckpt-15000' \
 --save_format=saved_model \
 --output_file='models/saved_model'
-fi
 
 python custom_convert_tflite.py
 
+echo "[INFO] Converting tflite model to byte array tiny_conv.cpp..."
 xxd -i models/model.tflite > tiny_conv.cpp
 sed -i 's/models_model_tflite/g_tiny_conv/g' tiny_conv.cpp
+echo "[INFO] Conversion complete"
+fi
+
+
+
