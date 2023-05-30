@@ -228,7 +228,7 @@ build-pico-app: $(PICO_NEED_IMAGE) pico-args
 	$(CONTAINER_RUN_PICO_APP) bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cmake .. && make -j$(shell nproc)'
 
 # builds and flashes the uf2 file to the pico
-flash-stm32-app: $(PICO_NEED_IMAGE) pico-args
+flash-pico-app: $(PICO_NEED_IMAGE) pico-args
 	$(CONTAINER_RUN_PICO_APP) bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cmake .. && make -j$(shell nproc)'
 	
 # removes PICO application project build folder
