@@ -58,14 +58,16 @@ RUN set -ex \
     && pyenv global 3.8 \
     && pyenv rehash
 
-ARG INSTALL_MLPERF_KWS_REQS=false
-ARG INSTALL_ARM_KWS_REQS=false
-ARG INSTALL_TF_SPEECH_COMMANDS_REQS=false
+ARG INSTALL_MLPERF_KWS_REQS
+ARG INSTALL_ARM_KWS_REQS
+ARG INSTALL_TF_SPEECH_COMMANDS_REQS
+ARG INSTALL_TF_VWW_REQS
 
 # Set up PATHS
 ENV PATH="/opt/pyenv/versions/MLPERF-KWS/bin:$PATH"
 ENV PATH="/opt/pyenv/versions/ARM-KWS/bin:$PATH"
 ENV PATH="/opt/pyenv/versions/TF-SPEECH-COMMANDS/bin:$PATH"
+ENV PATH="/opt/pyenv/versions/TF_VWW/bin:$PATH"
 
 # Set up virtual environments model training
 
@@ -98,6 +100,18 @@ RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then \
 RUN if [ "$INSTALL_TF_SPEECH_COMMANDS_REQS" = "true" ]; then \
     pip install tensorflow-gpu==2.10.0 && \
     pip install mlflow; \
+    fi
+
+WORKDIR /model_training/Tensorflow/visual_wake_words
+#  Tensorflow Visual Wake Word
+RUN if [ "$INSTALL_TF_VWW_REQS" = "true" ]; then \
+    pyenv virtualenv 3.8 TF_VWW && \
+    pyenv local TF_VWW && \
+    python -m pip install --upgrade pip setuptools wheel; \
+    fi
+RUN if [ "$INSTALL_TF_VWW_REQS" = "true" ]; then \
+    git clone https://github.com/tensorflow/models.git \
+    pip install contextlib2; \
     fi
 
 # set mlflow config
