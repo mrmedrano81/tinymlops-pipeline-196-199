@@ -109,6 +109,7 @@ RUN if [ "$INSTALL_TF_VWW_REQS" = "true" ]; then \
     pyenv virtualenv 3.8 TF_VWW && \
     pyenv local TF_VWW && \
     python -m pip install --upgrade pip setuptools wheel && \
+    pip install tensorflow-gpu==2.10.0 && \
     pip install contextlib2; \
     fi
 
