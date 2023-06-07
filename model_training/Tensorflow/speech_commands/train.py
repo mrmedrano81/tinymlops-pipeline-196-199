@@ -89,10 +89,11 @@ FLAGS = None
 
 def main(_):
 
-  #mlflow.tensorflow.autolog()
+  
   mlflow.set_tracking_uri('https://dagshub.com/mrmedrano81/tinymlops-pipeline-196-199.mlflow')
   mlflow.set_experiment("speech_commands")
-  
+
+  #set mlflow train params 
   mlflow_params = {
     "data_url": FLAGS.data_url,
     "data_dir": FLAGS.data_dir,
@@ -122,8 +123,16 @@ def main(_):
     "quantize": FLAGS.quantize,
     "preprocess": FLAGS.preprocess
     }
-  mlflow.start_run()
+
+  #start run
+  mlflow.start_run(run_name="tiny_conv")
+  #set mlflow tags
   mlflow.set_tag("model architecture", FLAGS.model_architecture)
+  mlflow.set_tag('mlflow.source.git.commit', "current commit id")
+  mlflow.set_tag('mlflow.source.type', "source type")
+  mlflow.set_tag('mlflow.source.name', "source name")
+  mlflow.set_tag('mlflow.project.env', "environment")
+  
   mlflow.log_params(mlflow_params)
   print("mlflow setup completed\n")
 
@@ -293,9 +302,13 @@ def main(_):
         })
     
     #mlflow logging
-    mlflow_train_metrics = {"training step": training_step, "learning rate": learning_rate_value, "cross entropy": cross_entropy_value}
-    mlflow.log_metrics(mlflow_train_metrics)
+    #mlflow_train_metrics = {"training step": training_step, "learning rate": learning_rate_value, "cross entropy": cross_entropy_value}
+    #mlflow.log_metrics(mlflow_train_metrics)
 
+    mlflow.log_metric(key="learning rate", value=learning_rate_value, step=training_step)
+    mlflow.log_metric(key="cross entropy", value=cross_entropy_value, step=training_step)
+    mlflow.log_metric(key="train accuracy", value=train_accuracy, step=training_step)
+    
     train_writer.add_summary(train_summary, training_step)
     tf.compat.v1.logging.debug(
         'Step #%d: rate %f, accuracy %.1f%%, cross entropy %f' %
@@ -330,7 +343,8 @@ def main(_):
           total_conf_matrix = conf_matrix
         else:
           total_conf_matrix += conf_matrix
-      mlflow.log_metric("validation accuracy", (total_accuracy * 100))
+      mlflow.log_metric(key="validation accuracy", value=total_accuracy, step=training_step)
+      #mlflow.log_metric("validation accuracy", (total_accuracy * 100))
       tf.compat.v1.logging.info('Confusion Matrix:\n %s' % (total_conf_matrix))
       tf.compat.v1.logging.info('Step %d: Validation accuracy = %.1f%% (N=%d)' %
                                 (training_step, total_accuracy * 100, set_size))

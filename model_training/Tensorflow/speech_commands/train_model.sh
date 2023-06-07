@@ -15,7 +15,7 @@ then
 else
 python train.py \
 --data_dir='dataset/' \
---wanted_words="yes,no" \
+--wanted_words="on,off" \
 --silence_percentage=25 \
 --unknown_percentage=25 \
 --preprocess='micro' \
@@ -30,7 +30,7 @@ python train.py \
 --save_step_interval='1000'
 
 python freeze.py \
---wanted_words="yes,no" \
+--wanted_words="on,off" \
 --window_stride_ms=20 \
 --preprocess='micro' \
 --model_architecture='tiny_conv' \
