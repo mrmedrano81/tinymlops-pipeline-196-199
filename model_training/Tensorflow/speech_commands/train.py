@@ -83,6 +83,7 @@ import models
 from tensorflow.python.platform import gfile
 
 import mlflow
+import os
 
 FLAGS = None
 
@@ -90,7 +91,7 @@ FLAGS = None
 def main(_):
 
   
-  mlflow.set_tracking_uri('https://dagshub.com/mrmedrano81/tinymlops-pipeline-196-199.mlflow')
+  mlflow.set_tracking_uri(os.environ['MLFLOW_TRACKING_URI'])
   mlflow.set_experiment("speech_commands")
 
   #set mlflow train params 
@@ -128,10 +129,7 @@ def main(_):
   mlflow.start_run(run_name="tiny_conv")
   #set mlflow tags
   mlflow.set_tag("model architecture", FLAGS.model_architecture)
-  mlflow.set_tag('mlflow.source.git.commit', "current commit id")
-  mlflow.set_tag('mlflow.source.type', "source type")
-  mlflow.set_tag('mlflow.source.name', "source name")
-  mlflow.set_tag('mlflow.project.env', "environment")
+  mlflow.set_tag('mlflow.source.git.commit', os.environ['GIT_COMMIT_ID'])
   
   mlflow.log_params(mlflow_params)
   print("mlflow setup completed\n")
