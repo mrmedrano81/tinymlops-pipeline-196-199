@@ -57,7 +57,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 |`flash-stm32-app`|Builds and flashes the {PROJECT_NAME}.bin file to the stm32 microcontroller.|
 |`clean-stm32-app`|Removes STM32 application project 'build' folder|
 | `build-pico-app` | Builds the Raspberry Pi Pico visual wake word application, .elf, .hex, .bin, and .uf2 files and stores them in the build folder | 
-|`flash-pico-app`|Builds and flashes the person_detection_int8.uf2 file to the pico microcontroller.|
+|`flash-pico-app`|Builds and flashes the person_detection_int8.uf2 file to the pico microcontroller. Make sure that you have successfully mounted the Raspberry Pi Pico in BOOTSEL mode before running this command. You can mount the Pico using `mkdir /mnt/pico` then `mount -t drvfs D: /mnt/pico`.|
 |`clean-pico-app`|Removes Pico application project 'build' folder|
 |`clean-all-images`|Runs the `clean-image`, `clean-stm32-image`, and `clean-pico-image` targets to clean the main, STM32, and Pico docker images.|
 
