@@ -37,7 +37,7 @@ CONTAINER_TOOL ?= docker
 
 # STM32 application project specific variables to be manually setup
 #	- the STM32_PROJECT_BUILD_DIR path is relative to the STM32 project root
-STM32_PROJECT_LOCATION ?= application_deployment/stm32f746-discovery-board/KWS_STM32
+STM32_PROJECT_LOCATION ?= application_deployment/stm32f746g-discovery/KWS_STM32
 STM32_PROJECT_BUILD_DIR ?= build
 STM32_PROJECT_NAME ?= KWS_STM32
 STM32_IMAGE_NAME ?= stm32-app
@@ -76,7 +76,7 @@ CONTAINER_RUN_STM32_APP = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				-t $(STM32_IMAGE_NAME)
 
 ############ Raspberry Pi Pico project configuration for container #############
-PICO_PROJECT_LOCATION ?= application_deployment/raspberry-pi-pico/VWW_PICO/
+PICO_PROJECT_LOCATION ?= application_deployment/raspberry-pi-pico/VWW_PICO
 PICO_PROJECT_LOCATION_app ?= RPI-Pico-Cam/tflmicro
 PICO_PROJECT_BUILD_DIR ?= build
 PICO_PROJECT_NAME ?= VWW_PICO
@@ -101,7 +101,7 @@ pico-args:
 # Additional generated variables
 PICO_PROJECT_VOLUME = "$$(pwd)/$(PICO_PROJECT_LOCATION):/app"
 PICO_DOCKERFILE := $(PICO_PROJECT_LOCATION)/Dockerfile
-PICO_APP_UF2_FILE = $(PICO_PROJECT_BUILD_DIR)/examples/person_detection/person_detection_int8.uf2
+PICO_APP_UF2_FILE := $(PICO_PROJECT_BUILD_DIR)/examples/person_detection/person_detection_int8.uf2
 PICO_NEED_IMAGE = $(shell $(CONTAINER_TOOL) image inspect $(PICO_IMAGE_NAME) 2> /dev/null > /dev/null || echo pico-image)
 
 # PICO application container run rule
@@ -111,6 +111,7 @@ CONTAINER_RUN_PICO_APP = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				-it \
 				--privileged \
 				-v $(PICO_PROJECT_VOLUME)\
+                                -v /mnt/pico:/mnt/pico \
 				--security-opt label=disable \
 				--hostname $(CONTAINER_NAME) \
 				-t $(PICO_IMAGE_NAME)
@@ -122,22 +123,19 @@ CONTAINER_RUN_PICO_APP = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 #	 and are only filled for testing and demonstration purposes
 MLFLOW_TRACKING_USERNAME ?= mrmedrano81
 MLFLOW_TRACKING_PASSWORD ?= 70334c6f3a4e81cd5c9271e67de06f62eb307c19
-MLFLOW_TRACKING_URI ?= https://dagshub.com/mrmedrano81/tinymlops-pipeline-196-199.mlflow
-GIT_COMMIT_ID := $(shell git rev-parse HEAD)
-
+MLFLOW_RUN_NAME ?= test_run
 
 # Override variables with command line arguments if provided
 override MLFLOW_TRACKING_USERNAME := $(or $(MLFLOW_TRACKING_USERNAME),$(filter MLFLOW_TRACKING_USERNAME=%,$(MAKECMDGOALS)))
 override MLFLOW_TRACKING_PASSWORD := $(or $(MLFLOW_TRACKING_PASSWORD),$(filter MLFLOW_TRACKING_PASSWORD=%,$(MAKECMDGOALS)))
-override MLFLOW_TRACKING_URI := $(or $(MLFLOW_TRACKING_URI),$(filter MLFLOW_TRACKING_URI=%,$(MAKECMDGOALS)))
+override MLFLOW_RUN_NAME := $(or $(MLFLOW_RUN_NAME),$(filter MLFLOW_RUN_NAME=%,$(MAKECMDGOALS)))
 
 .PHONY: mlflow-args
 
 mlflow-args:
 	@echo "[INFO] MLFLOW_TRACKING_USERNAME: $(MLFLOW_TRACKING_USERNAME)"
 	@echo "[INFO] MLFLOW_TRACKING_PASSWORD: $(MLFLOW_TRACKING_PASSWORD)"
-	@echo "[INFO] MLFLOW_TRACKING_URI: $(MLFLOW_TRACKING_URI)"
-	@echo "[INFO] GIT_COMMIT_ID: $(GIT_COMMIT_ID)"
+	@echo "[INFO] MLFLOW_RUN_NAME: $(MLFLOW_RUN_NAME)"
 
 ############################ Training Configuration ################################
 
@@ -146,22 +144,17 @@ NVIDIA_CUDA_IMAGE_VERSION?=11.2.0-cudnn8-runtime-ubuntu20.04
 INSTALL_MLPERF_KWS_REQS?=false
 INSTALL_ARM_KWS_REQS?=false
 INSTALL_TF_SPEECH_COMMANDS_REQS?=false
-INSTALL_TF_VWW_REQS?=false
+INSTALL_TF_VWW_REQS?=true
 
 # Check NVIDIA_CUDA_IMAGE_VERSION and set INSTAL_REQ variables accordingly
-#ifeq ($(NVIDIA_CUDA_IMAGE_VERSION),11.2.0-cudnn8-runtime-ubuntu20.04)
-#	INSTALL_TF_SPEECH_COMMANDS_REQS:=true
-#	INSTALL_MLPERF_KWS_REQS:=true
-#	INSTALL_ARM_KWS_REQS:=true
-#else
-#$(error NVIDIA_CUDA_IMAGE_VERSION '$(NVIDIA_CUDA_IMAGE_VERSION)' is not supported.)
-#endif
-
-training-args:
-	@echo "[INFO] MLPERF-KWS pyenv status: $(INSTALL_MLPERF_KWS_REQS)"
-	@echo "[INFO] ARM-KWS pyenv status: $(INSTALL_ARM_KWS_REQS)"
-	@echo "[INFO] TF-SPEECH-COMMANDS pyenv status: $(INSTALL_TF_SPEECH_COMMANDS_REQS)"
-	@echo "[INFO] TF_VWW pyenv status: $(INSTALL_TF_VWW_REQS)"
+ifeq ($(NVIDIA_CUDA_IMAGE_VERSION),11.2.0-cudnn8-runtime-ubuntu20.04)
+	INSTALL_TF_SPEECH_COMMANDS_REQS:=true
+	INSTALL_MLPERF_KWS_REQS:=true
+	INSTALL_ARM_KWS_REQS:=true
+	INSTALL_TF_VWW_REQS:=true
+else
+$(error NVIDIA_CUDA_IMAGE_VERSION '$(NVIDIA_CUDA_IMAGE_VERSION)' is not supported.)
+endif
 
 ########################## Main Container Configuration ############################
 
@@ -180,6 +173,7 @@ CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				--rm \
 				-it \
 				-v $(WORKDIR_VOLUME)\
+                                -v /mnt/pico:/mnt/pico \
 				--security-opt label=disable \
 				--hostname $(CONTAINER_NAME) \
 				-t $(IMAGE_NAME)
@@ -187,7 +181,7 @@ CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 ################################### Targets #######################################
 
 # build main docker image and run container 
-build-main-container: $(NEED_IMAGE) training-args mlflow-args
+build-main-container: $(NEED_IMAGE) mlflow-args
 	$(CONTAINER_RUN)
 
 # main docker image build step
@@ -197,8 +191,7 @@ image: $(CONTAINER_FILE)
 		-f=$(CONTAINER_FILE) \
 		--build-arg MLFLOW_TRACKING_USERNAME=$(MLFLOW_TRACKING_USERNAME) \
 		--build-arg MLFLOW_TRACKING_PASSWORD=$(MLFLOW_TRACKING_PASSWORD) \
-		--build-arg MLFLOW_TRACKING_URI=$(MLFLOW_TRACKING_URI) \
-		--build-arg GIT_COMMIT_ID=$(GIT_COMMIT_ID) \
+		--build-arg MLFLOW_RUN_NAME=$(MLFLOW_RUN_NAME) \
 		--build-arg NVIDIA_CUDA_IMAGE_VERSION=$(NVIDIA_CUDA_IMAGE_VERSION) \
 		--build-arg INSTALL_MLPERF_KWS_REQS=$(INSTALL_MLPERF_KWS_REQS) \
 		--build-arg INSTALL_ARM_KWS_REQS=$(INSTALL_ARM_KWS_REQS) \
@@ -209,7 +202,8 @@ image: $(CONTAINER_FILE)
 
 # build docker image, run container, and build microcontroller application code
 build-stm32-app: $(STM32_NEED_IMAGE) stm32-args
-	$(CONTAINER_RUN_STM32_APP) bash -lc 'make -j$(shell nproc)'
+	$(CONTAINER_RUN_STM32_APP) 
+	bash -lc 'make -j$(shell nproc)'
 
 # builds and flashes binary to the stm32 microcontroller
 # 	- the flashing process is repeated if the first one fails 
@@ -234,11 +228,19 @@ stm32-image: $(CONTAINER_FILE)
 
 # build docker image, run container, and build microcontroller application code
 build-pico-app: $(PICO_NEED_IMAGE) pico-args
-	$(CONTAINER_RUN_PICO_APP) bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cmake .. && make -j$(shell nproc)'
+	$(CONTAINER_RUN_PICO_APP) \
+        bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && \
+        cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && \
+        cmake .. && make -j$(shell nproc)'
 
 # builds and flashes the uf2 file to the pico
 flash-pico-app: $(PICO_NEED_IMAGE) pico-args
-	$(CONTAINER_RUN_PICO_APP) bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && cmake .. && make -j$(shell nproc)'
+	$(CONTAINER_RUN_PICO_APP) \
+        bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && \
+        cd $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && \
+        cmake .. && make -j$(shell nproc)' && \
+        pwd && \
+        cp -v $(PICO_PROJECT_LOCATION)/$(PICO_PROJECT_LOCATION_app)/$(PICO_APP_UF2_FILE) ../../pico
 	
 # removes PICO application project build folder
 clean-pico-app: $(PICO_NEED_IMAGE)
