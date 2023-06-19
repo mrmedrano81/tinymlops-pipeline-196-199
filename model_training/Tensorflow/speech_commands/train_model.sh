@@ -15,7 +15,7 @@ then
 else
 python train.py \
 --data_dir='dataset/' \
---wanted_words="on,off" \
+--wanted_words="yes,no" \
 --silence_percentage=25 \
 --unknown_percentage=25 \
 --preprocess='micro' \
@@ -30,14 +30,19 @@ python train.py \
 --save_step_interval='1000'
 
 python freeze.py \
---wanted_words="on,off" \
+--wanted_words="yes,no" \
 --window_stride_ms=20 \
 --preprocess='micro' \
 --model_architecture='tiny_conv' \
 --start_checkpoint='train/tiny_conv.ckpt-15000' \
 --save_format=saved_model \
 --output_file='models/saved_model'
+fi
 
+if [ -e tiny_conv.cpp ];
+then 
+    echo "[INFO] converted model exists, skipping conversion..."
+else
 python custom_convert_tflite.py
 
 echo "[INFO] Converting tflite model to byte array tiny_conv.cpp..."
