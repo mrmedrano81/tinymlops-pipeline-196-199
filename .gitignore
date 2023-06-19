@@ -6,3 +6,7 @@
 .cache
 .vscode
 .python-version
+stm32_build_duration.txt
+sleep.stderr
+build_duration.txt
+pico_build_duration.txt

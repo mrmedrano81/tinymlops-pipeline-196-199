@@ -1,8 +1,11 @@
 python3 generate_streaming_test_wav.py \
 --data_dir=dataset \
+--silence_percentage=25 \
+--unknown_percentage=25 \
 --wanted_words="yes,no" \
+--word_gap_ms=3200 \
 --background_dir=dataset/_background_noise_ \
 --background_volume=0.1 \
---test_duration_seconds=600 \
---output_audio_file=streaming_test/streaming_test.wav \
---output_labels_file=streaming_test/streaming_test_labels.txt
+--test_duration_seconds=1800 \
+--output_audio_file=streaming_test/streaming_test_5min.wav \
+--output_labels_file=streaming_test/streaming_test_labels_5min.txt

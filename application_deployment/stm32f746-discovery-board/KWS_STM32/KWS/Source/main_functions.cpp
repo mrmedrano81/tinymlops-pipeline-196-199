@@ -46,7 +46,7 @@ int32_t previous_time = 0;
 // Create an area of memory to use for input, output, and intermediate arrays.
 // The size of this will depend on the model you're using, and may need to be
 // determined by experimentation.
-constexpr int kTensorArenaSize = 80 * 1024;
+constexpr int kTensorArenaSize = 40 * 1024;
 __attribute__((aligned(16)))uint8_t tensor_arena[kTensorArenaSize];
 int8_t feature_buffer[kFeatureElementCount];
 int8_t* model_input_buffer = nullptr;
@@ -118,7 +118,6 @@ void setup() {
   // MICROSPEECH EXAMPLE NEW
   // MICRO MUTABLE OP RESOLVER
   
-  
   static tflite::MicroMutableOpResolver<4> micro_op_resolver(error_reporter);
   if (micro_op_resolver.AddConv2D() != kTfLiteOk) {
     return;
@@ -178,6 +177,7 @@ void setup() {
 
 // The name of this function is important for Arduino compatibility.
 void loop() {
+  uint32_t start = HAL_GetTick();
   // Fetch the spectrogram for the current time.
   const int32_t current_time = LatestAudioTimestamp();
   int how_many_new_slices = 0;
@@ -202,7 +202,7 @@ void loop() {
   // Obtain a pointer to the output tensor
   TfLiteTensor* output = interpreter->output(0);
   
-  uint32_t start = HAL_GetTick();
+  
   // Run the model on the spectrogram input and make sure it succeeds.
   TfLiteStatus invoke_status = interpreter->Invoke();
   if (invoke_status != kTfLiteOk) {
@@ -210,9 +210,7 @@ void loop() {
     return;
   }
 
-  uint32_t end = HAL_GetTick();
-  uint32_t latency = (end - start);
-  TF_LITE_REPORT_ERROR(error_reporter, "latency: %d", latency);
+
 
   // Determine whether a command was recognized based on the output of inference
   const char* found_command = nullptr;
@@ -226,7 +224,9 @@ void loop() {
     return;
   }
 
-
+  uint32_t end = HAL_GetTick();
+  uint32_t latency = (end - start);
+  //TF_LITE_REPORT_ERROR(error_reporter, "latency: %d", latency);
 
   // Do something based on the recognized command. The default implementation
   // just prints to the error console, but you should replace this with your

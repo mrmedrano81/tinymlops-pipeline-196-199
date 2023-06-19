@@ -24,7 +24,8 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 - Directory for the model training phase of the pipeline and consists of different repositories for training specific models.
 - *MLPerf*: cloned from [MLCommon's tinyML benchmark](https://github.com/mlcommons/tiny) github repository training directory. contains the training directory for both the keyword spotting and visual wakeword tinyML applications.
 - *ARM-ML-Zoo*: cloned from the [ML-Zoo](https://github.com/ARM-software/ML-zoo) repository of ARM, namely the training package for cnn_small and ds_cnn small models for keyword spotting.
-- *Tensorflow*: cloned from tensorflow [speech commands example](https://github.com/tensorflow/tensorflow/tree/v2.4.0/tensorflow/examples/speech_commands). Contains the training package for the micro_speech model training, audio recognition tutorial, and visual wake words person detection training.
+- *Tensorflow/speech commands*: cloned from tensorflow [speech commands example](https://github.com/tensorflow/tensorflow/tree/v2.4.0/tensorflow/examples/speech_commands). Contains the training package for the micro_speech model training and conversion. 
+- *Tensorflow/visual_wake_words*: Visual wake words person detection training.
 
 ### 2. application_deployment
 - Directory for different microcontroller applications as part of the deployment phase of the pipeline.
@@ -52,8 +53,8 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 | <div style="width:180px">Command</div> | Description |
 | ----------- | ----------- |
-| `build-main-container` | Run the docker image inside the working directory along with mounting the current directory as a volume and providing gpu access to the container for training. You can specify the following arguments for mlflow tracking: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`. The base nvidia/cuda image version can also be specified using for example `NVIDIA_CUDA_IMAGE=11.0.3-cudnn8-runtime-ubuntu20.04`, where the options are listed in the table under the Dockerfile description|
-| `build-stm32-app` | Builds the STM32F746g-discovery board keyword spotting application .elf, .hex, and .bin files and stores them in the build folder | 
+| `build-train-container` | Runs the docker image for training inside the working directory along with mounting the current directory as a volume while providing gpu access to the container. You can specify the following arguments for mlflow tracking: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`. The base nvidia/cuda image version can also be specified using for example `NVIDIA_CUDA_IMAGE=11.0.3-cudnn8-runtime-ubuntu20.04`, where the options are listed in the table under the Dockerfile description|
+| `build-stm32-app` | Builds the STM32F746g-discovery board keyword spotting application .elf, .hex, and .bin files and stores them in the build folder |
 |`flash-stm32-app`|Builds and flashes the {PROJECT_NAME}.bin file to the stm32 microcontroller.|
 |`clean-stm32-app`|Removes STM32 application project 'build' folder|
 | `build-pico-app` | Builds the Raspberry Pi Pico visual wake word application, .elf, .hex, .bin, and .uf2 files and stores them in the build folder | 

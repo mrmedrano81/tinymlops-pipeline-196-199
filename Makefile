@@ -1,6 +1,6 @@
 #   Makefile: serves as the main makefile for the entire project pipeline
 #   
-#   Copyright (C) 2023  Michael Medrano
+#   Copyright (C) 2023  Michael Medrano & Josh Yap
 #   
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -32,6 +32,7 @@ endif
 
 # Container information
 CONTAINER_TOOL ?= docker
+CONTAINER_NAME ?= tinymlops-pipeline
 
 ################## STM32 project configuration for container ###################
 
@@ -146,49 +147,46 @@ INSTALL_ARM_KWS_REQS?=false
 INSTALL_TF_SPEECH_COMMANDS_REQS?=false
 INSTALL_TF_VWW_REQS?=true
 
-# Check NVIDIA_CUDA_IMAGE_VERSION and set INSTAL_REQ variables accordingly
-ifeq ($(NVIDIA_CUDA_IMAGE_VERSION),11.2.0-cudnn8-runtime-ubuntu20.04)
-	INSTALL_TF_SPEECH_COMMANDS_REQS:=true
-	INSTALL_MLPERF_KWS_REQS:=true
-	INSTALL_ARM_KWS_REQS:=true
-	INSTALL_TF_VWW_REQS:=true
-else
-$(error NVIDIA_CUDA_IMAGE_VERSION '$(NVIDIA_CUDA_IMAGE_VERSION)' is not supported.)
-endif
+training-args:
+	@echo "[INFO] MLPERF-KWS pyenv status: $(INSTALL_MLPERF_KWS_REQS)"
+	@echo "[INFO] ARM-KWS pyenv status: $(INSTALL_ARM_KWS_REQS)"
+	@echo "[INFO] TF-SPEECH-COMMANDS pyenv status: $(INSTALL_TF_SPEECH_COMMANDS_REQS)"
+	@echo "[INFO] TF-VWW pyenv status: $(INSTALL_TF_VWW_REQS)"
 
-########################## Main Container Configuration ############################
+########################## Training Container Configuration ############################
 
-CONTAINER_FILE := Dockerfile
-IMAGE_NAME := tinymlops-pipeline
-CONTAINER_NAME := tinymlops-pipeline
+TRAIN_CONTAINER_FILE := Dockerfile
+TRAIN_IMAGE_NAME := train-container
+TRAIN_CONTAINER_NAME := train-container
 
-NEED_IMAGE = $(shell $(CONTAINER_TOOL) image inspect $(IMAGE_NAME) 2> /dev/null > /dev/null || echo image)
+NEED_TRAIN_IMAGE = $(shell $(CONTAINER_TOOL) image inspect $(TRAIN_IMAGE_NAME) 2> /dev/null > /dev/null || echo train-image)
 
-# main container commands
+# Training container commands
 #	-runs container interactively with gpu access
 
-CONTAINER_RUN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
+CONTAINER_RUN_TRAIN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				--gpus all \
-				--name $(CONTAINER_NAME) \
+				--name $(TRAIN_CONTAINER_NAME) \
 				--rm \
 				-it \
 				-v $(WORKDIR_VOLUME)\
                                 -v /mnt/pico:/mnt/pico \
 				--security-opt label=disable \
 				--hostname $(CONTAINER_NAME) \
-				-t $(IMAGE_NAME)
+				-t $(TRAIN_IMAGE_NAME)
 
 ################################### Targets #######################################
 
-# build main docker image and run container 
-build-main-container: $(NEED_IMAGE) mlflow-args
-	$(CONTAINER_RUN)
 
-# main docker image build step
-image: $(CONTAINER_FILE)
+# build train docker image and run container 
+build-train-container: $(NEED_TRAIN_IMAGE) training-args mlflow-args
+	$(CONTAINER_RUN_TRAIN)
+
+# train docker image build step
+train-image: $(TRAIN_CONTAINER_FILE)
 	$(CONTAINER_TOOL) build \
-		-t $(IMAGE_NAME) \
-		-f=$(CONTAINER_FILE) \
+		-t $(TRAIN_IMAGE_NAME) \
+		-f=$(TRAIN_CONTAINER_FILE) \
 		--build-arg MLFLOW_TRACKING_USERNAME=$(MLFLOW_TRACKING_USERNAME) \
 		--build-arg MLFLOW_TRACKING_PASSWORD=$(MLFLOW_TRACKING_PASSWORD) \
 		--build-arg MLFLOW_RUN_NAME=$(MLFLOW_RUN_NAME) \
@@ -200,7 +198,7 @@ image: $(CONTAINER_FILE)
 		.
 #------ STM32 application targets ------#
 
-# build docker image, run container, and build microcontroller application code
+# build stm32 docker image, run container, and build microcontroller application code
 build-stm32-app: $(STM32_NEED_IMAGE) stm32-args
 	$(CONTAINER_RUN_STM32_APP) 
 	bash -lc 'make -j$(shell nproc)'
@@ -226,7 +224,7 @@ stm32-image: $(CONTAINER_FILE)
 
 #------ Raspberry Pi Pico application targets ------#
 
-# build docker image, run container, and build microcontroller application code
+# build pico docker image, run container, and build microcontroller application code
 build-pico-app: $(PICO_NEED_IMAGE) pico-args
 	$(CONTAINER_RUN_PICO_APP) \
         bash -lc 'mkdir -p $(PICO_PROJECT_LOCATION_app)/$(PICO_PROJECT_BUILD_DIR) && \
@@ -255,9 +253,9 @@ pico-image: $(CONTAINER_FILE)
 
 #------ Image cleanup targets ------#
 
-clean-image:
+clean-train-image:
 	$(CONTAINER_TOOL) container rm -f $(CONTAINER_NAME) 2> /dev/null > /dev/null || true
-	$(CONTAINER_TOOL) image rmi -f $(IMAGE_NAME) 2> /dev/null > /dev/null || true
+	$(CONTAINER_TOOL) image rmi -f $(TRAIN_IMAGE_NAME) 2> /dev/null > /dev/null || true
 
 clean-stm32-image:
 	$(CONTAINER_TOOL) container rm -f $(STM32_CONTAINER_NAME) 2> /dev/null > /dev/null || true
@@ -267,4 +265,4 @@ clean-pico-image:
 	$(CONTAINER_TOOL) container rm -f $(PICO_CONTAINER_NAME) 2> /dev/null > /dev/null || true
 	$(CONTAINER_TOOL) image rmi -f $(PICO_IMAGE_NAME) 2> /dev/null > /dev/null || true
 
-clean-all-images: clean-image clean-stm32-image clean-pico-image
+clean-all-images: clean-train-image clean-stm32-image clean-pico-image

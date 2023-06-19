@@ -13,7 +13,7 @@ import tensorflow as tf
 # audio data with no spoken words will be used to train a "silence" label.
 
 #WANTED_WORDS = "yes,no"
-WANTED_WORDS = "on,off"
+WANTED_WORDS = "yes,no"
 
 
 # The number of steps and learning rates can be specified as comma-separated
