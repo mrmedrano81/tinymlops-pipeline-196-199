@@ -175,7 +175,6 @@ CONTAINER_RUN_TRAIN = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 				--rm \
 				-it \
 				-v $(WORKDIR_VOLUME)\
-                                -v /mnt/pico:/mnt/pico \
 				--security-opt label=disable \
 				--hostname $(CONTAINER_NAME) \
 				-t $(TRAIN_IMAGE_NAME)
