@@ -24,8 +24,6 @@ extern "C" {
 #include "main_functions.h"
 #include "stlogo.h"
 
-
-
 /** @addtogroup STM32F7xx_HAL_Examples
   * @{
   */

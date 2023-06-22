@@ -38,7 +38,9 @@ CONTAINER_NAME ?= tinymlops-pipeline
 
 # STM32 application project specific variables to be manually setup
 #	- the STM32_PROJECT_BUILD_DIR path is relative to the STM32 project root
-STM32_PROJECT_LOCATION ?= application_deployment/stm32f746g-discovery/KWS_STM32
+#	-project name OG: KWS_STM32
+
+STM32_PROJECT_LOCATION ?= application_deployment/stm32f746-discovery-board/KWS_STM32
 STM32_PROJECT_BUILD_DIR ?= build
 STM32_PROJECT_NAME ?= KWS_STM32
 STM32_IMAGE_NAME ?= stm32-app

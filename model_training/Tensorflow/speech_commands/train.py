@@ -126,7 +126,7 @@ def main(_):
     }
 
   #start run
-  mlflow.start_run(run_name="tiny_conv")
+  mlflow.start_run(run_name="tiny_embedding_conv")
   #set mlflow tags
   mlflow.set_tag("model architecture", FLAGS.model_architecture)
   mlflow.set_tag('mlflow.source.git.commit', os.environ['GIT_COMMIT_ID'])
