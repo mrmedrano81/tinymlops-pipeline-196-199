@@ -155,6 +155,7 @@ void setup() {
 
     return;
   }
+  
   TF_LITE_REPORT_ERROR(error_reporter, "model_input->dims->size: %d", model_input->dims->size);
   TF_LITE_REPORT_ERROR(error_reporter, "model_input->dims->data[0]: %d", model_input->dims->data[0]);
   TF_LITE_REPORT_ERROR(error_reporter, "model_input->dims->data[1]: %d", model_input->dims->data[1]);
@@ -209,8 +210,6 @@ void loop() {
     TF_LITE_REPORT_ERROR(error_reporter, "Invoke failed");
     return;
   }
-
-
 
   // Determine whether a command was recognized based on the output of inference
   const char* found_command = nullptr;

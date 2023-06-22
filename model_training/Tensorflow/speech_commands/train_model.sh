@@ -28,13 +28,19 @@ python train.py \
 --verbosity='WARN' \
 --eval_step_interval='1000' \
 --save_step_interval='1000'
+fi
 
+
+if [ -d "/app/model_training/Tensorflow/speech_commands/models" ];
+then
+    echo "[INFO] model path exists, skipping freeze..."
+else
 python freeze.py \
 --wanted_words="yes,no" \
 --window_stride_ms=20 \
 --preprocess='micro' \
 --model_architecture='tiny_conv' \
---start_checkpoint='train/tiny_conv.ckpt-15000' \
+--start_checkpoint='train/tiny_conv.ckpt-20000' \
 --save_format=saved_model \
 --output_file='models/saved_model'
 fi
