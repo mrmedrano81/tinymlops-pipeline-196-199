@@ -41,8 +41,10 @@ CONTAINER_NAME ?= tinymlops-pipeline
 #	-project name OG: KWS_STM32
 
 STM32_PROJECT_LOCATION ?= application_deployment/stm32f746-discovery-board/KWS_STM32
+#STM32_PROJECT_LOCATION ?= application_deployment/stm32f746-discovery-board/KWS_STM32_TESTING
 STM32_PROJECT_BUILD_DIR ?= build
 STM32_PROJECT_NAME ?= KWS_STM32
+#STM32_PROJECT_NAME ?= KWS_STM32_TESTING
 STM32_IMAGE_NAME ?= stm32-app
 STM32_CONTAINER_NAME ?= stm32-app
 
@@ -149,7 +151,7 @@ NVIDIA_CUDA_IMAGE_VERSION?=11.2.0-cudnn8-runtime-ubuntu20.04
 
 INSTALL_MLPERF_KWS_REQS?=false
 INSTALL_ARM_KWS_REQS?=false
-INSTALL_TF_SPEECH_COMMANDS_REQS?=false
+INSTALL_TF_SPEECH_COMMANDS_REQS?=true
 INSTALL_TF_VWW_REQS?=true
 
 training-args:
@@ -205,8 +207,7 @@ train-image: $(TRAIN_CONTAINER_FILE)
 
 # build stm32 docker image, run container, and build microcontroller application code
 build-stm32-app: $(STM32_NEED_IMAGE) stm32-args
-	$(CONTAINER_RUN_STM32_APP) 
-	bash -lc 'make -j$(shell nproc)'
+	$(CONTAINER_RUN_STM32_APP) bash -lc 'make -j$(shell nproc)'
 
 # builds and flashes binary to the stm32 microcontroller
 # 	- the flashing process is repeated if the first one fails 

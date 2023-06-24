@@ -1,3 +1,5 @@
+# code snippets collected from original repo training jupyter notebook
+
 import sys
 import os
 # We add this path so we can import the speech processing modules.

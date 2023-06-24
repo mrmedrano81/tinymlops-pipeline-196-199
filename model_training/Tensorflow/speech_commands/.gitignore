@@ -4,8 +4,8 @@ logs
 train
 models
 streaming_test
-features_c_files
 tiny_conv_logs_dir
 tiny_conv_models_dir
 tiny_conv_train_dir
 streaming_test
+generate_wavs.sh

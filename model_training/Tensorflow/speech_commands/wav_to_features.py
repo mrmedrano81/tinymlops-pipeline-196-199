@@ -107,7 +107,7 @@ def wav_to_features(sample_rate, clip_duration_ms, window_size_ms,
         #  quantized_value = 0
         #if quantized_value > 255:
         #  quantized_value = 255
-        #-------------------------------#
+        #-------------------------------# modified by mrmedrano81
         quantized_value = round((value / 26.0) * 256.0 - 128)
         quantized_value = max(-128, min(quantized_value, 127))
         #-------------------------------#

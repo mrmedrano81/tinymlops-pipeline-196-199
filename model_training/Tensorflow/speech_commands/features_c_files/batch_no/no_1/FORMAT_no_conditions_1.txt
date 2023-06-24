@@ -1,0 +1,60 @@
+if (loop_number == 0){
+  const int8_t* features_data_0 = g_no_1b4c9b89_nohash_4_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_0[i];
+  }
+}
+if (loop_number == 1){
+  const int8_t* features_data_1 = g_no_b97c9f77_nohash_0_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_1[i];
+  }
+}
+if (loop_number == 2){
+  const int8_t* features_data_2 = g_no_837a0f64_nohash_2_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_2[i];
+  }
+}
+if (loop_number == 3){
+  const int8_t* features_data_3 = g_no_893705bb_nohash_8_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_3[i];
+  }
+}
+if (loop_number == 4){
+  const int8_t* features_data_4 = g_no_db24628d_nohash_1_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_4[i];
+  }
+}
+if (loop_number == 5){
+  const int8_t* features_data_5 = g_no_4c6167ca_nohash_1_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_5[i];
+  }
+}
+if (loop_number == 6){
+  const int8_t* features_data_6 = g_no_91b03183_nohash_3_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_6[i];
+  }
+}
+if (loop_number == 7){
+  const int8_t* features_data_7 = g_no_83957201_nohash_0_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_7[i];
+  }
+}
+if (loop_number == 8){
+  const int8_t* features_data_8 = g_no_893705bb_nohash_3_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_8[i];
+  }
+}
+if (loop_number == 9){
+  const int8_t* features_data_9 = g_no_a591c2ea_nohash_0_data;
+  for (size_t i = 0; i < model_input->bytes; ++i){
+      model_input->data.int8[i] = features_data_9[i];
+  }
+}

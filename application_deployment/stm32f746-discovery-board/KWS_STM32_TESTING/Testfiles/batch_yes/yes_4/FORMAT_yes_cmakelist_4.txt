@@ -1,0 +1,10 @@
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_f292725f_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_47d01978_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_4fd1443e_nohash_2.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_653a48f5_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_fb7eb481_nohash_2.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_798f702a_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_5170b77f_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_f2e59fea_nohash_3.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_c0e0f834_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_yes/yes_4/yes_6736bc64_nohash_0.cc
