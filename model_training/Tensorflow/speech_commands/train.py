@@ -90,11 +90,11 @@ FLAGS = None
 
 def main(_):
 
-  
+  # set mlflow experiment details
   mlflow.set_tracking_uri(os.environ['MLFLOW_TRACKING_URI'])
   mlflow.set_experiment("speech_commands")
 
-  #set mlflow train params 
+  # set mlflow train params 
   mlflow_params = {
     "data_url": FLAGS.data_url,
     "data_dir": FLAGS.data_dir,
@@ -126,13 +126,13 @@ def main(_):
     }
 
   #start run
-  mlflow.start_run(run_name="tiny_embedding_conv")
+  mlflow.start_run(run_name="tiny_conv")
   #set mlflow tags
   mlflow.set_tag("model architecture", FLAGS.model_architecture)
   mlflow.set_tag('mlflow.source.git.commit', os.environ['GIT_COMMIT_ID'])
   
   mlflow.log_params(mlflow_params)
-  print("mlflow setup completed\n")
+  print("\n[INFO] mlflow setup completed\n")
 
   # Set the verbosity based on flags (default is INFO, so we see all messages)
   tf.compat.v1.logging.set_verbosity(FLAGS.verbosity)
@@ -299,10 +299,7 @@ def main(_):
             dropout_rate: 0.5
         })
     
-    #mlflow logging
-    #mlflow_train_metrics = {"training step": training_step, "learning rate": learning_rate_value, "cross entropy": cross_entropy_value}
-    #mlflow.log_metrics(mlflow_train_metrics)
-
+    # mlflow experiment logging for charts
     mlflow.log_metric(key="learning rate", value=learning_rate_value, step=training_step)
     mlflow.log_metric(key="cross entropy", value=cross_entropy_value, step=training_step)
     mlflow.log_metric(key="train accuracy", value=train_accuracy, step=training_step)
@@ -341,8 +338,8 @@ def main(_):
           total_conf_matrix = conf_matrix
         else:
           total_conf_matrix += conf_matrix
+      # mlflow logging for validation accuracy chart
       mlflow.log_metric(key="validation accuracy", value=total_accuracy, step=training_step)
-      #mlflow.log_metric("validation accuracy", (total_accuracy * 100))
       tf.compat.v1.logging.info('Confusion Matrix:\n %s' % (total_conf_matrix))
       tf.compat.v1.logging.info('Step %d: Validation accuracy = %.1f%% (N=%d)' %
                                 (training_step, total_accuracy * 100, set_size))
@@ -377,6 +374,7 @@ def main(_):
     else:
       total_conf_matrix += conf_matrix
   
+  # mlflow log final test accuracy before ending run
   mlflow.log_metric("test_accuracy", float(total_accuracy))
   mlflow.end_run()
   tf.compat.v1.logging.warn('Confusion Matrix:\n %s' % (total_conf_matrix))

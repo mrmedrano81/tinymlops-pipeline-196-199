@@ -42,7 +42,7 @@ python freeze.py \
 --window_stride_ms=20 \
 --preprocess='micro' \
 --model_architecture='tiny_conv' \
---start_checkpoint='train/tiny_conv.ckpt-20000' \
+--start_checkpoint='train/tiny_conv.ckpt-15000' \
 --save_format=saved_model \
 --output_file='models/saved_model'
 fi
