@@ -1,0 +1,10 @@
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_8fe67225_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_9a7c1f83_nohash_1.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_24ad3ebe_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_94de6a6a_nohash_1.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_d91a159e_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_26b28ea7_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_e41a903b_nohash_1.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_1f3bece8_nohash_0.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_d5b963aa_nohash_3.cc
+${CMAKE_CURRENT_SOURCE_DIR}/Testfiles/batch_no/no_3/no_5e3dde6b_nohash_3.cc

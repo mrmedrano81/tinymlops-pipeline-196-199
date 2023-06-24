@@ -1,0 +1,8 @@
+#ifndef G_NO_3B4F8F24_NOHASH_2_
+#define G_NO_3B4F8F24_NOHASH_2_
+
+extern const int g_no_3b4f8f24_nohash_2_width;
+extern const int g_no_3b4f8f24_nohash_2_height;
+extern const signed char g_no_3b4f8f24_nohash_2_data[];
+
+#endif  // G_NO_3B4F8F24_NOHASH_2_
