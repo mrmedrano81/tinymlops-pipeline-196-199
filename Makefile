@@ -38,13 +38,11 @@ CONTAINER_NAME ?= tinymlops-pipeline
 
 # STM32 application project specific variables to be manually setup
 #	- the STM32_PROJECT_BUILD_DIR path is relative to the STM32 project root
-#	-project name OG: KWS_STM32
 
 STM32_PROJECT_LOCATION ?= application_deployment/stm32f746-discovery-board/KWS_STM32
-#STM32_PROJECT_LOCATION ?= application_deployment/stm32f746-discovery-board/KWS_STM32_TESTING
 STM32_PROJECT_BUILD_DIR ?= build
 STM32_PROJECT_NAME ?= KWS_STM32
-#STM32_PROJECT_NAME ?= KWS_STM32_TESTING
+STM32_MCU_FLASH_ADDRESS ?= 0x08000000
 STM32_IMAGE_NAME ?= stm32-app
 STM32_CONTAINER_NAME ?= stm32-app
 
@@ -53,6 +51,7 @@ override STM32_PROJECT_BUILD_DIR := $(or $(STM32_PROJECT_BUILD_DIR),$(filter STM
 override STM32_PROJECT_NAME := $(or $(STM32_PROJECT_NAME),$(filter STM32_PROJECT_NAME=%,$(MAKECMDGOALS)))
 override STM32_IMAGE_NAME := $(or $(STM32_IMAGE_NAME),$(filter STM32_IMAGE_NAME=%,$(MAKECMDGOALS)))
 override STM32_CONTAINER_NAME := $(or $(STM32_CONTAINER_NAME),$(filter STM32_CONTAINER_NAME=%,$(MAKECMDGOALS)))
+override STM32_MCU_FLASH_ADDRESS := $(or $(STM32_MCU_FLASH_ADDRESS),$(filter STM32_MCU_FLASH_ADDRESS=%,$(MAKECMDGOALS)))
 
 .PHONY: stm32-args
 
@@ -62,6 +61,7 @@ stm32-args:
 	@echo "[INFO] STM32_PROJECT_NAME: $(STM32_PROJECT_NAME)"
 	@echo "[INFO] STM32_IMAGE_NAME: $(STM32_IMAGE_NAME)"
 	@echo "[INFO] STM32_CONTAINER_NAME: $(STM32_CONTAINER_NAME)"
+	@echo "[INFO] STM32_MCU_FLASH_ADDRESS: $(STM32_MCU_FLASH_ADDRESS)"
 
 # Additional generated variables
 STM32_PROJECT_VOLUME = "$$(pwd)/$(STM32_PROJECT_LOCATION):/app"
@@ -124,11 +124,13 @@ CONTAINER_RUN_PICO_APP = $(WIN_PREFIX) $(CONTAINER_TOOL) run \
 ############################ MLFLOW configuration ##############################
 
 # Default MLFLOW user configurations 
-# 	-in a practical setting these will be set as empty
+# 	-in a more practical setting these will be set as empty
 #	 and are only filled for testing and demonstration purposes
 MLFLOW_TRACKING_USERNAME ?= mrmedrano81
 MLFLOW_TRACKING_PASSWORD ?= 70334c6f3a4e81cd5c9271e67de06f62eb307c19
 MLFLOW_TRACKING_URI ?= https://dagshub.com/mrmedrano81/tinymlops-pipeline-196-199.mlflow
+
+# retrieve git commit ID for MLFLOW experiment source code tracking
 GIT_COMMIT_ID := $(shell git rev-parse HEAD)
 
 
@@ -214,8 +216,8 @@ build-stm32-app: $(STM32_NEED_IMAGE) stm32-args
 #	  (a workaround for a bug within the st-link tool for certain stm32 mcus)
 flash-stm32-app: $(STM32_NEED_IMAGE) stm32-args
 	$(CONTAINER_RUN_STM32_APP) bash -lc 'make -j$(shell nproc) && \
-	st-flash --reset write $(STM32_APP_BIN_FILE) 0x08000000 || \
-	st-flash --reset write $(STM32_APP_BIN_FILE) 0x08000000'
+	st-flash --reset write $(STM32_APP_BIN_FILE) $(STM32_MCU_FLASH_ADDRESS) || \
+	st-flash --reset write $(STM32_APP_BIN_FILE) $(STM32_MCU_FLASH_ADDRESS)'
 
 # removes STM32 application project build folder
 clean-stm32-app: $(STM32_NEED_IMAGE)
