@@ -29,7 +29,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 ### 2. application_deployment
 - Directory for different microcontroller applications as part of the deployment phase of the pipeline.
-- *stm32f746g-discovery*: Directory for the STM32F746g-discovery board tinyML applications.
+- *stm32f746g-discovery-board*: Directory for the STM32F746g-discovery board tinyML applications.
 - *raspberry-pi-pico*: Directory for the Raspberry Pi Pico microcontroller tinyML applications.
 
 ---
@@ -48,7 +48,6 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 ### 2. Makefile
 - Provides targets for each phase of the project pipeline.
-- *TBA - raspberry pi pico visual wake word app flash command*
 - Listed in the table below are the available targets to be run with `make[command]` :
 
 | <div style="width:180px">Command</div> | Description |
