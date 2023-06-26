@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
   #initialize mlflow tracking
   mlflow.tensorflow.autolog()
-  mlflow.set_tracking_uri('https://dagshub.com/mrmedrano81/tinymlops-pipeline-196-199.mlflow')
+  mlflow.set_tracking_uri(os.environ['MLFLOW_TRACKING_URI'])
   mlflow.set_experiment("tinyMLPerf-KWS")
 
   #parse arguments
