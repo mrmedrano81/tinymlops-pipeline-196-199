@@ -1,4 +1,4 @@
-# code snippets collected from original repo training jupyter notebook
+# code snippets collected from original repo training jupyter notebook 
 
 import sys
 import os

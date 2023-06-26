@@ -1,3 +1,5 @@
+# modified by mrmedrano81 for KWS_STM32 project
+
 cmake_minimum_required(VERSION 3.12)
 ##################################################################################################
 # Set project name and source code folder location

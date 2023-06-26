@@ -89,7 +89,7 @@ FLAGS = None
 
 
 def main(_):
-
+  # mlflow code added by mrmedrano81
   # set mlflow experiment details
   mlflow.set_tracking_uri(os.environ['MLFLOW_TRACKING_URI'])
   mlflow.set_experiment("speech_commands")
@@ -126,7 +126,7 @@ def main(_):
     }
 
   #start run
-  mlflow.start_run(run_name="tiny_conv")
+  mlflow.start_run(run_name=FLAGS.mlflow_run_name)
   #set mlflow tags
   mlflow.set_tag("model architecture", FLAGS.model_architecture)
   mlflow.set_tag('mlflow.source.git.commit', os.environ['GIT_COMMIT_ID'])
@@ -536,6 +536,12 @@ if __name__ == '__main__':
       type=str,
       default='mfcc',
       help='Spectrogram processing mode. Can be "mfcc", "average", or "micro"')
+  parser.add_argument(
+      '--mlflow_run_name',
+      type=str,
+      default='tiny_conv',
+      help='MLFlow run name')
+
 
   # Function used to parse --verbosity argument
   def verbosity_arg(value):

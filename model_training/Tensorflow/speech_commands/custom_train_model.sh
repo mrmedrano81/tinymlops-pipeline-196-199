@@ -1,4 +1,4 @@
-#Mike
+# made by mrmedrano81
 
 if [ -d "/app/model_training/Tensorflow/speech_commands/dataset" ]; 
 then
@@ -29,7 +29,8 @@ python train.py \
 --summaries_dir='logs/' \
 --verbosity='WARN' \
 --eval_step_interval='1000' \
---save_step_interval='1000'
+--save_step_interval='1000' \
+--mlflow_run_name='tiny_conv'
 fi
 
 
