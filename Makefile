@@ -149,12 +149,14 @@ mlflow-args:
 
 ############################ Training Configuration ################################
 
-NVIDIA_CUDA_IMAGE_VERSION?=11.2.0-cudnn8-runtime-ubuntu20.04
+# deprecated:
+# NVIDIA_CUDA_IMAGE_VERSION?=11.2.0-cudnn8-runtime-ubuntu20.04
+NVIDIA_CUDA_IMAGE_VERSION?=11.4.3-cudnn8-runtime-ubuntu20.04
 
 INSTALL_MLPERF_KWS_REQS?=false
 INSTALL_ARM_KWS_REQS?=false
-INSTALL_TF_SPEECH_COMMANDS_REQS?=false
-INSTALL_TF_VWW_REQS?=false
+INSTALL_TF_SPEECH_COMMANDS_REQS?=true
+INSTALL_TF_VWW_REQS?=true
 
 training-args:
 	@echo "[INFO] MLPERF-KWS pyenv status: $(INSTALL_MLPERF_KWS_REQS)"

@@ -44,7 +44,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 |Image|Training Directories|
 | ----------- | ----------- |
-|`nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu20.04`|ARM-ML-Zoo/keyword_spotting, MLPerf/training/keyword_spotting, Tensorflow/speech_commands, Tensorflow/visual_wake_words|
+|`nvidia/cuda:11.4.3-cudnn8-runtime-ubuntu20.04`|MLPerf/training/keyword_spotting, Tensorflow/speech_commands, Tensorflow/visual_wake_words|
 
 ### 2. Makefile
 - Provides targets for each phase of the project pipeline.
@@ -52,7 +52,7 @@ Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone proje
 
 | <div style="width:180px">Command</div> | Description |
 | ----------- | ----------- |
-| `build-train-container` | Runs the docker image for training inside the working directory along with mounting the current directory as a volume while providing gpu access to the container. You can specify the following arguments for mlflow tracking: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`. The base nvidia/cuda image version can also be specified using for example `NVIDIA_CUDA_IMAGE=11.0.3-cudnn8-runtime-ubuntu20.04`, where the options are listed in the table under the Dockerfile description|
+| `build-train-container` | Runs the docker image for training inside the working directory along with mounting the current directory as a volume while providing gpu access to the container. You can specify the following arguments for mlflow tracking: `MLFLOW_TRACKING_USERNAME={username} MLFLOW_TRACKING_PASSWORD={password} MLFLOW_RUN_NAME={run name}`. The base nvidia/cuda image version can also be specified using for example `NVIDIA_CUDA_IMAGE=11.4.3-cudnn8-runtime-ubuntu20.04`, where the options are listed in the table under the Dockerfile description|
 | `build-stm32-app` | Builds the STM32F746g-discovery board keyword spotting application .elf, .hex, and .bin files and stores them in the build folder |
 |`flash-stm32-app`|Builds and flashes the {PROJECT_NAME}.bin file to the stm32 microcontroller.|
 |`clean-stm32-app`|Removes STM32 application project 'build' folder|
