@@ -1,5 +1,8 @@
 # tinymlops-pipeline-196-199
-Working repository for Michael Medrano and Josh Yap's EEE 196/199 capstone project.
+
+Tiny Machine Learning Operations (tinyMLOps) is the cycle of deploying and maintaining machine learning models and applications on low-powered edge devices for wide-scale production. tinyMLOps introduces a new set of challenges such as device memory constraints and the complex software and hardware ecosystem of embedded systems which were not prevalent in the MLOps life cycle. The current state-of-the-art implementations of tinyMLOps pipelines are mainly present in the industry such as Amazon, Microsoft, and Google. These services usually involve cloud subscription fees and specialized knowledge of the respective cloud hosts’ development environments. Moreover, the grey literature surrounding tinyMLOps focuses only on individual tools and lacks demonstrations of multiple tinyMLOps software components working together. Due to these factors, there has been a lack of entry points for beginners and developers outside of the industry who want to learn and utilize tinyMLOps. 
+
+We propose and demonstrate a working tinyMLOps pipeline using widely available and open-source software and tools which can run on different host machines. The pipeline features version control for model training experiments, as well as containerized and platform-independent development and deployment environments. The pipeline was tested on a Windows 11 and Ubuntu Linux 22.04 machine. The functionality of the pipeline was demonstrated and analyzed by using it to deploy a keyword-spotting and a visual wake word tinyML application on an STM32F746 discovery board and Raspberry Pi Pico respectively.
 
 ---
 ## Usage
