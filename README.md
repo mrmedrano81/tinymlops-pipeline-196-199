@@ -1,4 +1,4 @@
-# tinymlops-pipeline-196-199
+# An Open-source Semi-automated TinyMLOps Pipeline for STM32F7 and Raspberry Pi Pico Microcontrollers
 
 Tiny Machine Learning Operations (tinyMLOps) is the cycle of deploying and maintaining machine learning models and applications on low-powered edge devices for wide-scale production. tinyMLOps introduces a new set of challenges such as device memory constraints and the complex software and hardware ecosystem of embedded systems which were not prevalent in the MLOps life cycle. The current state-of-the-art implementations of tinyMLOps pipelines are mainly present in the industry such as Amazon, Microsoft, and Google. These services usually involve cloud subscription fees and specialized knowledge of the respective cloud hosts’ development environments. Moreover, the grey literature surrounding tinyMLOps focuses only on individual tools and lacks demonstrations of multiple tinyMLOps software components working together. Due to these factors, there has been a lack of entry points for beginners and developers outside of the industry who want to learn and utilize tinyMLOps. 
 
